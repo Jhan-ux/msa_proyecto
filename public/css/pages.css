@@ -1,0 +1,115 @@
+/* ===========================
+   ESTILOS COMPARTIDOS DE PÁGINAS INTERNAS
+   (hero y breadcrumb — usado en todas las páginas internas)
+   /css/pages.css
+=========================== */
+
+/* ---- Hero de página ---- */
+.page-hero {
+    position: relative;
+    height: 340px;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: flex-end;
+}
+
+.page-hero__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.90) 0%,
+        rgba(0, 0, 0, 0.50) 50%,
+        rgba(0, 0, 0, 0.20) 100%
+    );
+}
+
+.page-hero__content {
+    position: relative;
+    z-index: 1;
+    padding: 0 52px 46px;
+    color: #ffffff;
+}
+
+.page-hero__badge {
+    display: inline-block;
+    background-color: #cc1111;
+    color: #fff;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 3px;
+    margin-bottom: 12px;
+}
+
+.page-hero__title {
+    font-size: 3rem;
+    font-weight: 900;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    line-height: 1;
+    margin-bottom: 10px;
+    text-shadow: 0 2px 14px rgba(0, 0, 0, 0.55);
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.page-hero__title i {
+    font-size: 2.4rem;
+    opacity: 0.9;
+}
+
+.page-hero__sub {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.82);
+    max-width: 520px;
+}
+
+/* ---- Breadcrumb ---- */
+.page-breadcrumb {
+    background-color: #f4f4f4;
+    border-bottom: 1px solid #e2e2e2;
+    padding: 11px 52px;
+    font-size: 0.82rem;
+    color: #777;
+}
+
+.page-breadcrumb a {
+    color: #cc1111;
+    text-decoration: none;
+}
+
+.page-breadcrumb a:hover {
+    text-decoration: underline;
+}
+
+.page-breadcrumb span {
+    margin: 0 7px;
+    color: #bbb;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 900px) {
+    .page-hero {
+        height: 260px;
+    }
+    .page-hero__content {
+        padding: 0 24px 30px;
+    }
+    .page-hero__title {
+        font-size: 2.2rem;
+    }
+    .page-breadcrumb {
+        padding: 10px 24px;
+    }
+}
+
+@media (max-width: 600px) {
+    .page-hero__title {
+        font-size: 1.7rem;
+    }
+}

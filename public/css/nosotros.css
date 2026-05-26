@@ -1,0 +1,338 @@
+/* ===========================
+   ESTILOS - PÁGINA NOSOTROS
+   /css/nosotros.css
+=========================== */
+
+/* Sección historia (texto + imagen lado a lado) */
+.nosotros-historia {
+    padding: 70px 32px;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: center;
+}
+
+.nosotros-historia__label {
+    display: inline-block;
+    background-color: #cc1111;
+    color: #fff;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 3px;
+    margin-bottom: 18px;
+}
+
+.nosotros-historia__title {
+    font-size: 2.2rem;
+    font-weight: 900;
+    color: #111;
+    line-height: 1.15;
+    margin-bottom: 20px;
+}
+
+.nosotros-historia__title span {
+    color: #cc1111;
+}
+
+.nosotros-historia__text {
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.8;
+    margin-bottom: 14px;
+}
+
+.nosotros-historia__img {
+    width: 100%;
+    height: 380px;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+}
+
+/* Estadísticas destacadas */
+.nosotros-stats {
+    background-color: #111111;
+    padding: 56px 32px;
+}
+
+.nosotros-stats__inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+    text-align: center;
+}
+
+.stat-item__number {
+    font-size: 3rem;
+    font-weight: 900;
+    color: #cc1111;
+    line-height: 1;
+    margin-bottom: 8px;
+}
+
+.stat-item__label {
+    font-size: 0.85rem;
+    color: #aaaaaa;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    font-weight: 600;
+}
+
+/* Misión y Visión */
+.nosotros-mv {
+    padding: 70px 32px;
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+}
+
+.mv-card {
+    border-radius: 12px;
+    padding: 44px 36px;
+    position: relative;
+    overflow: hidden;
+}
+
+.mv-card--mision {
+    background-color: #111111;
+    color: #fff;
+}
+
+.mv-card--vision {
+    background-color: #f8f8f8;
+    border: 2px solid #e2e2e2;
+    color: #111;
+}
+
+.mv-card__icon {
+    font-size: 2.2rem;
+    color: #cc1111;
+    margin-bottom: 20px;
+}
+
+.mv-card__title {
+    font-size: 1.3rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 16px;
+}
+
+.mv-card--mision .mv-card__title {
+    color: #ffffff;
+}
+
+.mv-card__text {
+    font-size: 0.92rem;
+    line-height: 1.75;
+}
+
+.mv-card--mision .mv-card__text {
+    color: #aaaaaa;
+}
+
+.mv-card--vision .mv-card__text {
+    color: #555555;
+}
+
+/* Valores */
+.nosotros-valores {
+    background-color: #f4f4f4;
+    padding: 70px 32px;
+}
+
+.nosotros-valores__inner {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.nosotros-valores__header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.nosotros-valores__title {
+    font-size: 1.9rem;
+    font-weight: 900;
+    color: #111;
+    margin-bottom: 10px;
+}
+
+.nosotros-valores__title::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 3px;
+    background-color: #cc1111;
+    margin: 12px auto 0;
+    border-radius: 2px;
+}
+
+.nosotros-valores__sub {
+    color: #666;
+    font-size: 0.95rem;
+    margin-top: 18px;
+}
+
+.valores-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+}
+
+.valor-card {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 36px 24px 30px;
+    text-align: center;
+    border: 1px solid #e2e2e2;
+    transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+}
+
+.valor-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.10);
+    border-color: #cc1111;
+}
+
+.valor-card__icon {
+    width: 64px;
+    height: 64px;
+    background-color: #fde8e8;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    color: #cc1111;
+    margin: 0 auto 20px;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.valor-card:hover .valor-card__icon {
+    background-color: #cc1111;
+    color: #fff;
+}
+
+.valor-card__title {
+    font-size: 1rem;
+    font-weight: 800;
+    color: #111;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.valor-card__desc {
+    font-size: 0.85rem;
+    color: #666;
+    line-height: 1.6;
+}
+
+/* CTA Nosotros */
+.nosotros-cta {
+    background: linear-gradient(135deg, #cc1111 0%, #8b0000 100%);
+    padding: 70px 32px;
+    text-align: center;
+    color: #fff;
+}
+
+.nosotros-cta__title {
+    font-size: 2rem;
+    font-weight: 900;
+    margin-bottom: 14px;
+}
+
+.nosotros-cta__sub {
+    font-size: 1rem;
+    color: rgba(255,255,255,0.85);
+    margin-bottom: 36px;
+}
+
+.nosotros-cta__btns {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.nosotros-cta__btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 32px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: transform 0.18s, background-color 0.2s;
+}
+
+.nosotros-cta__btn:hover {
+    transform: translateY(-3px);
+}
+
+.nosotros-cta__btn--white {
+    background-color: #fff;
+    color: #cc1111;
+}
+
+.nosotros-cta__btn--white:hover {
+    background-color: #f0f0f0;
+}
+
+.nosotros-cta__btn--outline {
+    background-color: transparent;
+    color: #fff;
+    border: 2px solid rgba(255,255,255,0.7);
+}
+
+.nosotros-cta__btn--outline:hover {
+    background-color: rgba(255,255,255,0.12);
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 1024px) {
+    .valores-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .nosotros-stats__inner {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 900px) {
+    .nosotros-historia {
+        grid-template-columns: 1fr;
+        gap: 36px;
+        padding: 48px 24px;
+    }
+    .nosotros-mv {
+        grid-template-columns: 1fr;
+        padding: 48px 24px;
+    }
+    .nosotros-historia__img {
+        height: 260px;
+    }
+}
+
+@media (max-width: 600px) {
+    .valores-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+    .nosotros-stats__inner {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .stat-item__number {
+        font-size: 2.2rem;
+    }
+}

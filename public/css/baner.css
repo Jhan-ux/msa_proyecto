@@ -1,0 +1,141 @@
+/* ===========================
+   BANNER PRINCIPAL
+=========================== */
+.banner-wrap {
+    position: relative;
+    height: 500px;
+    width: 100%;
+    overflow: hidden;
+}
+
+/* Cada panel ocupa todo el ancho del contenedor y se recorta con clip-path
+   usando coordenadas relativas al contenedor, así los bordes comparten
+   exactamente la misma línea diagonal sin huecos */
+.banner-panel {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+}
+
+/* Panel izquierdo — ocupa el tercio izquierdo */
+.banner-panel:nth-child(1) {
+    clip-path: polygon(0 0, calc(33.33% - 55px) 0, 33.33% 100%, 0 100%);
+    z-index: 1;
+    background-position: left center;
+}
+
+/* Panel central — comparte exactamente los bordes con los paneles vecinos */
+.banner-panel:nth-child(2) {
+    clip-path: polygon(calc(33.33% - 55px) 0, calc(66.66% - 55px) 0, 66.66% 100%, 33.33% 100%);
+    z-index: 2;
+    background-position: center;
+}
+
+/* Panel derecho */
+.banner-panel:nth-child(3) {
+    clip-path: polygon(calc(66.66% - 55px) 0, 100% 0, 100% 100%, 66.66% 100%);
+    z-index: 3;
+    background-position: right center;
+}
+
+/* Gradiente oscuro en la parte inferior para legibilidad */
+.banner-panel__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.82) 0%,
+        rgba(0, 0, 0, 0.3) 45%,
+        transparent 100%
+    );
+    pointer-events: none;
+}
+
+/* Contenido del panel (parte inferior) — posicionado según el tercio visible */
+.banner-panel__content {
+    position: absolute;
+    bottom: 32px;
+    left: 30px; /* Panel 1 por defecto */
+    color: #ffffff;
+    z-index: 1;
+}
+
+.banner-panel:nth-child(2) .banner-panel__content {
+    left: calc(33.33% + 30px);
+}
+
+.banner-panel:nth-child(3) .banner-panel__content {
+    left: calc(66.66% + 30px);
+}
+
+/* Nombre de la marca */
+.banner-panel__brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 2rem;
+    font-weight: 900;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
+    margin-bottom: 8px;
+    line-height: 1;
+}
+
+.banner-panel__brand i {
+    font-size: 1.8rem;
+    opacity: 0.9;
+}
+
+/* Tagline */
+.banner-panel__tagline {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.85);
+    margin-bottom: 18px;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Botón */
+.banner-panel__btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 10px 22px;
+    border: 2px solid rgba(255, 255, 255, 0.7);
+    border-radius: 24px;
+    color: #ffffff;
+    font-size: 0.88rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.2s, border-color 0.2s;
+}
+
+.banner-panel__btn:hover {
+    background-color: #cc1111;
+    border-color: #cc1111;
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+@media (max-width: 860px) {
+    .banner-wrap {
+        height: auto;
+    }
+
+    .banner-panel {
+        position: relative;
+        width: 100%;
+        height: 280px;
+        clip-path: none !important;
+    }
+
+    .banner-panel:nth-child(2) .banner-panel__content,
+    .banner-panel:nth-child(3) .banner-panel__content {
+        left: 30px;
+    }
+}

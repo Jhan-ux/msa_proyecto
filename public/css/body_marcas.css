@@ -1,0 +1,129 @@
+
+/* ===========================
+   SECCIÓN MARCAS
+=========================== */
+.brands-section {
+    padding: 60px 24px;
+    max-width: 1400px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.brands-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #111111;
+    margin-bottom: 8px;
+    letter-spacing: 0.03em;
+}
+
+.brands-title::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 3px;
+    background-color: #cc1111;
+    margin: 10px auto 0;
+    border-radius: 2px;
+}
+
+.brands-subtitle {
+    color: #555;
+    font-size: 0.95rem;
+    margin-top: 14px;
+    margin-bottom: 40px;
+}
+
+/* Grid 5 columnas x 2 filas (10 marcas) */
+.brands-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+}
+
+/* Tarjeta de marca */
+.brand-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 28px 20px 22px;
+    background-color: #ffffff;
+    border: 1px solid #e2e2e2;
+    border-radius: 8px;
+    text-decoration: none;
+    color: #222;
+    transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+}
+
+.brand-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    border-color: #cc1111;
+}
+
+.brand-card__icon {
+    width: 52px;
+    height: 52px;
+    background-color: #f4f4f4;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 14px;
+    font-size: 1.3rem;
+    color: #cc1111;
+    transition: background-color 0.2s;
+}
+
+.brand-card:hover .brand-card__icon {
+    background-color: #cc1111;
+    color: #ffffff;
+}
+
+.brand-card__name {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #111111;
+    margin-bottom: 6px;
+    letter-spacing: 0.02em;
+}
+
+.brand-card__desc {
+    font-size: 0.82rem;
+    color: #666;
+    text-align: center;
+    margin-bottom: 14px;
+    line-height: 1.4;
+}
+
+.brand-card__link {
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: #cc1111;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-top: auto;
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+@media (max-width: 1024px) {
+    .models-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .brands-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 540px) {
+    .models-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .brands-grid {
+        grid-template-columns: 1fr;
+    }
+}

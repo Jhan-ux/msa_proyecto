@@ -1,0 +1,643 @@
+/* ===========================
+   RESET & BASE
+=========================== */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f4f4;
+    color: #222;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* ===========================
+   NAVBAR
+=========================== */
+.navbar {
+    background-color: #111111;
+    width: 100%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    overflow: visible;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.6);
+    border-bottom: 10px solid #cc1111;
+}
+
+.navbar-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 24px;
+    height: 70px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Logo */
+.navbar-logo img {
+    height: 48px;
+    width: auto;
+    object-fit: contain;
+}
+
+/* Links */
+.navbar-links {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    flex-wrap: nowrap;
+}
+
+.navbar-links a {
+    color: #cccccc;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 8px 10px;
+    border-radius: 4px;
+    white-space: nowrap;
+    transition: color 0.2s, background-color 0.2s;
+}
+
+.navbar-links a:hover {
+    color: #ffffff;
+    background-color: rgba(204, 17, 17, 0.15);
+}
+
+.navbar-links a.active {
+    color: #cc1111;
+}
+
+/* Botón hamburguesa (oculto en escritorio) */
+.navbar-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.4rem;
+    cursor: pointer;
+}
+
+/* ===========================
+   DROPDOWN
+=========================== */
+.nav-item {
+    position: relative;
+}
+
+.nav-btn {
+    background: none;
+    border: none;
+    color: #cccccc;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 8px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: color 0.2s, background-color 0.2s;
+    height: 70px;
+}
+
+.nav-btn:hover,
+.nav-btn.open {
+    color: #ffffff;
+    background-color: rgba(204, 17, 17, 0.15);
+}
+
+.nav-btn.open .fa-chevron-down {
+    transform: rotate(180deg);
+}
+
+.fa-chevron-down {
+    transition: transform 0.2s;
+}
+
+.dropdown-menu {
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #1a1a1a;
+    min-width: 200px;
+    border-radius: 0 0 6px 6px;
+    border-top: 2px solid #cc1111;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.6);
+    z-index: 2000;
+    padding: 6px 0;
+    transition: opacity 0.18s ease, visibility 0.18s ease;
+}
+
+/* Mostrar al pasar el cursor */
+.nav-item:hover .dropdown-menu {
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.nav-item:hover > .nav-btn {
+    color: #ffffff;
+    background-color: rgba(204, 17, 17, 0.15);
+}
+
+.nav-item:hover > .nav-btn .fa-chevron-down {
+    transform: rotate(180deg);
+}
+
+.dropdown-menu a {
+    display: block;
+    color: #cccccc;
+    padding: 10px 18px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    transition: background-color 0.15s, color 0.15s;
+}
+
+.dropdown-menu a:hover {
+    background-color: #cc1111;
+    color: #ffffff;
+    padding-left: 22px;
+}
+
+/* Link simple (sin dropdown) */
+.nav-link-simple {
+    color: #cccccc;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 8px 10px;
+    border-radius: 4px;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    height: 70px;
+    transition: color 0.2s, background-color 0.2s;
+}
+
+.nav-link-simple:hover {
+    color: #ffffff;
+    background-color: rgba(204, 17, 17, 0.15);
+}
+
+/* ===========================
+   FLYOUT DE MARCAS
+=========================== */
+
+/* Cada fila de marca en el dropdown */
+.marca-flyout-item {
+    position: relative;
+}
+
+/* El enlace heredda .dropdown-menu a, solo añadimos flex justify */
+.marca-flyout-item .marca-flyout-link {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+}
+
+/* Panel lateral que aparece al hacer hover */
+.marca-flyout-panel {
+    position: absolute;
+    right: 100%;
+    top: -8px;
+    width: 340px;
+    background: #1a1a1a;
+    border: 1px solid #333;
+    border-right: 2px solid #cc1111;
+    border-radius: 6px 0 6px 6px;
+    padding: 12px 12px 10px;
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.15s ease, visibility 0.15s ease;
+    z-index: 2001;
+    box-shadow: 6px 8px 24px rgba(0, 0, 0, 0.65);
+}
+
+.marca-flyout-item:hover .marca-flyout-panel {
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Título del panel */
+.marca-flyout-titulo {
+    font-size: 0.6rem;
+    font-weight: 700;
+    color: #cc1111;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    margin: 0 0 10px 0;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #2e2e2e;
+}
+
+/* Grid de tarjetas de modelos (auto-fill: 1 carta = full width, 2+ = columnas) */
+.marca-flyout-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+/* Tarjeta de modelo — override de .dropdown-menu a */
+.dropdown-menu .marca-flyout-panel .modelo-prev-card {
+    display: flex;
+    flex-direction: column;
+    background: #252525;
+    border: 1px solid #333;
+    border-radius: 6px;
+    overflow: hidden;
+    text-decoration: none;
+    color: #cccccc;
+    padding: 0;
+    white-space: normal;
+    transition: border-color 0.15s, transform 0.15s;
+}
+
+.dropdown-menu .marca-flyout-panel .modelo-prev-card:hover {
+    border-color: #cc1111;
+    transform: translateY(-2px);
+    background: #252525;
+    color: #ffffff;
+    padding-left: 0;
+}
+
+/* Imagen del modelo */
+.modelo-prev-img {
+    width: 100%;
+    height: 72px;
+    background-size: cover;
+    background-position: center;
+    flex-shrink: 0;
+    display: block;
+}
+
+/* Nombre del modelo */
+.modelo-prev-name {
+    font-size: 0.58rem;
+    font-weight: 700;
+    text-align: center;
+    padding: 5px 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    background: #1e1e1e;
+    border-top: 1px solid #2e2e2e;
+    transition: background-color 0.15s;
+    display: block;
+    width: 100%;
+}
+
+.dropdown-menu .marca-flyout-panel .modelo-prev-card:hover .modelo-prev-name {
+    background: #cc1111;
+    color: #fff;
+}
+
+/* Enlace "ver todos" al pie del panel */
+.dropdown-menu .marca-flyout-panel .marca-flyout-vermas {
+    display: block;
+    text-align: center;
+    font-size: 0.6rem;
+    color: #777;
+    padding: 6px 4px 2px;
+    border-top: 1px solid #2a2a2a;
+    white-space: nowrap;
+    transition: color 0.15s;
+}
+
+.dropdown-menu .marca-flyout-panel .marca-flyout-vermas:hover {
+    color: #cc1111;
+    background: transparent;
+    padding-left: 4px;
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+@media (max-width: 1024px) {
+    .navbar-inner {
+        flex-wrap: wrap;
+        height: auto;
+        padding: 12px 16px;
+    }
+
+    .navbar-toggle {
+        display: block;
+    }
+
+    .navbar-links {
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        padding: 8px 0 12px;
+        gap: 2px;
+    }
+
+    .navbar-links.open {
+        display: flex;
+    }
+
+    .navbar-links a {
+        width: 100%;
+        padding: 10px 12px;
+        font-size: 0.85rem;
+    }
+
+    /* Flyout de marcas: desactivado en móvil */
+    .marca-flyout-panel {
+        display: none;
+    }
+    .marca-flyout-link .fa-chevron-right {
+        display: none;
+    }
+
+    /* Dropdowns en móvil: estáticos, ocultos por defecto */
+    .nav-item {
+        width: 100%;
+    }
+
+    .nav-item .dropdown-menu {
+        position: static;
+        visibility: visible;
+        opacity: 1;
+        pointer-events: auto;
+        transform: none;
+        background-color: #1a1a1a;
+        border-top: none;
+        border-left: 3px solid #cc1111;
+        margin-left: 12px;
+        min-width: 0;
+        width: calc(100% - 12px);
+        box-shadow: none;
+        display: none;
+        border-radius: 0 0 4px 4px;
+    }
+
+    .nav-item.dropdown-open .dropdown-menu {
+        display: block;
+    }
+
+    .nav-btn {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .nav-btn .fa-chevron-down {
+        transition: transform 0.2s;
+    }
+
+    .nav-item.dropdown-open > .nav-btn .fa-chevron-down {
+        transform: rotate(180deg);
+    }
+}
+
+/* ===========================
+   imagen del flayer de bienvenida(pantalla completa)
+===========================  
+.banner {
+    background-image: url('../img/localprueba.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    text-shadow: 10px 10px 4px rgba(0, 0, 0, 0.6);
+}
+
+/* ===========================
+   BOTÓN FLOTANTE WHATSAPP
+=========================== */
+.whatsapp-btn {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    z-index: 9999;
+    width: 58px;
+    height: 58px;
+    background-color: #25d366;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+    transition: transform 0.2s, background-color 0.2s;
+    text-decoration: none;
+}
+
+.whatsapp-btn:hover {
+    transform: scale(1.12);
+    background-color: #1ebe5d;
+}
+
+.whatsapp-btn i {
+    color: #ffffff;
+    font-size: 2rem;
+    line-height: 1;
+}
+
+/* ===========================
+   FOOTER
+=========================== */
+.site-footer {
+    background-color: #111111;
+    color: #aaaaaa;
+    padding-top: 60px;
+    margin-top: 60px;
+    border-top: 4px solid #cc1111;
+}
+
+.footer-inner {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr 1.2fr;
+    gap: 40px;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 32px 48px;
+}
+
+/* Columna de marca */
+.footer-col--brand .footer-logo {
+    height: 52px;
+    width: auto;
+    object-fit: contain;
+    margin-bottom: 16px;
+    filter: brightness(1.1);
+}
+
+.footer-about {
+    font-size: 0.875rem;
+    line-height: 1.7;
+    color: #888888;
+    margin-bottom: 20px;
+}
+
+/* Redes sociales */
+.footer-social {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.footer-social__link {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background-color: #222222;
+    border: 1px solid #333333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #aaaaaa;
+    font-size: 0.9rem;
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s, transform 0.2s;
+    text-decoration: none;
+}
+
+.footer-social__link:hover {
+    background-color: #cc1111;
+    border-color: #cc1111;
+    color: #ffffff;
+    transform: translateY(-3px);
+}
+
+.footer-social__link--wa:hover {
+    background-color: #25d366;
+    border-color: #25d366;
+}
+
+/* Título de columna */
+.footer-col__title {
+    color: #ffffff;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 18px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #2a2a2a;
+}
+
+/* Links de navegación */
+.footer-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.footer-links a {
+    color: #888888;
+    font-size: 0.875rem;
+    text-decoration: none;
+    transition: color 0.18s, padding-left 0.18s;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.footer-links a::before {
+    content: '›';
+    color: #cc1111;
+    font-size: 1rem;
+    line-height: 1;
+    flex-shrink: 0;
+}
+
+.footer-links a:hover {
+    color: #ffffff;
+    padding-left: 4px;
+}
+
+/* Lista de contacto */
+.footer-contact {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.footer-contact li {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    font-size: 0.875rem;
+    color: #888888;
+    line-height: 1.5;
+}
+
+.footer-contact li i {
+    color: #cc1111;
+    font-size: 0.9rem;
+    margin-top: 3px;
+    flex-shrink: 0;
+    width: 14px;
+    text-align: center;
+}
+
+/* Barra inferior */
+.footer-bottom {
+    background-color: #0a0a0a;
+    border-top: 1px solid #222222;
+    padding: 18px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.footer-bottom p {
+    font-size: 0.8rem;
+    color: #555555;
+}
+
+/* Footer responsive */
+@media (max-width: 1024px) {
+    .footer-inner {
+        grid-template-columns: 1fr 1fr;
+        gap: 32px;
+    }
+}
+
+@media (max-width: 600px) {
+    .footer-inner {
+        grid-template-columns: 1fr;
+        padding: 0 20px 32px;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+    }
+}

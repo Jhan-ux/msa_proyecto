@@ -1,0 +1,159 @@
+/* ===========================
+   ESTILOS - PÁGINA LOCALES
+   /css/locales.css
+=========================== */
+
+.locales-section {
+    padding: 60px 24px 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.locales-section .section-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #111111;
+    margin-bottom: 8px;
+    text-align: center;
+}
+
+.locales-section .section-title::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 3px;
+    background-color: #cc1111;
+    margin: 10px auto 0;
+    border-radius: 2px;
+}
+
+.locales-section .section-subtitle {
+    text-align: center;
+    color: #555;
+    font-size: 0.95rem;
+    margin-top: 14px;
+    margin-bottom: 44px;
+}
+
+.locales-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+}
+
+.local-card {
+    background: #ffffff;
+    border: 1px solid #e2e2e2;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: box-shadow 0.2s;
+}
+
+.local-card:hover {
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.10);
+}
+
+.local-card__map {
+    height: 230px;
+    background-color: #ccc;
+    overflow: hidden;
+}
+
+.local-card__map iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+}
+
+.local-card__body {
+    padding: 26px 28px 28px;
+}
+
+.local-card__nombre {
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: #111;
+    margin-bottom: 18px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.local-card__nombre i {
+    color: #cc1111;
+    font-size: 1.1rem;
+}
+
+.local-card__info {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.local-card__info li {
+    display: flex;
+    align-items: flex-start;
+    gap: 11px;
+    font-size: 0.88rem;
+    color: #444;
+    line-height: 1.5;
+}
+
+.local-card__info li i {
+    color: #cc1111;
+    font-size: 0.9rem;
+    margin-top: 2px;
+    flex-shrink: 0;
+}
+
+.local-card__btns {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.local-card__btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 0.84rem;
+    font-weight: 700;
+    padding: 10px 20px;
+    border-radius: 24px;
+    text-decoration: none;
+    transition: background-color 0.2s, transform 0.18s;
+}
+
+.local-card__btn:hover {
+    transform: translateY(-2px);
+}
+
+.local-card__btn--wa {
+    background-color: #25d366;
+    color: #fff;
+}
+
+.local-card__btn--wa:hover {
+    background-color: #1ebe5d;
+}
+
+.local-card__btn--maps {
+    background-color: #f4f4f4;
+    color: #333;
+    border: 1px solid #ddd;
+}
+
+.local-card__btn--maps:hover {
+    background-color: #e0e0e0;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 900px) {
+    .locales-grid {
+        grid-template-columns: 1fr;
+    }
+}

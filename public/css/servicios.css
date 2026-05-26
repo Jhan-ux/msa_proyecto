@@ -1,0 +1,125 @@
+/* ===========================
+   ESTILOS - PÁGINA SERVICIOS
+   /css/servicios.css
+=========================== */
+
+.servicios-section {
+    padding: 60px 24px 60px;
+    max-width: 1300px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.servicios-section .section-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #111111;
+    margin-bottom: 8px;
+}
+
+.servicios-section .section-title::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 3px;
+    background-color: #cc1111;
+    margin: 10px auto 0;
+    border-radius: 2px;
+}
+
+.servicios-section .section-subtitle {
+    color: #555;
+    font-size: 0.95rem;
+    margin-top: 14px;
+    margin-bottom: 44px;
+}
+
+.servicios-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    text-align: left;
+}
+
+.servicio-card {
+    background: #ffffff;
+    border: 1px solid #e2e2e2;
+    border-radius: 10px;
+    padding: 34px 26px 28px;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+}
+
+.servicio-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.10);
+    border-color: #cc1111;
+}
+
+.servicio-card__icon {
+    width: 56px;
+    height: 56px;
+    background-color: #fde8e8;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: #cc1111;
+    margin-bottom: 18px;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.servicio-card:hover .servicio-card__icon {
+    background-color: #cc1111;
+    color: #fff;
+}
+
+.servicio-card__title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #111;
+    margin-bottom: 8px;
+}
+
+.servicio-card__desc {
+    font-size: 0.85rem;
+    color: #666;
+    line-height: 1.55;
+    margin-bottom: 22px;
+    flex: 1;
+}
+
+.servicio-card__btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 18px;
+    border: 1.5px solid #cc1111;
+    color: #cc1111;
+    font-size: 0.8rem;
+    font-weight: 600;
+    border-radius: 4px;
+    text-decoration: none;
+    align-self: flex-start;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.servicio-card__btn:hover {
+    background-color: #cc1111;
+    color: #fff;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 900px) {
+    .servicios-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .servicios-grid {
+        grid-template-columns: 1fr;
+    }
+}

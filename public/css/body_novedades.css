@@ -1,0 +1,144 @@
+/* ===========================
+   SECCIÓN DE NOVEDADES
+=========================== */
+
+.news-section {
+    padding: 60px 24px 50px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Título izquierda con subrayado rojo */
+.news-title {
+    font-size: 1.9rem;
+    font-weight: 700;
+    color: #111111;
+    margin-bottom: 32px;
+    padding-bottom: 10px;
+    border-bottom: 3px solid #cc1111;
+    display: inline-block;
+}
+
+/* Layout principal: 2 columnas */
+.news-layout {
+    display: grid;
+    grid-template-columns: 55fr 45fr;
+    gap: 48px;
+    align-items: start;
+}
+
+/* ===========================
+   ARTÍCULO DESTACADO (izquierda)
+=========================== */
+.news-featured__img-wrap {
+    position: relative;
+    display: flex;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 18px;
+}
+
+/* Etiqueta vertical */
+.news-featured__badge {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    background-color: #cc1111;
+    color: #ffffff;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 14px 8px;
+    flex-shrink: 0;
+    white-space: nowrap;
+}
+
+.news-featured__img {
+    flex: 1;
+    height: 360px;
+    background-size: cover;
+    background-position: center;
+    background-color: #d0d0d0;
+}
+
+.news-featured__title {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: #111111;
+    line-height: 1.4;
+    margin-bottom: 10px;
+}
+
+.news-featured__desc {
+    font-size: 0.9rem;
+    color: #555555;
+    line-height: 1.65;
+}
+
+/* ===========================
+   ARTÍCULOS SECUNDARIOS (derecha)
+=========================== */
+.news-secondary {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.news-item {
+    padding-bottom: 28px;
+    margin-bottom: 28px;
+}
+
+.news-item__category {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #888888;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 8px;
+}
+
+.news-item__title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #111111;
+    line-height: 1.35;
+    margin-bottom: 14px;
+}
+
+.news-item__img {
+    width: 100%;
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    background-color: #d0d0d0;
+    border-radius: 6px;
+    margin-bottom: 14px;
+}
+
+.news-item__desc {
+    font-size: 0.88rem;
+    color: #555555;
+    line-height: 1.65;
+}
+
+.news-item__divider {
+    border: none;
+    border-top: 1px solid #e0e0e0;
+    margin: 0;
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+@media (max-width: 900px) {
+    .news-layout {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+
+    .news-featured__img {
+        height: 260px;
+    }
+}
