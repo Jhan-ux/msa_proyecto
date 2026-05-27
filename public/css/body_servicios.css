@@ -56,7 +56,7 @@
     flex-shrink: 0;
 }
 .service-item__body {
-    background: #1a2540;
+    background: #111111;
     padding: 20px 22px 24px 22px;
     display: flex;
     flex-direction: column;

@@ -7,6 +7,7 @@ use App\Http\Controllers\ContactoController;
 use App\Http\Controllers\LibroReclamacionesController;
 use App\Http\Controllers\NosotrosController;
 use App\Http\Controllers\ServiciosController;
+use App\Http\Controllers\TransporteRentingController;
 use App\Http\Controllers\LocalesController;
 
 // Home
@@ -19,6 +20,9 @@ Route::get('/servicios/{slug}', [ServiciosController::class, 'show'])->name('ser
 Route::post('/servicios/{slug}/consultar', [ServiciosController::class, 'consultar'])->name('servicios.consultar');
 Route::get('/locales', [LocalesController::class, 'index'])->name('locales');
 Route::get('/locales/{id}', [LocalesController::class, 'show'])->name('locales.show')->whereNumber('id');
+
+// Transporte y Renting
+Route::get('/transporte-renting/{slug}', [TransporteRentingController::class, 'show'])->name('transporte-renting.show');
 
 // Marcas
 Route::get('/marcas', [MarcaController::class, 'index'])->name('marcas.index');

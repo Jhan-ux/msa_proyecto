@@ -38,7 +38,8 @@ class LocalForm
                     ->columnSpanFull()
                     ->helperText('URL de Google Maps (src del iframe) o código iframe completo'),
                 TextInput::make('imagen')
-                    ->helperText('Ruta relativa, ej: img/locales/cajamarca.jpg')
+                    ->helperText('URL completa (https://...) o ruta relativa desde public/ (ej: img/locales/cajamarca.jpg)')
+                    ->placeholder('https://example.com/img.jpg  ó  img/locales/cajamarca.jpg')
                     ->columnSpanFull(),
                 Toggle::make('activo')
                     ->default(true)

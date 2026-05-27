@@ -35,13 +35,17 @@ class ModeloForm
                     ->columnSpanFull()
                     ->default(null),
                 TextInput::make('imagen')
-                    ->helperText('Ruta relativa de la imagen del modelo')
-                    ->default(null),
+                    ->helperText('URL completa (https://...) o ruta relativa desde public/ (ej: img/chevrolet/tracker.jpg)')
+                    ->placeholder('https://example.com/foto.jpg  ó  img/chevrolet/tracker.jpg')
+                    ->default(null)
+                    ->columnSpanFull(),
                 TextInput::make('precio')
                     ->numeric()
                     ->prefix('S/')
                     ->default(null),
                 Toggle::make('destacado')
+                    ->label('Destacado en la Home')
+                    ->helperText('Los modelos destacados aparecen en la sección "Modelos Destacados" de la página principal')
                     ->default(false)
                     ->required(),
                 Toggle::make('activo')

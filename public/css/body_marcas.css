@@ -62,8 +62,8 @@
 }
 
 .brand-card__icon {
-    width: 52px;
-    height: 52px;
+    width: 72px;
+    height: 72px;
     background-color: #f4f4f4;
     border-radius: 50%;
     display: flex;
@@ -73,10 +73,19 @@
     font-size: 1.3rem;
     color: #cc1111;
     transition: background-color 0.2s;
+    overflow: hidden;
+    padding: 8px;
+}
+
+.brand-card__logo {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
 }
 
 .brand-card:hover .brand-card__icon {
-    background-color: #cc1111;
+    background-color: #f0f0f0;
     color: #ffffff;
 }
 

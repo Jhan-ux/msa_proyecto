@@ -226,9 +226,11 @@
 {{-- HERO --}}
 <div class="modelo-hero">
     @if($modelo->imagen)
-    <div class="modelo-hero__img" style="background-image:url('{{ asset($modelo->imagen) }}')"></div>
+    @php $heroImg = str_starts_with($modelo->imagen, 'http') ? $modelo->imagen : asset($modelo->imagen); @endphp
+    <div class="modelo-hero__img" style="background-image:url('{{ $heroImg }}')"></div>
     @elseif($marca->imagen_hero)
-    <div class="modelo-hero__img" style="background-image:url('{{ asset($marca->imagen_hero) }}')"></div>
+    @php $heroImg = str_starts_with($marca->imagen_hero, 'http') ? $marca->imagen_hero : asset($marca->imagen_hero); @endphp
+    <div class="modelo-hero__img" style="background-image:url('{{ $heroImg }}')"></div>
     @endif
     <div class="modelo-hero__overlay"></div>
     <div class="modelo-hero__content">
@@ -308,7 +310,8 @@
     <div class="otros-grid">
         @foreach($otrosModelos as $otro)
         <a href="{{ route('modelos.show', [$marca->slug, $otro->slug]) }}" class="otro-card">
-            <div class="otro-card__img" @if($otro->imagen) style="background-image:url('{{ asset($otro->imagen) }}')" @endif>
+            @php $otroImg = $otro->imagen ? (str_starts_with($otro->imagen, 'http') ? $otro->imagen : asset($otro->imagen)) : null; @endphp
+            <div class="otro-card__img" @if($otroImg) style="background-image:url('{{ $otroImg }}')" @endif>
                 @unless($otro->imagen)
                 <svg width="40" height="26" viewBox="0 0 64 40" fill="none" xmlns="http://www.w3.org/2000/svg" style="opacity:.4">
                     <path d="M8 30l6-14h36l6 14" stroke="#fff" stroke-width="2.5" stroke-linejoin="round"/>

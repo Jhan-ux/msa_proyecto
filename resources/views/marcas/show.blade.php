@@ -128,7 +128,8 @@
 
 @section('content')
 
-<div class="page-hero" style="background-image: url('{{ asset($marca->imagen_hero ?? 'img/localprueba.jpg') }}');">
+@php $heroUrl = $marca->imagen_hero ? (str_starts_with($marca->imagen_hero, 'http') ? $marca->imagen_hero : asset($marca->imagen_hero)) : asset('img/localprueba.jpg'); @endphp
+<div class="page-hero" style="background-image: url('{{ $heroUrl }}');">
     <div class="page-hero__overlay"></div>
     <div class="page-hero__content">
         <span class="page-hero__badge">MSA Automotriz</span>
@@ -151,7 +152,8 @@
     <div class="models-grid">
         @forelse ($modelos as $modelo)
         <a href="{{ route('modelos.show', [$marca->slug, $modelo->slug]) }}" class="model-card" style="text-decoration:none;color:inherit;display:block;">
-            <div class="model-card__img" @if($modelo->imagen) style="background-image:url('{{ asset($modelo->imagen) }}')" @endif>
+            @php $mdlImg = $modelo->imagen ? (str_starts_with($modelo->imagen, 'http') ? $modelo->imagen : asset($modelo->imagen)) : null; @endphp
+            <div class="model-card__img" @if($mdlImg) style="background-image:url('{{ $mdlImg }}')" @endif>
                 <span class="model-card__badge">{{ $marca->nombre }}</span>
                 @unless($modelo->imagen)
                 <div class="model-card__img-placeholder">

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Filament\Resources\Servicios\Schemas;
+namespace App\Filament\Resources\TransporteRenting\Schemas;
 
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
@@ -8,7 +8,7 @@ use Filament\Forms\Components\Toggle;
 use Filament\Schemas\Schema;
 use Illuminate\Support\Str;
 
-class ServicioForm
+class TransporteRentingForm
 {
     public static function configure(Schema $schema): Schema
     {
@@ -25,15 +25,12 @@ class ServicioForm
                     ->unique(ignoreRecord: true)
                     ->helperText('Se genera automáticamente desde el nombre'),
                 Textarea::make('descripcion')
-                    ->rows(3)
+                    ->rows(4)
                     ->columnSpanFull(),
-                TextInput::make('icono')
-                    ->helperText('Nombre del icono (ej: wrench-screwdriver, cog-6-tooth)')
-                    ->placeholder('wrench-screwdriver'),
                 TextInput::make('imagen')
-                    ->url()
-                    ->helperText('URL completa (https://...) o ruta relativa desde public/ (ej: img/servicios/foto.jpg)')
-                    ->placeholder('https://example.com/img.jpg  ó  img/servicios/foto.jpg')
+                    ->label('Imagen (URL o ruta)')
+                    ->helperText('URL completa (https://...) o ruta relativa desde public/ (ej: img/transporte/renta.jpg)')
+                    ->placeholder('https://example.com/foto.jpg  ó  img/transporte/foto.jpg')
                     ->columnSpanFull(),
                 Toggle::make('activo')
                     ->default(true)

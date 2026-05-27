@@ -3,7 +3,7 @@
 =========================== */
 .banner-wrap {
     position: relative;
-    height: 500px;
+    height: 580px;
     width: 100%;
     overflow: hidden;
 }
@@ -23,21 +23,21 @@
 
 /* Panel izquierdo — ocupa el tercio izquierdo */
 .banner-panel:nth-child(1) {
-    clip-path: polygon(0 0, calc(33.33% - 55px) 0, 33.33% 100%, 0 100%);
+    clip-path: polygon(0 0, calc(33.33% + 40px) 0, calc(33.33% - 40px) 100%, 0 100%);
     z-index: 1;
     background-position: left center;
 }
 
 /* Panel central — comparte exactamente los bordes con los paneles vecinos */
 .banner-panel:nth-child(2) {
-    clip-path: polygon(calc(33.33% - 55px) 0, calc(66.66% - 55px) 0, 66.66% 100%, 33.33% 100%);
+    clip-path: polygon(calc(33.33% + 40px) 0, calc(66.66% + 40px) 0, calc(66.66% - 40px) 100%, calc(33.33% - 40px) 100%);
     z-index: 2;
     background-position: center;
 }
 
 /* Panel derecho */
 .banner-panel:nth-child(3) {
-    clip-path: polygon(calc(66.66% - 55px) 0, 100% 0, 100% 100%, 66.66% 100%);
+    clip-path: polygon(calc(66.66% + 40px) 0, 100% 0, 100% 100%, calc(66.66% - 40px) 100%);
     z-index: 3;
     background-position: right center;
 }
@@ -65,11 +65,11 @@
 }
 
 .banner-panel:nth-child(2) .banner-panel__content {
-    left: calc(33.33% + 30px);
+    left: calc(33.33% - 10px);
 }
 
 .banner-panel:nth-child(3) .banner-panel__content {
-    left: calc(66.66% + 30px);
+    left: calc(66.66% - 10px);
 }
 
 /* Nombre de la marca */

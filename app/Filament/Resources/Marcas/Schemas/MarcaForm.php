@@ -29,11 +29,17 @@ class MarcaForm
                     ->columnSpanFull()
                     ->default(null),
                 TextInput::make('imagen')
-                    ->helperText('Ruta relativa, ej: img/honda/logo.png')
-                    ->default(null),
+                    ->label('Logo de la Marca')
+                    ->helperText('URL completa (https://...) o ruta relativa desde public/ (ej: img/honda/logo.png)')
+                    ->placeholder('https://example.com/logo.png  ó  img/honda/logo.png')
+                    ->default(null)
+                    ->columnSpanFull(),
                 TextInput::make('imagen_hero')
-                    ->helperText('Imagen del banner de la página de marca')
-                    ->default(null),
+                    ->label('Imagen Hero (banner de la página de marca)')
+                    ->helperText('URL completa (https://...) o ruta relativa — aparece como fondo del encabezado')
+                    ->placeholder('https://example.com/banner.jpg  ó  img/honda/hero.jpg')
+                    ->default(null)
+                    ->columnSpanFull(),
                 Toggle::make('activo')
                     ->default(true)
                     ->required(),

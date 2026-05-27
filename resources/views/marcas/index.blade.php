@@ -28,7 +28,12 @@
     <div class="brands-grid">
         @foreach ($marcas as $marca)
         <a href="{{ route('marcas.show', $marca->slug) }}" class="brand-card">
-            <div class="brand-card__icon"></div>
+            <div class="brand-card__icon">
+                @if($marca->imagen)
+                @php $logoUrl = str_starts_with($marca->imagen, 'http') ? $marca->imagen : asset($marca->imagen); @endphp
+                <img src="{{ $logoUrl }}" alt="Logo {{ $marca->nombre }}" class="brand-card__logo">
+                @endif
+            </div>
             <h3 class="brand-card__name">{{ $marca->nombre }}</h3>
             <p class="brand-card__desc">{{ $marca->descripcion }}</p>
             <span class="brand-card__link">Ver modelos &rarr;</span>
