@@ -208,6 +208,109 @@
 .otro-card__name { font-size: 0.95rem; font-weight: 700; color: #111; margin-bottom: 4px; }
 .otro-card__price { font-size: 0.85rem; color: #cc1111; font-weight: 600; }
 
+/* ── Versiones ── */
+.versiones-section {
+    max-width: 1100px;
+    margin: 0 auto 56px;
+    padding: 0 32px;
+}
+.versiones-section h2 {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #111;
+    margin-bottom: 24px;
+}
+.versiones-section h2::after {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 3px;
+    background: #cc1111;
+    margin-top: 8px;
+    border-radius: 2px;
+}
+.versiones-tabs {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 24px;
+    border-bottom: 2px solid #e8e8e8;
+    padding-bottom: 0;
+}
+.version-tab {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #666;
+    cursor: pointer;
+    border-bottom: 3px solid transparent;
+    margin-bottom: -2px;
+    transition: color 0.2s, border-color 0.2s;
+    background: none;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}
+.version-tab:hover { color: #111; }
+.version-tab.active { color: #cc1111; border-bottom-color: #cc1111; }
+.version-panel { display: none; }
+.version-panel.active { display: grid; grid-template-columns: 1fr 340px; gap: 40px; align-items: start; }
+.version-panel__img {
+    height: 300px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
+    background-size: cover;
+    background-position: center;
+}
+.version-panel__info h3 {
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: #111;
+    margin-bottom: 12px;
+}
+.version-panel__info p {
+    font-size: 0.97rem;
+    color: #555;
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+.version-panel__precios {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-bottom: 20px;
+}
+.version-panel__precio-label {
+    font-size: 0.8rem;
+    color: #888;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+.version-panel__precio-valor {
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: #cc1111;
+    line-height: 1.1;
+}
+.version-panel__precio-valor span { font-size: 1rem; font-weight: 600; }
+.version-panel__btn {
+    display: inline-block;
+    background: #cc1111;
+    color: #fff;
+    font-size: 0.9rem;
+    font-weight: 700;
+    padding: 12px 24px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background 0.2s;
+}
+.version-panel__btn:hover { background: #a00d0d; }
+@media (max-width: 800px) {
+    .version-panel.active { grid-template-columns: 1fr; }
+    .version-panel__img { height: 220px; }
+}
+
 @media (max-width: 900px) {
     .modelo-body { grid-template-columns: 1fr; }
     .modelo-cta { position: static; }
@@ -309,6 +412,64 @@
     </div>
 
 </div>
+
+{{-- VERSIONES --}}
+@if($modelo->versiones->isNotEmpty())
+<div class="versiones-section">
+    <h2>Versiones disponibles</h2>
+    <div class="versiones-tabs">
+        @foreach($modelo->versiones as $i => $version)
+        <button class="version-tab {{ $i === 0 ? 'active' : '' }}" data-tab="version-{{ $version->id }}">
+            {{ $version->nombre }}
+        </button>
+        @endforeach
+    </div>
+    @foreach($modelo->versiones as $i => $version)
+    @php
+        $vImg = $version->imagen
+            ? (str_starts_with($version->imagen, 'http') ? $version->imagen : asset($version->imagen))
+            : null;
+    @endphp
+    <div class="version-panel {{ $i === 0 ? 'active' : '' }}" id="version-{{ $version->id }}">
+        @if($vImg)
+        <div class="version-panel__img" style="background-image:url('{{ $vImg }}')"></div>
+        @else
+        <div class="version-panel__img"></div>
+        @endif
+        <div class="version-panel__info">
+            <h3>{{ $modelo->nombre }} — {{ $version->nombre }}</h3>
+            @if($version->descripcion)
+            <p>{{ $version->descripcion }}</p>
+            @endif
+            @if($version->precio || $version->precio_dolares)
+            <div class="version-panel__precios">
+                <span class="version-panel__precio-label">Precio desde</span>
+                @if($version->precio)
+                <div class="version-panel__precio-valor"><span>S/ </span>{{ number_format($version->precio, 0, '.', ',') }}</div>
+                @endif
+                @if($version->precio_dolares)
+                <div class="version-panel__precio-valor"><span>$ </span>{{ number_format($version->precio_dolares, 0, '.', ',') }}</div>
+                @endif
+            </div>
+            @endif
+            <a href="{{ route('contacto') }}?marca={{ $marca->slug }}&modelo={{ urlencode($modelo->nombre . ' ' . $version->nombre) }}" class="version-panel__btn">
+                Solicitar cotización
+            </a>
+        </div>
+    </div>
+    @endforeach
+</div>
+<script>
+document.querySelectorAll('.version-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+        document.querySelectorAll('.version-tab').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.version-panel').forEach(p => p.classList.remove('active'));
+        tab.classList.add('active');
+        document.getElementById(tab.dataset.tab).classList.add('active');
+    });
+});
+</script>
+@endif
 
 {{-- OTROS MODELOS --}}
 @if($otrosModelos->isNotEmpty())

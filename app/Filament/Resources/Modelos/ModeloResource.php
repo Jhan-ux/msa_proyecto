@@ -5,6 +5,7 @@ namespace App\Filament\Resources\Modelos;
 use App\Filament\Resources\Modelos\Pages\CreateModelo;
 use App\Filament\Resources\Modelos\Pages\EditModelo;
 use App\Filament\Resources\Modelos\Pages\ListModelos;
+use App\Filament\Resources\Modelos\RelationManagers\VersionesRelationManager;
 use App\Filament\Resources\Modelos\Schemas\ModeloForm;
 use App\Filament\Resources\Modelos\Tables\ModelosTable;
 use App\Models\Modelo;
@@ -48,7 +49,7 @@ class ModeloResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+            VersionesRelationManager::class,
         ];
     }
 
