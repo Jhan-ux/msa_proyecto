@@ -33,169 +33,32 @@
                 <a href="{{ route('marcas.index') }}" class="nav-btn" data-target="dropMarcas">MARCAS</a>
                 <div class="dropdown-menu" id="dropMarcas">
 
+                    @foreach($navMarcas as $navMarca)
                     <div class="marca-flyout-item">
-                        <a href="{{ route('marcas.show', 'baic') }}" class="marca-flyout-link">BAIC</a>
+                        <a href="{{ route('marcas.show', $navMarca->slug) }}" class="marca-flyout-link">{{ strtoupper($navMarca->nombre) }}</a>
                         <div class="marca-flyout-panel">
-                            <p class="marca-flyout-titulo">Modelos BAIC</p>
+                            <p class="marca-flyout-titulo">Modelos {{ $navMarca->nombre }}</p>
                             <div class="marca-flyout-grid">
-                                <a href="{{ route('marcas.show', 'baic') }}" class="modelo-prev-card">
-                                    <div class="modelo-prev-img" style="background-image:url('{{ asset('img/baic/baic_pruebas.jpg') }}')"></div>
-                                    <span class="modelo-prev-name">X55 Plus</span>
+                                @foreach($navMarca->modelos as $navModelo)
+                                @php
+                                    $navModeloImg = $navModelo->imagen
+                                        ? (str_starts_with($navModelo->imagen, 'http') ? $navModelo->imagen : asset($navModelo->imagen))
+                                        : ($navMarca->imagen ? (str_starts_with($navMarca->imagen, 'http') ? $navMarca->imagen : asset($navMarca->imagen)) : null);
+                                @endphp
+                                <a href="{{ route('modelos.show', [$navMarca->slug, $navModelo->slug]) }}" class="modelo-prev-card">
+                                    @if($navModeloImg)
+                                    <div class="modelo-prev-img" style="background-image:url('{{ $navModeloImg }}')"></div>
+                                    @else
+                                    <div class="modelo-prev-img modelo-prev-img--empty"></div>
+                                    @endif
+                                    <span class="modelo-prev-name">{{ $navModelo->nombre }}</span>
                                 </a>
-                                <a href="{{ route('marcas.show', 'baic') }}" class="modelo-prev-card">
-                                    <div class="modelo-prev-img" style="background-image:url('{{ asset('img/baic/baic_pruebas.jpg') }}')"></div>
-                                    <span class="modelo-prev-name">X35</span>
-                                </a>
-                                <a href="{{ route('marcas.show', 'baic') }}" class="modelo-prev-card">
-                                    <div class="modelo-prev-img" style="background-image:url('{{ asset('img/baic/baic_pruebas.jpg') }}')"></div>
-                                    <span class="modelo-prev-name">BJ40</span>
-                                </a>
+                                @endforeach
                             </div>
-                            <a href="{{ route('marcas.show', 'baic') }}" class="marca-flyout-vermas">Ver todos los modelos &rarr;</a>
+                            <a href="{{ route('marcas.show', $navMarca->slug) }}" class="marca-flyout-vermas">Ver todos los modelos &rarr;</a>
                         </div>
                     </div>
-
-                    <div class="marca-flyout-item">
-                        <a href="{{ route('marcas.show', 'chevrolet') }}" class="marca-flyout-link">CHEVROLET</a>
-                        <div class="marca-flyout-panel">
-                            <p class="marca-flyout-titulo">Modelos Chevrolet</p>
-                            <div class="marca-flyout-grid">
-                                <a href="{{ route('marcas.show', 'chevrolet') }}" class="modelo-prev-card">
-                                    <div class="modelo-prev-img" style="background-image:url('{{ asset('img/chevrolet/chevrolet_pruebas.jpeg') }}')"></div>
-                                    <span class="modelo-prev-name">Tracker</span>
-                                </a>
-                                <a href="{{ route('marcas.show', 'chevrolet') }}" class="modelo-prev-card">
-                                    <div class="modelo-prev-img" style="background-image:url('{{ asset('img/chevrolet/chevrolet_pruebas.jpeg') }}')"></div>
-                                    <span class="modelo-prev-name">Captiva</span>
-                                </a>
-                                <a href="{{ route('marcas.show', 'chevrolet') }}" class="modelo-prev-card">
-                                    <div class="modelo-prev-img" style="background-image:url('{{ asset('img/chevrolet/chevrolet_pruebas.jpeg') }}')"></div>
-                                    <span class="modelo-prev-name">Onix Plus</span>
-                                </a>
-                            </div>
-                            <a href="{{ route('marcas.show', 'chevrolet') }}" class="marca-flyout-vermas">Ver todos los modelos &rarr;</a>
-                        </div>
-                    </div>
-
-                    <div class="marca-flyout-item">
-                        <a href="{{ route('marcas.show', 'dongfeng') }}" class="marca-flyout-link">DONGFENG</a>
-                        <div class="marca-flyout-panel">
-                            <p class="marca-flyout-titulo">Modelos Dongfeng</p>
-                            <div class="marca-flyout-grid">
-                                <a href="{{ route('marcas.show', 'dongfeng') }}" class="modelo-prev-card">
-                                    <div class="modelo-prev-img" style="background-image:url('{{ asset('img/dongfeng/dongfeng_pruebas.jpg') }}')"></div>
-                                    <span class="modelo-prev-name">AX5</span>
-                                </a>
-                                <a href="{{ route('marcas.show', 'dongfeng') }}" class="modelo-prev-card">
-                                    <div class="modelo-prev-img" style="background-image:url('{{ asset('img/dongfeng/dongfeng_pruebas.jpg') }}')"></div>
-                                    <span class="modelo-prev-name">AX7</span>
-                                </a>
-                                <a href="{{ route('marcas.show', 'dongfeng') }}" class="modelo-prev-card">
-                                    <div class="modelo-prev-img" style="background-image:url('{{ asset('img/dongfeng/dongfeng_pruebas.jpg') }}')"></div>
-                                    <span class="modelo-prev-name">S50</span>
-                                </a>
-                            </div>
-                            <a href="{{ route('marcas.show', 'dongfeng') }}" class="marca-flyout-vermas">Ver todos los modelos &rarr;</a>
-                        </div>
-                    </div>
-
-                    <div class="marca-flyout-item">
-                        <a href="{{ route('marcas.show', 'forland') }}" class="marca-flyout-link">FORLAND</a>
-                        <div class="marca-flyout-panel">
-                            <p class="marca-flyout-titulo">Modelos Forland</p>
-                            <div class="marca-flyout-grid">
-                                <a href="{{ route('marcas.show', 'forland') }}" class="modelo-prev-card">
-                                    <div class="modelo-prev-img" style="background-image:url('{{ asset('img/forland/forland_pruebas.jpg') }}')"></div>
-                                    <span class="modelo-prev-name">F1</span>
-                                </a>
-                            </div>
-                            <a href="{{ route('marcas.show', 'forland') }}" class="marca-flyout-vermas">Ver todos los modelos &rarr;</a>
-                        </div>
-                    </div>
-
-                    <div class="marca-flyout-item">
-                        <a href="{{ route('marcas.show', 'foton') }}" class="marca-flyout-link">FOTON</a>
-                        <div class="marca-flyout-panel">
-                            <p class="marca-flyout-titulo">Modelos Foton</p>
-                            <div class="marca-flyout-grid">
-                                <a href="{{ route('marcas.show', 'foton') }}" class="modelo-prev-card">
-                                    <div class="modelo-prev-img" style="background-image:url('{{ asset('img/foton/foton_pruebas.jpg') }}')"></div>
-                                    <span class="modelo-prev-name">Aumark</span>
-                                </a>
-                            </div>
-                            <a href="{{ route('marcas.show', 'foton') }}" class="marca-flyout-vermas">Ver todos los modelos &rarr;</a>
-                        </div>
-                    </div>
-
-                    <div class="marca-flyout-item">
-                        <a href="{{ route('marcas.show', 'honda-autos') }}" class="marca-flyout-link">HONDA AUTOS</a>
-                        <div class="marca-flyout-panel">
-                            <p class="marca-flyout-titulo">Modelos Honda Autos</p>
-                            <div class="marca-flyout-grid">
-                                <a href="{{ route('marcas.show', 'honda-autos') }}" class="modelo-prev-card">
-                                    <div class="modelo-prev-img" style="background-image:url('{{ asset('img/honda_autos/hondaau_pruebas.jpg') }}')"></div>
-                                    <span class="modelo-prev-name">HR-V</span>
-                                </a>
-                            </div>
-                            <a href="{{ route('marcas.show', 'honda-autos') }}" class="marca-flyout-vermas">Ver todos los modelos &rarr;</a>
-                        </div>
-                    </div>
-
-                    <div class="marca-flyout-item">
-                        <a href="{{ route('marcas.show', 'honda-motos') }}" class="marca-flyout-link">HONDA MOTOS</a>
-                        <div class="marca-flyout-panel">
-                            <p class="marca-flyout-titulo">Modelos Honda Motos</p>
-                            <div class="marca-flyout-grid">
-                                <a href="{{ route('marcas.show', 'honda-motos') }}" class="modelo-prev-card">
-                                    <div class="modelo-prev-img" style="background-image:url('{{ asset('img/honda_motos/hondamo_pruebas.jpeg') }}')"></div>
-                                    <span class="modelo-prev-name">CB190R</span>
-                                </a>
-                            </div>
-                            <a href="{{ route('marcas.show', 'honda-motos') }}" class="marca-flyout-vermas">Ver todos los modelos &rarr;</a>
-                        </div>
-                    </div>
-
-                    <div class="marca-flyout-item">
-                        <a href="{{ route('marcas.show', 'isuzu-camiones') }}" class="marca-flyout-link">ISUZU CAMIONES</a>
-                        <div class="marca-flyout-panel">
-                            <p class="marca-flyout-titulo">Modelos Isuzu Camiones</p>
-                            <div class="marca-flyout-grid">
-                                <a href="{{ route('marcas.show', 'isuzu-camiones') }}" class="modelo-prev-card">
-                                    <div class="modelo-prev-img" style="background-image:url('{{ asset('img/isuzu_camiones/isuzuca_pruebas.jpeg') }}')"></div>
-                                    <span class="modelo-prev-name">NLR</span>
-                                </a>
-                            </div>
-                            <a href="{{ route('marcas.show', 'isuzu-camiones') }}" class="marca-flyout-vermas">Ver todos los modelos &rarr;</a>
-                        </div>
-                    </div>
-
-                    <div class="marca-flyout-item">
-                        <a href="{{ route('marcas.show', 'isuzu-pick-ups') }}" class="marca-flyout-link">ISUZU PICK-UPS</a>
-                        <div class="marca-flyout-panel">
-                            <p class="marca-flyout-titulo">Modelos Isuzu Pick-Ups</p>
-                            <div class="marca-flyout-grid">
-                                <a href="{{ route('marcas.show', 'isuzu-pick-ups') }}" class="modelo-prev-card">
-                                    <div class="modelo-prev-img" style="background-image:url('{{ asset('img/isuzu_pick_ups/isuzupic_pruebas.jpeg') }}')"></div>
-                                    <span class="modelo-prev-name">D-Max</span>
-                                </a>
-                            </div>
-                            <a href="{{ route('marcas.show', 'isuzu-pick-ups') }}" class="marca-flyout-vermas">Ver todos los modelos &rarr;</a>
-                        </div>
-                    </div>
-
-                    <div class="marca-flyout-item">
-                        <a href="{{ route('marcas.show', 'omoda-jaecoo') }}" class="marca-flyout-link">OMODA &amp; JAECOO</a>
-                        <div class="marca-flyout-panel">
-                            <p class="marca-flyout-titulo">Modelos Omoda &amp; Jaecoo</p>
-                            <div class="marca-flyout-grid">
-                                <a href="{{ route('marcas.show', 'omoda-jaecoo') }}" class="modelo-prev-card">
-                                    <div class="modelo-prev-img" style="background-image:url('{{ asset('img/omoda_faecoo/omoda_pruebas.jpg') }}')"></div>
-                                    <span class="modelo-prev-name">Omoda 5</span>
-                                </a>
-                            </div>
-                            <a href="{{ route('marcas.show', 'omoda-jaecoo') }}" class="marca-flyout-vermas">Ver todos los modelos &rarr;</a>
-                        </div>
-                    </div>
+                    @endforeach
 
                 </div>
             </div>

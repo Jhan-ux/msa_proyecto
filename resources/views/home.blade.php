@@ -477,7 +477,7 @@ body { background: #ffffff; }
 
 <!-- Banner principal -->
 <section class="banner-wrap">
-    <div class="banner-panel" style="background-image: url('{{ asset('img/chevrolet/chevrolet_pruebas.jpeg') }}');">
+    <div class="banner-panel" style="background-image: url('{{ asset('img/chevrolet/baner_principal.jfif') }}');">
         <div class="banner-panel__overlay"></div>
         <div class="banner-panel__content">
             <div class="banner-panel__brand">CHEVROLET</div>
@@ -485,7 +485,7 @@ body { background: #ffffff; }
             <a href="{{ route('marcas.show', 'chevrolet') }}" class="banner-panel__btn">&iexcl;Lo quiero! &rsaquo;</a>
         </div>
     </div>
-    <div class="banner-panel" style="background-image: url('{{ asset('img/honda_motos/hondamo_pruebas.jpeg') }}');">
+    <div class="banner-panel" style="background-image: url('{{ asset('img/honda_motos/baner_principal.jfif') }}');">
         <div class="banner-panel__overlay"></div>
         <div class="banner-panel__content">
             <div class="banner-panel__brand">HONDA MOTOS</div>
@@ -493,7 +493,7 @@ body { background: #ffffff; }
             <a href="{{ route('marcas.show', 'honda-motos') }}" class="banner-panel__btn">&iexcl;Lo quiero! &rsaquo;</a>
         </div>
     </div>
-    <div class="banner-panel" style="background-image: url('{{ asset('img/isuzu_camiones/isuzuca_pruebas.jpeg') }}');">
+    <div class="banner-panel" style="background-image: url('{{ asset('img/isuzu_camiones/baner_principal.jfif') }}');">
         <div class="banner-panel__overlay"></div>
         <div class="banner-panel__content">
             <div class="banner-panel__brand">ISUZU CAMIONES</div>

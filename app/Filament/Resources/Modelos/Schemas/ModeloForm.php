@@ -42,6 +42,27 @@ class ModeloForm
                 TextInput::make('precio')
                     ->numeric()
                     ->prefix('S/')
+                    ->label('Precio (Soles)')
+                    ->default(null),
+                TextInput::make('precio_dolares')
+                    ->numeric()
+                    ->prefix('$')
+                    ->label('Precio (Dólares)')
+                    ->default(null),
+                Select::make('tipo')
+                    ->label('Tipo / Categoría')
+                    ->options([
+                        'Eléctrico'   => 'Eléctrico',
+                        'Híbrido'     => 'Híbrido',
+                        'Auto'        => 'Auto',
+                        'Camioneta'   => 'Camioneta',
+                        'Pickup'      => 'Pickup',
+                        'Van'         => 'Van',
+                        'Moto'        => 'Moto',
+                        'Camión'     => 'Camión',
+                        'Pick-Up'     => 'Pick-Up',
+                    ])
+                    ->searchable()
                     ->default(null),
                 Toggle::make('destacado')
                     ->label('Destacado en la Home')

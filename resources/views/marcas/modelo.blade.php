@@ -236,9 +236,6 @@
     <div class="modelo-hero__content">
         <span class="modelo-hero__badge">{{ $marca->nombre }}</span>
         <h1 class="modelo-hero__title">{{ $modelo->nombre }}</h1>
-        @if($modelo->descripcion)
-        <p class="modelo-hero__sub">{{ $modelo->descripcion }}</p>
-        @endif
     </div>
 </div>
 
@@ -271,10 +268,15 @@
                 <div class="spec-card__label">Modelo</div>
                 <div class="spec-card__value">{{ $modelo->nombre }}</div>
             </div>
-            @if($modelo->precio)
+            @if($modelo->precio || $modelo->precio_dolares)
             <div class="spec-card">
                 <div class="spec-card__label">Precio desde</div>
+                @if($modelo->precio)
                 <div class="spec-card__value">S/ {{ number_format($modelo->precio, 0, '.', ',') }}</div>
+                @endif
+                @if($modelo->precio_dolares)
+                <div class="spec-card__value">$ {{ number_format($modelo->precio_dolares, 0, '.', ',') }}</div>
+                @endif
             </div>
             @endif
         </div>
@@ -282,9 +284,14 @@
 
     {{-- CTA --}}
     <div class="modelo-cta">
-        @if($modelo->precio)
+        @if($modelo->precio || $modelo->precio_dolares)
         <p class="modelo-cta__precio">Precio referencial desde</p>
+        @if($modelo->precio)
         <p class="modelo-cta__monto"><span>S/ </span>{{ number_format($modelo->precio, 0, '.', ',') }}</p>
+        @endif
+        @if($modelo->precio_dolares)
+        <p class="modelo-cta__monto"><span>$ </span>{{ number_format($modelo->precio_dolares, 0, '.', ',') }}</p>
+        @endif
         @else
         <p class="modelo-cta__precio" style="margin-bottom:20px;">Consulta el precio con nuestros asesores</p>
         @endif

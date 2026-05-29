@@ -7,13 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 class Modelo extends Model
 {
     protected $fillable = [
-        'marca_id', 'nombre', 'slug', 'descripcion', 'imagen', 'precio', 'destacado', 'activo', 'orden',
+        'marca_id', 'nombre', 'slug', 'descripcion', 'imagen', 'precio', 'precio_dolares', 'tipo', 'destacado', 'activo', 'orden',
     ];
 
     protected $casts = [
-        'precio'    => 'decimal:2',
-        'destacado' => 'boolean',
-        'activo'    => 'boolean',
+        'precio'         => 'decimal:2',
+        'precio_dolares' => 'decimal:2',
+        'destacado'      => 'boolean',
+        'activo'         => 'boolean',
     ];
 
     public function marca()

@@ -58,16 +58,29 @@
 }
 .model-card__badge {
     position: absolute;
-    top: 12px;
-    left: 12px;
+    bottom: 0;
+    left: 0;
     background: #cc1111;
     color: #fff;
     font-size: 0.68rem;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.06em;
-    padding: 3px 10px;
-    border-radius: 4px;
+    padding: 4px 12px;
+    border-radius: 0;
+}
+.model-card__tipo {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background: #111;
+    color: #fff;
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 4px 10px;
+    border-radius: 0;
 }
 .model-card__body {
     padding: 18px 20px 20px;
@@ -155,6 +168,9 @@
             @php $mdlImg = $modelo->imagen ? (str_starts_with($modelo->imagen, 'http') ? $modelo->imagen : asset($modelo->imagen)) : null; @endphp
             <div class="model-card__img" @if($mdlImg) style="background-image:url('{{ $mdlImg }}')" @endif>
                 <span class="model-card__badge">{{ $marca->nombre }}</span>
+                @if($modelo->tipo)
+                <span class="model-card__tipo">{{ $modelo->tipo }}</span>
+                @endif
                 @unless($modelo->imagen)
                 <div class="model-card__img-placeholder">
                     <svg viewBox="0 0 64 40" fill="none" xmlns="http://www.w3.org/2000/svg">
