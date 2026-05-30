@@ -33,13 +33,15 @@
 }
 .model-card__img {
     position: relative;
-    height: 180px;
-    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+    height: 200px;
+    background-color: #f5f5f5;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-size: cover;
+    background-size: contain;
+    background-repeat: no-repeat;
     background-position: center;
+    overflow: hidden;
 }
 .model-card__img-placeholder {
     display: flex;
@@ -96,7 +98,16 @@
     font-size: 0.84rem;
     color: #666;
     line-height: 1.5;
-    margin-bottom: 14px;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    margin-bottom: 0;
+    transition: max-height 0.35s ease, opacity 0.35s ease, margin-bottom 0.35s ease;
+}
+.model-card:hover .model-card__desc {
+    max-height: 120px;
+    opacity: 1;
+    margin-bottom: 12px;
 }
 .model-card__price {
     font-size: 0.95rem;

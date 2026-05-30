@@ -259,14 +259,34 @@
     height: 300px;
     border-radius: 12px;
     background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
-    background-size: cover;
-    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-color: #f5f5f5;
 }
-.version-panel__info h3 {
-    font-size: 1.3rem;
-    font-weight: 800;
-    color: #111;
-    margin-bottom: 12px;
+.version-panel__info ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 20px;
+}
+.version-panel__info ul li {
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.6;
+    padding: 5px 0 5px 18px;
+    position: relative;
+    border-bottom: 1px solid #f0f0f0;
+}
+.version-panel__info ul li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 6px;
+    height: 6px;
+    background: #cc1111;
+    border-radius: 50%;
 }
 .version-panel__info p {
     font-size: 0.97rem;
@@ -439,7 +459,12 @@
         <div class="version-panel__info">
             <h3>{{ $modelo->nombre }} — {{ $version->nombre }}</h3>
             @if($version->descripcion)
-            <p>{{ $version->descripcion }}</p>
+            @php $items = array_filter(array_map('trim', preg_split('/\r\n|\r|\n/', $version->descripcion))); @endphp
+            <ul>
+                @foreach($items as $item)
+                <li>{{ $item }}</li>
+                @endforeach
+            </ul>
             @endif
             @if($version->precio || $version->precio_dolares)
             <div class="version-panel__precios">

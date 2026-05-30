@@ -135,15 +135,33 @@
     .banner-panel {
         position: relative;
         width: 100%;
-        height: auto;
-        aspect-ratio: 3 / 4;
+        height: 260px;
         clip-path: none !important;
         background-size: cover;
-        background-position: center top;
+        background-position: center center;
     }
 
     .banner-panel:nth-child(2) .banner-panel__content,
     .banner-panel:nth-child(3) .banner-panel__content {
         left: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .banner-panel {
+        height: 210px;
+    }
+
+    .banner-panel__brand {
+        font-size: 1.4rem;
+    }
+
+    .banner-panel__tagline {
+        font-size: 0.8rem;
+    }
+
+    .banner-panel__btn {
+        font-size: 0.78rem;
+        padding: 8px 16px;
     }
 }

@@ -67,15 +67,20 @@ class ModelosTable
                 SelectFilter::make('tipo')
                     ->label('Tipo')
                     ->options([
-                        'Eléctrico' => 'Eléctrico',
-                        'Híbrido'   => 'Híbrido',
-                        'Auto'      => 'Auto',
-                        'Camioneta' => 'Camioneta',
-                        'Pickup'    => 'Pickup',
-                        'Van'       => 'Van',
-                        'Moto'      => 'Moto',
-                        'Camión'   => 'Camión',
-                        'Pick-Up'   => 'Pick-Up',
+                        'Eléctrico'    => 'Eléctrico',
+                        'Híbrido'      => 'Híbrido',
+                        'Auto'         => 'Auto',
+                        'Camioneta'    => 'Camioneta',
+                        'Pickup'       => 'Pickup',
+                        'Van'          => 'Van',
+                        'Camión'       => 'Camión',
+                        'Paseo'        => 'Paseo',
+                        'Pistera'      => 'Pistera',
+                        'Todo Terreno' => 'Todo Terreno',
+                        'CRF'          => 'CRF',
+                        'Fun Bikes'    => 'Fun Bikes',
+                        'ATV'          => 'ATV',
+                        '3W'           => '3W',
                     ]),
             ])
             ->recordActions([

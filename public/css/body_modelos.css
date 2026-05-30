@@ -129,3 +129,21 @@
     background-color: #cc1111;
     color: #ffffff;
 }
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+@media (max-width: 1024px) {
+    .models-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .models-section {
+        padding: 44px 20px 40px;
+    }
+}
+
+@media (max-width: 540px) {
+    .models-grid {
+        grid-template-columns: 1fr;
+    }
+}

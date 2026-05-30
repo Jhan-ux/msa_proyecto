@@ -52,15 +52,29 @@ class ModeloForm
                 Select::make('tipo')
                     ->label('Tipo / Categoría')
                     ->options([
-                        'Eléctrico'   => 'Eléctrico',
-                        'Híbrido'     => 'Híbrido',
-                        'Auto'        => 'Auto',
-                        'Camioneta'   => 'Camioneta',
-                        'Pickup'      => 'Pickup',
-                        'Van'         => 'Van',
-                        'Moto'        => 'Moto',
-                        'Camión'     => 'Camión',
-                        'Pick-Up'     => 'Pick-Up',
+                        'Vehículos' => [
+                            'Eléctrico'   => 'Eléctrico',
+                            'Híbrido'     => 'Híbrido',
+                            'Auto'        => 'Auto',
+                            'Camioneta'   => 'Camioneta',
+                            'Pickup'      => 'Pickup',
+                            'Van'         => 'Van',
+                            'Camión'      => 'Camión',
+                        ],
+                        'Motos' => [
+                            'Paseo'           => 'Paseo',
+                            'Pistera'         => 'Pistera',
+                            'Todo Terreno'    => 'Todo Terreno',
+                            'CRF'             => 'CRF',
+                            'Fun Bikes'       => 'Fun Bikes',
+                            'ATV'             => 'ATV',
+                            '3W'              => '3W',
+                        ],
+                        'Camiones' => [
+                            'SERIE-N' => 'SERIE-N',
+                            'SERIE-F' => 'SERIE-F',
+                        ],
+
                     ])
                     ->searchable()
                     ->default(null),

@@ -256,10 +256,13 @@
     .porque-stat:nth-child(2) { border-right: none; }
     .porque-stat:nth-child(3) { border-top: 1px solid #e8e8e8; }
     .porque-stat:nth-child(4) { border-top: 1px solid #e8e8e8; }
+    .porque-section { padding: 48px 20px; }
 }
 @media (max-width: 560px) {
     .porque-stats { grid-template-columns: repeat(2, 1fr); }
     .porque-cards { grid-template-columns: 1fr; }
+    .porque-stat { padding: 20px 12px; }
+    .porque-stat__num { font-size: 2rem; }
 }
 
 /* ── Paleta: Blanco · Negro · Rojo ──────────────────────── */
@@ -271,6 +274,9 @@ body { background: #ffffff; }
     max-width: 100%;
     margin: 0;
     padding: 60px 32px 56px;
+}
+@media (max-width: 1024px) {
+    .models-section { padding: 44px 20px 40px; }
 }
 .models-section .section-title { color: #111111; }
 .models-section .section-title::after { background: #cc1111; }
@@ -502,6 +508,7 @@ body { background: #ffffff; }
         </div>
     </div>
 </section>
+
 
 <!-- Modelos Destacados -->
 <section class="models-section">
