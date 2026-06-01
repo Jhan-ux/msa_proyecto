@@ -554,7 +554,16 @@ body { background: #ffffff; }
         @foreach($servicios as $servicio)
         <a href="{{ route('servicios.show', $servicio->slug) }}" class="service-item" style="text-decoration:none;">
             @if($servicio->imagen)
-            @php $svcImg = str_starts_with($servicio->imagen, 'http') ? $servicio->imagen : asset($servicio->imagen); @endphp
+            @php
+                $svcImg = $servicio->imagen;
+                if (str_starts_with($svcImg, 'http')) {
+                    $svcImg = $svcImg;
+                } elseif (str_starts_with($svcImg, 'img/') || str_starts_with($svcImg, 'storage/')) {
+                    $svcImg = asset($svcImg);
+                } else {
+                    $svcImg = asset('storage/' . ltrim($svcImg, '/'));
+                }
+            @endphp
             <div class="service-item__img" style="background-image: url('{{ $svcImg }}');"></div>
             @else
             <div class="service-item__img" style="background: linear-gradient(135deg, #2a2a2a 0%, #0a0a0a 100%); display:flex; align-items:center; justify-content:center;">

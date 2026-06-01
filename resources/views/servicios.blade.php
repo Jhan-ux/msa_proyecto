@@ -28,7 +28,17 @@
         @forelse($servicios as $servicio)
         <a href="{{ route('servicios.show', $servicio->slug) }}" style="background:#fff;border-radius:10px;padding:24px;box-shadow:0 2px 12px rgba(0,0,0,.08);text-align:center;text-decoration:none;color:inherit;display:block;transition:transform .2s,box-shadow .2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,.13)'" onmouseout="this.style.transform='';this.style.boxShadow='0 2px 12px rgba(0,0,0,.08)'">
             @if($servicio->imagen)
-                <img src="{{ asset($servicio->imagen) }}" alt="{{ $servicio->nombre }}" style="width:100%;max-height:160px;object-fit:cover;border-radius:6px;margin-bottom:12px;">
+                @php
+                    $svcImg = $servicio->imagen;
+                    if (str_starts_with($svcImg, 'http')) {
+                        $svcImg = $svcImg;
+                    } elseif (str_starts_with($svcImg, 'img/') || str_starts_with($svcImg, 'storage/')) {
+                        $svcImg = asset($svcImg);
+                    } else {
+                        $svcImg = asset('storage/' . ltrim($svcImg, '/'));
+                    }
+                @endphp
+                <img src="{{ $svcImg }}" alt="{{ $servicio->nombre }}" style="width:100%;max-height:160px;object-fit:cover;border-radius:6px;margin-bottom:12px;">
             @endif
             <h3 style="margin-bottom:8px;">{{ $servicio->nombre }}</h3>
             <p style="color:#666;">{{ $servicio->descripcion }}</p>

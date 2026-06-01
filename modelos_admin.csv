@@ -1,0 +1,17 @@
+Marca,Nombre,Slug,Imagen,Precio (Soles),Precio (Dólares),Tipo/Categoría,Activo,Destacado en Home
+Chevrolet,Captiva EV,captiva-ev,,122063,32990,Eléctrico,Sí,No
+Chevrolet,Spark EUV,spark-euv-electrico,,92463,24990,Eléctrico,Sí,No
+Chevrolet,Captiva Híbrida,captiva-phev,,114663,30990,Híbrido,Sí,No
+Chevrolet,Descubre la movilidad híbrida,movilidad-hibrida,,,,Híbrido,Sí,No
+Chevrolet,Sail Sedán,sail-sedan,,48063,12990,Auto,Sí,No
+Chevrolet,Groove,groove-suv-deportivo,,57313,15490,Camioneta,Sí,No
+Chevrolet,Tracker,tracker-turbo-suv,,79513,21490,Camioneta,Sí,No
+Chevrolet,Captiva XL,captiva-camioneta-suv,,65823,17790,Camioneta,Sí,No
+Chevrolet,Traverse,traverse-suv,,207163,55990,Camioneta,Sí,No
+Chevrolet,Tahoe,tahoe-camioneta,,321863,86990,Camioneta,Sí,No
+Chevrolet,Suburban,suburban-suv,,351463,94990,Camioneta,Sí,No
+Chevrolet,Montana,montana,,95423,25790,Pick-up,Sí,No
+Chevrolet,Colorado,colorado,,140563,37990,Pick-up,Sí,No
+Chevrolet,Silverado,silverado-4x4,,236763,63990,Pick-up,Sí,No
+Chevrolet,N400 Max,n400-max-van,,48433,13090,Van,Sí,No
+Chevrolet,N400 Move,n400-move,,49173,13290,Van,Sí,No

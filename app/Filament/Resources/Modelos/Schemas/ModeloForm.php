@@ -60,6 +60,7 @@ class ModeloForm
                             'Pickup'      => 'Pickup',
                             'Van'         => 'Van',
                             'Camión'      => 'Camión',
+                            'SUV'         => 'SUV',
                         ],
                         'Motos' => [
                             'Paseo'           => 'Paseo',

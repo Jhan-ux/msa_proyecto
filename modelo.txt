@@ -1,0 +1,29 @@
+Modelos Chevrolet extraídos de https://www.msachevrolet.com.pe/modelos
+
+Eléctricos:
+- Captiva EV
+- Spark EUV
+
+Híbridos:
+- Captiva Híbrida
+- Descubre la movilidad híbrida
+
+Autos:
+- Sail Sedán
+
+Camionetas:
+- Groove
+- Tracker
+- Captiva XL
+- Traverse
+- Tahoe
+- Suburban
+
+Pick-ups:
+- Montana
+- Colorado
+- Silverado
+
+Vans:
+- N400 Max
+- N400 Move

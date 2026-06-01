@@ -31,9 +31,8 @@ class ServicioForm
                     ->helperText('Nombre del icono (ej: wrench-screwdriver, cog-6-tooth)')
                     ->placeholder('wrench-screwdriver'),
                 TextInput::make('imagen')
-                    ->url()
-                    ->helperText('URL completa (https://...) o ruta relativa desde public/ (ej: img/servicios/foto.jpg)')
-                    ->placeholder('https://example.com/img.jpg  ó  img/servicios/foto.jpg')
+                    ->helperText('Puedes usar URL completa (https://...), ruta en public (img/servicios/foto.jpg) o ruta en storage (servicios/foto.jpg)')
+                    ->placeholder('https://example.com/img.jpg  ó  img/servicios/foto.jpg  ó  servicios/foto.jpg')
                     ->columnSpanFull(),
                 Toggle::make('activo')
                     ->default(true)
