@@ -7,6 +7,7 @@
     max-width: 1400px;
     margin: 0 auto;
     text-align: center;
+    background: #fff;
 }
 
 .brands-title {
@@ -83,7 +84,7 @@
 .brand-card__icon {
     width: 78px;
     height: 78px;
-    background-color: #f7f7f7;
+    background-color: #ffffff;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -94,7 +95,7 @@
     transition: background-color 0.22s ease, transform 0.22s ease;
     overflow: hidden;
     padding: 10px;
-    border: 1px solid #efefef;
+    border: 1px solid #e6e6e6;
 }
 
 .brand-card__logo {

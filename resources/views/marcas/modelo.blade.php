@@ -6,7 +6,7 @@
 /* ── Hero del modelo ── */
 .modelo-hero {
     position: relative;
-    height: 420px;
+    height: clamp(420px, 62vh, 760px);
     background: linear-gradient(135deg, #111 0%, #2d2d2d 100%);
     display: flex;
     align-items: flex-end;
@@ -16,7 +16,7 @@
     position: absolute;
     inset: 0;
     background-size: cover;
-    background-position: center;
+    background-position: center center;
     opacity: 0.6;
 }
 .modelo-hero__overlay {
@@ -96,7 +96,8 @@
     margin-top: 8px;
 }
 .spec-card {
-    background: #f5f7fa;
+    background: #fff;
+    border: 1px solid #ececec;
     border-radius: 10px;
     padding: 16px 18px;
     text-align: center;
@@ -262,7 +263,7 @@
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center center;
-    background-color: #f5f5f5;
+    background-color: #ffffff;
 }
 .version-panel__info ul {
     list-style: none;
@@ -334,11 +335,12 @@
 @media (max-width: 900px) {
     .modelo-body { grid-template-columns: 1fr; }
     .modelo-cta { position: static; }
+    .modelo-hero { height: clamp(340px, 52vh, 560px); }
     .modelo-hero__title { font-size: 2rem; }
     .modelo-hero__content { padding: 0 24px 28px; }
 }
 @media (max-width: 500px) {
-    .modelo-hero { height: 300px; }
+    .modelo-hero { height: clamp(300px, 45vh, 420px); }
     .modelo-hero__title { font-size: 1.6rem; }
 }
 </style>
@@ -347,14 +349,17 @@
 @section('content')
 
 {{-- HERO --}}
-<div class="modelo-hero">
-    @if($modelo->imagen)
-    @php $heroImg = str_starts_with($modelo->imagen, 'http') ? $modelo->imagen : asset($modelo->imagen); @endphp
+@php
+    if ($modelo->imagen) {
+        $heroImg = str_starts_with($modelo->imagen, 'http') ? $modelo->imagen : asset($modelo->imagen);
+    } elseif ($marca->imagen_hero) {
+        $heroImg = str_starts_with($marca->imagen_hero, 'http') ? $marca->imagen_hero : asset($marca->imagen_hero);
+    } else {
+        $heroImg = asset('img/localprueba.jpg');
+    }
+@endphp
+<div class="modelo-hero" id="modeloHero" data-hero-src="{{ $heroImg }}">
     <div class="modelo-hero__img" style="background-image:url('{{ $heroImg }}')"></div>
-    @elseif($marca->imagen_hero)
-    @php $heroImg = str_starts_with($marca->imagen_hero, 'http') ? $marca->imagen_hero : asset($marca->imagen_hero); @endphp
-    <div class="modelo-hero__img" style="background-image:url('{{ $heroImg }}')"></div>
-    @endif
     <div class="modelo-hero__overlay"></div>
     <div class="modelo-hero__content">
         <span class="modelo-hero__badge">{{ $marca->nombre }}</span>
@@ -525,5 +530,45 @@ document.querySelectorAll('.version-tab').forEach(tab => {
     </div>
 </div>
 @endif
+
+<script>
+(function () {
+    const hero = document.getElementById('modeloHero');
+    if (!hero) return;
+
+    const src = hero.dataset.heroSrc;
+    if (!src) return;
+
+    const img = new Image();
+
+    function applyResponsiveHeroHeight() {
+        if (!img.naturalWidth || !img.naturalHeight) return;
+
+        const ratio = img.naturalWidth / img.naturalHeight;
+        const viewportW = window.innerWidth;
+
+        let minH = 300;
+        let maxH = 820;
+
+        if (viewportW <= 500) {
+            minH = 280;
+            maxH = 460;
+        } else if (viewportW <= 900) {
+            minH = 330;
+            maxH = 620;
+        }
+
+        let target = Math.round(viewportW / ratio);
+        target = Math.max(minH, Math.min(maxH, target));
+
+        hero.style.height = target + 'px';
+    }
+
+    img.addEventListener('load', applyResponsiveHeroHeight);
+    window.addEventListener('resize', applyResponsiveHeroHeight);
+
+    img.src = src;
+})();
+</script>
 
 @endsection

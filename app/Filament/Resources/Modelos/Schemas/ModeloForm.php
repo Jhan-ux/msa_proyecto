@@ -61,6 +61,9 @@ class ModeloForm
                             'Van'         => 'Van',
                             'Camión'      => 'Camión',
                             'SUV'         => 'SUV',
+                            'Off-Road'     => 'Off-Road',
+                            'Sedan'       => 'Sedan',
+                            'Livianos'    => 'Livianos',
                         ],
                         'Motos' => [
                             'Paseo'           => 'Paseo',
@@ -74,6 +77,7 @@ class ModeloForm
                         'Camiones' => [
                             'SERIE-N' => 'SERIE-N',
                             'SERIE-F' => 'SERIE-F',
+                            'Minitruck' => 'Minitruck',
                         ],
 
                     ])

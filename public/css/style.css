@@ -466,6 +466,16 @@ a {
     max-height: 80vh;
 }
 
+/* Fondo blanco en todas las capas del megamenú */
+.megamenu,
+.megamenu__brands,
+.megamenu__marca-panel,
+.megamenu__tipos,
+.megamenu__cards-wrap,
+.megamenu__tipo-cards {
+    background: #fff !important;
+}
+
 .nav-item--mega:hover .megamenu,
 .nav-item--mega.mega-open .megamenu {
     visibility: visible;
@@ -480,7 +490,7 @@ a {
     border-right: 1px solid #ebebeb;
     overflow-y: auto;
     padding: 16px 0;
-    background: #f8f8f8;
+    background: #ffffff;
 }
 
 .megamenu__marca-btn {
@@ -575,7 +585,7 @@ a {
 
 .megamenu__tipo-btn:hover,
 .megamenu__tipo-btn.active {
-    background: #fdf5f5;
+    background: #fff;
     border-left-color: #cc1111;
     color: #cc1111;
 }
