@@ -268,7 +268,7 @@
             <button type="submit" class="consulta-form__submit">Enviar consulta</button>
         </form>
 
-        <a href="https://wa.me/51986339369?text={{ urlencode('Hola, quiero información sobre el servicio: ' . $servicio->nombre) }}"
+        <a href="https://wa.me/51966154210?text={{ urlencode('Hola, quiero información sobre el servicio: ' . $servicio->nombre) }}"
            target="_blank" rel="noopener"
            class="btn-wa">
             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">

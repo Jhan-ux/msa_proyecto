@@ -212,7 +212,7 @@
         <a href="{{ route('contacto') }}?asunto={{ urlencode($servicio->nombre) }}" class="tr-cta__btn">
             Solicitar información
         </a>
-        <a href="https://wa.me/51986339369?text={{ urlencode('Hola, quiero información sobre: ' . $servicio->nombre) }}"
+        <a href="https://wa.me/51966154210?text={{ urlencode('Hola, quiero información sobre: ' . $servicio->nombre) }}"
            target="_blank" rel="noopener"
            class="tr-cta__btn tr-cta__btn--wa">
             Consultar por WhatsApp

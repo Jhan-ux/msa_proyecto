@@ -44,19 +44,50 @@
 .local-card {
     background: #ffffff;
     border: 1px solid #e2e2e2;
-    border-radius: 10px;
+    border-radius: 12px;
     overflow: hidden;
-    transition: box-shadow 0.2s;
+    transition: box-shadow 0.22s, transform 0.22s, border-color 0.22s;
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
 }
 
 .local-card:hover {
-    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.10);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+    transform: translateY(-4px);
+    border-color: #d6d6d6;
+}
+
+.local-card__media {
+    height: 220px;
+    background: #f3f3f3;
+    overflow: hidden;
+    border-bottom: 1px solid #ececec;
+}
+
+.local-card__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }
 
 .local-card__map {
-    height: 230px;
-    background-color: #ccc;
-    overflow: hidden;
+    height: 100%;
+    background-color: #d8d8d8;
+}
+
+.local-card__placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #8b8b8b;
+    font-size: 0.88rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
 }
 
 .local-card__map iframe {
@@ -68,64 +99,55 @@
 
 .local-card__body {
     padding: 26px 28px 28px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
 }
 
 .local-card__nombre {
     font-size: 1.2rem;
     font-weight: 800;
     color: #111;
-    margin-bottom: 18px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.local-card__nombre i {
-    color: #cc1111;
-    font-size: 1.1rem;
+    margin-bottom: 14px;
 }
 
 .local-card__info {
     list-style: none;
     padding: 0;
-    margin: 0 0 22px;
+    margin: 0 0 20px;
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 10px;
 }
 
 .local-card__info li {
-    display: flex;
-    align-items: flex-start;
-    gap: 11px;
     font-size: 0.88rem;
     color: #444;
     line-height: 1.5;
 }
 
-.local-card__info li i {
-    color: #cc1111;
-    font-size: 0.9rem;
-    margin-top: 2px;
-    flex-shrink: 0;
+.local-card__info li strong {
+    color: #111;
 }
 
 .local-card__btns {
     display: flex;
     gap: 10px;
     flex-wrap: wrap;
+    margin-top: auto;
 }
 
 .local-card__btn {
     display: inline-flex;
     align-items: center;
-    gap: 7px;
+    justify-content: center;
     font-size: 0.84rem;
     font-weight: 700;
-    padding: 10px 20px;
+    padding: 10px 16px;
     border-radius: 24px;
     text-decoration: none;
     transition: background-color 0.2s, transform 0.18s;
+    min-width: 108px;
 }
 
 .local-card__btn:hover {
@@ -142,7 +164,7 @@
 }
 
 .local-card__btn--maps {
-    background-color: #f4f4f4;
+    background-color: #f7f7f7;
     color: #333;
     border: 1px solid #ddd;
 }
@@ -155,5 +177,9 @@
 @media (max-width: 900px) {
     .locales-grid {
         grid-template-columns: 1fr;
+    }
+
+    .local-card__media {
+        height: 210px;
     }
 }

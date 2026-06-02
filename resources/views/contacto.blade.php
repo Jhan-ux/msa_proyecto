@@ -7,7 +7,7 @@
 
 @section('content')
 
-<div class="page-hero" style="background-image: url('{{ asset('img/localprueba.jpg') }}');">
+<div class="page-hero" style="background-image: url('{{ asset('img/contactanos.jfif') }}');">
     <div class="page-hero__overlay"></div>
     <div class="page-hero__content">
         <span class="page-hero__badge">MSA Automotriz</span>
@@ -99,13 +99,13 @@
         <h3 class="contacto-info__title">Información de Contacto</h3>
         <ul class="contacto-info__list">
             <li><div><strong>Teléfono</strong>(076) 123-456 &nbsp;|&nbsp; (076) 789-012</div></li>
-            <li><div><strong>WhatsApp</strong>+51 986 339 369</div></li>
+            <li><div><strong>WhatsApp</strong>+51 966 154 210</div></li>
             <li><div><strong>Correo</strong>contacto@msaautomotriz.com</div></li>
             <li><div><strong>Sede Cajamarca</strong>Av. Independencia 1234, Cajamarca</div></li>
             <li><div><strong>Sede Baños del Inca</strong>Carretera Baños del Inca km 3.5</div></li>
             <li><div><strong>Horario de Atención</strong>Lun &ndash; Vie: 8:00 am a 6:00 pm<br>Sáb: 8:00 am a 1:00 pm</div></li>
         </ul>
-        <a href="https://wa.me/51986339369?text=Hola,%20me%20comunico%20desde%20la%20página%20web%20y%20quisiera%20más%20información" class="contacto-info__wa" target="_blank" rel="noopener">
+        <a href="https://wa.me/51966154210?text=Hola,%20me%20comunico%20desde%20la%20página%20web%20y%20quisiera%20más%20información" class="contacto-info__wa" target="_blank" rel="noopener">
             Escribir por WhatsApp
         </a>
     </aside>

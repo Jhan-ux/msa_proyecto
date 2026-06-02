@@ -22,70 +22,83 @@
     Locales
 </nav>
 
-<section style="max-width:1100px;margin:48px auto;padding:0 24px;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:32px;">
+<section class="locales-section">
+    <h2 class="section-title">Nuestras sedes</h2>
+    <p class="section-subtitle">Encuentra la sede más cercana y contáctanos rápidamente</p>
 
-    @forelse($locales as $local)
-    <div style="background:#fff;border-radius:12px;padding:32px;box-shadow:0 2px 16px rgba(0,0,0,.09);position:relative;">
-        @if($local->imagen)
-            <img src="{{ asset($local->imagen) }}" alt="{{ $local->nombre }}" style="width:100%;max-height:180px;object-fit:cover;border-radius:8px;margin-bottom:16px;">
-        @endif
-        <h2 style="margin-bottom:12px;">{{ $local->nombre }}</h2>
-        <p><strong>Dirección:</strong> {{ $local->direccion }}</p>
-        @if($local->telefono)
-        <p><strong>Teléfono:</strong> {{ $local->telefono }}</p>
-        @endif
-        @if($local->whatsapp)
-        <p><strong>WhatsApp:</strong> {{ $local->whatsapp }}</p>
-        @endif
-        @if($local->email)
-        <p><strong>Email:</strong> {{ $local->email }}</p>
-        @endif
-        @if($local->horario)
-        <p><strong>Horario:</strong> {{ $local->horario }}</p>
-        @endif
-        @if($local->mapa_embed)
-        <div style="margin-top:16px;">
-            @if(str_starts_with(trim($local->mapa_embed), '<'))
-                {!! $local->mapa_embed !!}
-            @else
-                <iframe src="{{ $local->mapa_embed }}" width="100%" height="200" style="border:0;border-radius:6px;" allowfullscreen loading="lazy"></iframe>
-            @endif
-        </div>
-        @endif
-        @if($local->whatsapp)
-        <a href="https://wa.me/{{ preg_replace('/\D/', '', $local->whatsapp) }}"
-           target="_blank" rel="noopener"
-           style="display:inline-block;margin-top:16px;background:#25d366;color:#fff;padding:10px 20px;border-radius:6px;text-decoration:none;">
-            Escribir por WhatsApp
-        </a>
-        @endif
-        <a href="{{ route('locales.show', $local->id) }}"
-           style="display:inline-block;margin-top:10px;margin-left:8px;background:#111;color:#fff;padding:10px 20px;border-radius:6px;text-decoration:none;font-size:.9rem;font-weight:700;">
-            Ver sede &rsaquo;
-        </a>
-    </div>
-    @empty
-    {{-- Fallback mientras no haya datos en la BD --}}
-    @foreach([
-        ['Sede Cajamarca',     'Av. Independencia 1234, Cajamarca',     '(076) 123-456', '+51 986 339 369', 'Lun – Vie: 8:00 am – 6:00 pm | Sáb: 8:00 am – 1:00 pm'],
-        ['Sede Baños del Inca','Carretera Baños del Inca km 3.5',       '(076) 789-012', '+51 986 339 369', 'Lun – Vie: 8:00 am – 6:00 pm | Sáb: 8:00 am – 1:00 pm'],
-        ['Sede Lima',          'Av. Principal 567, Lima',               '(01) 456-789',  '+51 986 339 369', 'Lun – Vie: 8:00 am – 6:00 pm | Sáb: 8:00 am – 1:00 pm'],
-        ['Sede Piura',         'Av. Grau 890, Piura',                   '(073) 321-654', '+51 986 339 369', 'Lun – Vie: 8:00 am – 6:00 pm | Sáb: 8:00 am – 1:00 pm'],
-    ] as [$nombre, $dir, $tel, $wa, $horario])
-    <div style="background:#fff;border-radius:12px;padding:32px;box-shadow:0 2px 16px rgba(0,0,0,.09);">
-        <h2 style="margin-bottom:12px;">{{ $nombre }}</h2>
-        <p><strong>Dirección:</strong> {{ $dir }}</p>
-        <p><strong>Teléfono:</strong> {{ $tel }}</p>
-        <p><strong>WhatsApp:</strong> {{ $wa }}</p>
-        <p><strong>Horario:</strong> {{ $horario }}</p>
-        <a href="https://wa.me/{{ preg_replace('/\D/', '', $wa) }}" target="_blank" rel="noopener"
-           style="display:inline-block;margin-top:16px;background:#25d366;color:#fff;padding:10px 20px;border-radius:6px;text-decoration:none;">
-            Escribir por WhatsApp
-        </a>
-    </div>
-    @endforeach
-    @endforelse
+    <div class="locales-grid">
+        @forelse($locales as $local)
+        @php
+            $mapaLink = null;
+            if ($local->mapa_embed) {
+                if (str_starts_with(trim($local->mapa_embed), '<')) {
+                    if (preg_match('/src=["\']([^"\']+)["\']/', $local->mapa_embed, $matches)) {
+                        $mapaLink = $matches[1];
+                    }
+                } else {
+                    $mapaLink = $local->mapa_embed;
+                }
+            }
+            $googleMapsFallback = 'https://www.google.com/maps/search/?api=1&query=' . urlencode($local->direccion ?? $local->nombre);
+        @endphp
 
+        <article class="local-card">
+            <div class="local-card__media">
+                @if($local->imagen)
+                    <img src="{{ str_starts_with($local->imagen, 'http') ? $local->imagen : asset($local->imagen) }}" alt="{{ $local->nombre }}">
+                @elseif($local->mapa_embed)
+                    <div class="local-card__map">
+                        @if(str_starts_with(trim($local->mapa_embed), '<'))
+                            {!! $local->mapa_embed !!}
+                        @else
+                            <iframe src="{{ $local->mapa_embed }}" allowfullscreen loading="lazy"></iframe>
+                        @endif
+                    </div>
+                @else
+                    <div class="local-card__placeholder">Sin imagen</div>
+                @endif
+            </div>
+
+            <div class="local-card__body">
+                <h3 class="local-card__nombre">{{ $local->nombre }}</h3>
+
+                <ul class="local-card__info">
+                    <li><strong>Dirección:</strong> {{ $local->direccion }}</li>
+                    @if($local->telefono)
+                    <li><strong>Teléfono:</strong> {{ $local->telefono }}</li>
+                    @endif
+                    @if($local->whatsapp)
+                    <li><strong>WhatsApp:</strong> {{ $local->whatsapp }}</li>
+                    @endif
+                    @if($local->email)
+                    <li><strong>Email:</strong> {{ $local->email }}</li>
+                    @endif
+                    @if($local->horario)
+                    <li><strong>Horario:</strong> {{ $local->horario }}</li>
+                    @endif
+                </ul>
+
+                <div class="local-card__btns">
+                    @if($local->whatsapp)
+                    <a href="https://wa.me/{{ preg_replace('/\D/', '', $local->whatsapp) }}" target="_blank" rel="noopener" class="local-card__btn local-card__btn--wa">
+                        WhatsApp
+                    </a>
+                    @endif
+
+                    <a href="{{ route('locales.show', $local->id) }}" class="local-card__btn local-card__btn--maps">
+                        Ver sede
+                    </a>
+
+                    <a href="{{ $mapaLink ?: $googleMapsFallback }}" target="_blank" rel="noopener" class="local-card__btn local-card__btn--maps">
+                        Ver mapa
+                    </a>
+                </div>
+            </div>
+        </article>
+        @empty
+        <p style="grid-column:1/-1;text-align:center;color:#888;padding:30px 0;">No hay sedes registradas por ahora.</p>
+        @endforelse
+    </div>
 </section>
 
 @endsection

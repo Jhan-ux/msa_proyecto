@@ -26,7 +26,7 @@ class LocalForm
                     ->tel()
                     ->placeholder('(076) 123-456'),
                 TextInput::make('whatsapp')
-                    ->placeholder('+51 986 339 369')
+                    ->placeholder('+51 966 154 210')
                     ->helperText('Número sin espacios ni guiones para el enlace wa.me'),
                 TextInput::make('email')
                     ->email(),

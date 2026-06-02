@@ -428,10 +428,10 @@
            class="modelo-cta__btn">
             Solicitar cotización
         </a>
-        <a href="https://wa.me/51986339369?text={{ urlencode('Hola, quiero información sobre el ' . $marca->nombre . ' ' . $modelo->nombre) }}"
+        <a href="https://wa.me/51966154210?text={{ urlencode('Hola, quiero información sobre el ' . $marca->nombre . ' ' . $modelo->nombre) }}"
            target="_blank" rel="noopener"
            class="modelo-cta__btn modelo-cta__btn--outline">
-            Consultar por WhatsApp
+              Consultar por WhatsApp
         </a>
         <p class="modelo-cta__note">Un asesor te contactará a la brevedad con toda la información.</p>
     </div>

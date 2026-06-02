@@ -116,7 +116,7 @@
                 <div class="dropdown-menu" id="dropContacto">
                     <a href="{{ route('contacto') }}">FORMULARIO</a>
                     <a href="{{ route('locales') }}">NUESTROS LOCALES</a>
-                    <a href="https://wa.me/51986339369" target="_blank" rel="noopener">WHATSAPP</a>
+                    <a href="https://wa.me/51966154210" target="_blank" rel="noopener">WHATSAPP</a>
                 </div>
             </div>
 
@@ -127,7 +127,7 @@
 @yield('content')
 
 <!-- Botón flotante WhatsApp -->
-<a href="https://wa.me/51986339369" class="whatsapp-btn" target="_blank" rel="noopener" aria-label="Contactar por WhatsApp">
+<a href="https://wa.me/51966154210" class="whatsapp-btn" target="_blank" rel="noopener" aria-label="Contactar por WhatsApp">
     <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
 </a>
 
@@ -147,7 +147,7 @@
                 <a href="https://www.instagram.com/msaautomotrizperu/" class="footer-social__link" aria-label="Instagram" target="_blank" rel="noopener">
                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
                 </a>
-                <a href="https://wa.me/51986339369" class="footer-social__link footer-social__link--wa" aria-label="WhatsApp" target="_blank" rel="noopener">
+                <a href="https://wa.me/51966154210" class="footer-social__link footer-social__link--wa" aria-label="WhatsApp" target="_blank" rel="noopener">
                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
                 </a>
             </div>
@@ -191,7 +191,7 @@
                 <li><span>Av. Independencia 1234, Cajamarca, Per&uacute;</span></li>
                 <li><span>Carretera Ba&ntilde;os del Inca km 3.5</span></li>
                 <li><span>(076) 123-456 &nbsp;|&nbsp; (076) 789-012</span></li>
-                <li><span>+51 986 339 369</span></li>
+                <li><span>+51 966 154 210</span></li>
                 <li><span>contacto@msaautomotriz.com</span></li>
                 <li><span>Lun &ndash; Vie: 8:00 am &ndash; 6:00 pm<br>S&aacute;b: 8:00 am &ndash; 1:00 pm</span></li>
             </ul>
@@ -210,6 +210,18 @@
         <p>Dise&ntilde;ado para Cajamarca, Per&uacute;.</p>
     </div>
 </footer>
+
+<div id="waChooser" style="position:fixed;inset:0;background:rgba(0,0,0,.45);display:none;align-items:center;justify-content:center;z-index:12000;padding:16px;">
+    <div style="background:#fff;border-radius:12px;max-width:360px;width:100%;padding:22px 20px 18px;box-shadow:0 14px 40px rgba(0,0,0,.25);">
+        <h3 style="margin:0 0 8px;font-size:1.15rem;color:#111;font-weight:800;">Contactar por WhatsApp</h3>
+        <p style="margin:0 0 16px;color:#555;font-size:.92rem;line-height:1.45;">Selecciona con que asesor deseas comunicarte.</p>
+        <div style="display:grid;gap:10px;">
+            <button type="button" id="waSalesBtn" style="border:1px solid #111;background:#111;color:#fff;padding:10px 14px;border-radius:8px;font-weight:700;cursor:pointer;">Asesor de ventas</button>
+            <button type="button" id="waAfterSalesBtn" style="border:1px solid #cc1111;background:#cc1111;color:#fff;padding:10px 14px;border-radius:8px;font-weight:700;cursor:pointer;">Asesor de posventa</button>
+            <button type="button" id="waCancelBtn" style="border:1px solid #ddd;background:#fff;color:#444;padding:9px 14px;border-radius:8px;font-weight:600;cursor:pointer;">Cancelar</button>
+        </div>
+    </div>
+</div>
 
 <script src="{{ asset('js/main.js') }}"></script>
 <script>
@@ -264,6 +276,84 @@
         if (navItem && !navItem.contains(e.target)) {
             navItem.classList.remove('mega-open');
         }
+    });
+})();
+
+(function () {
+    const chooser = document.getElementById('waChooser');
+    const salesBtn = document.getElementById('waSalesBtn');
+    const afterSalesBtn = document.getElementById('waAfterSalesBtn');
+    const cancelBtn = document.getElementById('waCancelBtn');
+    let lastWaHref = '';
+
+    if (!chooser || !salesBtn || !afterSalesBtn || !cancelBtn) return;
+
+    function extractPhone(urlObj) {
+        const host = urlObj.hostname.toLowerCase();
+
+        if (host.includes('wa.me')) {
+            const segment = urlObj.pathname.split('/').filter(Boolean)[0] || '';
+            return segment.replace(/\D/g, '');
+        }
+
+        if (host.includes('whatsapp.com')) {
+            return (urlObj.searchParams.get('phone') || '').replace(/\D/g, '');
+        }
+
+        return '';
+    }
+
+    function buildWaUrl(type) {
+        const ventasPhone = '51966154210';
+        const posventaPhone = '51946823182';
+        const targetPhone = type === 'ventas' ? ventasPhone : posventaPhone;
+        const baseMessage = type === 'ventas'
+            ? 'Hola, quiero hablar con un asesor de ventas.'
+            : 'Hola, quiero hablar con un asesor de posventa.';
+
+        try {
+            const parsed = new URL(lastWaHref, window.location.origin);
+            const existingText = parsed.searchParams.get('text');
+            const message = existingText
+                ? baseMessage + '\n\n' + existingText
+                : baseMessage;
+
+            return 'https://wa.me/' + targetPhone + '?text=' + encodeURIComponent(message);
+        } catch (e) {
+            return 'https://wa.me/' + targetPhone + '?text=' + encodeURIComponent(baseMessage);
+        }
+    }
+
+    function openChooser(href) {
+        lastWaHref = href || '';
+        chooser.style.display = 'flex';
+    }
+
+    function closeChooser() {
+        chooser.style.display = 'none';
+    }
+
+    document.querySelectorAll('a[href*="wa.me"], a[href*="api.whatsapp.com/send"]').forEach((link) => {
+        link.addEventListener('click', function (e) {
+            e.preventDefault();
+            openChooser(link.getAttribute('href'));
+        });
+    });
+
+    salesBtn.addEventListener('click', function () {
+        window.open(buildWaUrl('ventas'), '_blank', 'noopener');
+        closeChooser();
+    });
+
+    afterSalesBtn.addEventListener('click', function () {
+        window.open(buildWaUrl('posventa'), '_blank', 'noopener');
+        closeChooser();
+    });
+
+    cancelBtn.addEventListener('click', closeChooser);
+
+    chooser.addEventListener('click', function (e) {
+        if (e.target === chooser) closeChooser();
     });
 })();
 </script>
