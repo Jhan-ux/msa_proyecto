@@ -48,9 +48,27 @@ a {
 }
 
 /* Logo */
+.navbar-logo {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #ffffff;
+    border: 1px solid #dcdcdc;
+    border-radius: 8px;
+    padding: 4px 8px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.22);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.navbar-logo:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 14px rgba(0, 0, 0, 0.28);
+}
+
 .navbar-logo img {
-    height: 48px;
+    height: 40px;
     width: auto;
+    display: block;
     object-fit: contain;
 }
 
@@ -862,8 +880,13 @@ a {
 =========================== */
 @media (max-width: 600px) {
     /* Logo ligeramente más pequeño */
+    .navbar-logo {
+        padding: 3px 6px;
+        border-radius: 6px;
+    }
+
     .navbar-logo img {
-        height: 38px;
+        height: 34px;
     }
 
     /* WhatsApp button posición más cercana al borde en móvil */

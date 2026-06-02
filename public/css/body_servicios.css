@@ -31,66 +31,70 @@
 .services-content {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 0;
+    gap: 18px;
     width: 100%;
+    padding: 0 18px;
+    box-sizing: border-box;
 }
 .service-item {
     display: flex;
     flex-direction: column;
     background: #fff;
+    border: 1px solid #e8e8e8;
+    border-radius: 10px;
     overflow: hidden;
     position: relative;
-    transition: transform 0.2s, box-shadow 0.2s;
+    transition: border-color 0.2s, box-shadow 0.2s;
 }
 .service-item:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 32px rgba(0,0,0,0.18);
-    z-index: 2;
+    border-color: #d8d8d8;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
 }
 .service-item__img {
     width: 100%;
-    height: 260px;
-    background-color: #222;
+    height: 220px;
+    background-color: #f1f1f1;
     background-size: cover;
     background-position: center;
     flex-shrink: 0;
 }
 .service-item__body {
-    background: #111111;
-    padding: 20px 22px 24px 22px;
+    background: #ffffff;
+    padding: 18px 20px 20px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     flex: 1;
-    border-top: 4px solid #cc1111;
+    border-top: 1px solid #eeeeee;
 }
 .service-item__title {
-    font-size: 1.15rem;
+    font-size: 1.1rem;
     font-weight: 700;
-    color: #fff;
-    margin-bottom: 10px;
+    color: #111;
+    margin-bottom: 8px;
     text-align: left;
 }
 .service-item__desc {
-    color: #c5cfe0;
-    font-size: 0.95rem;
-    margin-bottom: 18px;
+    color: #5a5a5a;
+    font-size: 0.93rem;
+    margin-bottom: 16px;
     text-align: left;
     flex: 1;
+    line-height: 1.55;
 }
 .service-item__btn {
     display: inline-block;
-    padding: 9px 24px;
-    background: transparent;
-    color: #fff;
-    border: 1.5px solid #fff;
-    border-radius: 24px;
+    padding: 8px 18px;
+    background: #fff;
+    color: #111;
+    border: 1px solid #d7d7d7;
+    border-radius: 20px;
     font-weight: 600;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     text-decoration: none;
     transition: background 0.2s, color 0.2s, border-color 0.2s;
     margin-top: auto;
-    align-self: center;
+    align-self: flex-start;
 }
 .service-item__btn::after {
     content: ' >';
@@ -108,8 +112,10 @@
 @media (max-width: 600px) {
     .services-content {
         grid-template-columns: 1fr;
+        gap: 14px;
+        padding: 0 14px;
     }
     .service-item__img {
-        height: 200px;
+        height: 190px;
     }
 }

@@ -7,7 +7,7 @@
 
 @section('content')
 
-<div class="page-hero" style="background-image: url('{{ asset('img/localprueba.jpg') }}');">
+<div class="page-hero" style="background-image: url('{{ asset('img/foto_equipo.jfif') }}');">
     <div class="page-hero__overlay"></div>
     <div class="page-hero__content">
         <span class="page-hero__badge">MSA Automotriz</span>

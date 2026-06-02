@@ -385,9 +385,9 @@ body { background: #ffffff; }
 .sedes-section .section-subtitle { color: #666666; }
 .sedes-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 24px;
-    max-width: 1100px;
+    max-width: 1320px;
     margin: 48px auto 0;
 }
 .sede-card {
@@ -470,6 +470,7 @@ body { background: #ffffff; }
 }
 @media (max-width: 900px) {
     .renting-grid { grid-template-columns: 1fr; }
+    .sedes-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (max-width: 600px) {
     .renting-section { padding: 48px 20px 56px; }
@@ -554,16 +555,7 @@ body { background: #ffffff; }
         @foreach($servicios as $servicio)
         <a href="{{ route('servicios.show', $servicio->slug) }}" class="service-item" style="text-decoration:none;">
             @if($servicio->imagen)
-            @php
-                $svcImg = $servicio->imagen;
-                if (str_starts_with($svcImg, 'http')) {
-                    $svcImg = $svcImg;
-                } elseif (str_starts_with($svcImg, 'img/') || str_starts_with($svcImg, 'storage/')) {
-                    $svcImg = asset($svcImg);
-                } else {
-                    $svcImg = asset('storage/' . ltrim($svcImg, '/'));
-                }
-            @endphp
+            @php $svcImg = str_starts_with($servicio->imagen, 'http') ? $servicio->imagen : asset($servicio->imagen); @endphp
             <div class="service-item__img" style="background-image: url('{{ $svcImg }}');"></div>
             @else
             <div class="service-item__img" style="background: linear-gradient(135deg, #2a2a2a 0%, #0a0a0a 100%); display:flex; align-items:center; justify-content:center;">
@@ -687,16 +679,16 @@ body { background: #ffffff; }
 
 <script>
 const marcaModelos = {
-    'baic':           ['BJ30', 'BJ40', 'BJ212', 'X35'],
-    'chevrolet':      ['Onix', 'Tracker', 'Montana', 'N300 Max'],
-    'dongfeng':       ['Rich 6', 'H30 Cross', 'S50'],
-    'forland':        ['Fonton 3T', 'Fonton 5T', 'Furgón'],
-    'foton':          ['Aumark S', 'Aumark GT', 'Toano', 'Toplander'],
-    'honda-autos':    ['HR-V', 'City', 'Civic', 'WR-V'],
-    'honda-motos':    ['CB190R', 'CG150', 'Tornado 250', 'XR150L'],
-    'isuzu-camiones': ['NPR 400', 'NQR 700', 'FRR 800', 'ELF 350'],
-    'isuzu-pick-ups': ['D-Max 4x2', 'D-Max 4x4'],
-    'omoda-jaecoo':   ['Omoda 5', 'Omoda C5', 'Jaecoo 7'],
+    'baic':           ['BJ30', 'BJ40', 'BJ212', 'X35', 'otro'],
+    'chevrolet':      ['Onix', 'Tracker', 'Montana', 'N300 Max', 'otro'],
+    'dongfeng':       ['Rich 6', 'H30 Cross', 'S50', 'otro'],
+    'forland':        ['Fonton 3T', 'Fonton 5T', 'Furgón', 'otro'],
+    'foton':          ['Aumark S', 'Aumark GT', 'Toano', 'Toplander', 'otro'],
+    'honda-autos':    ['HR-V', 'City', 'Civic', 'WR-V', 'otro'],
+    'honda-motos':    ['CB190R', 'CG150', 'Tornado 250', 'XR150L', 'otro'],
+    'isuzu-camiones': ['NPR 400', 'NQR 700', 'FRR 800', 'ELF 350', 'otro'],
+    'isuzu-pick-ups': ['D-Max 4x2', 'D-Max 4x4', 'otro'],
+    'omoda-jaecoo':   ['Omoda 5', 'Omoda C5', 'Jaecoo 7', 'otro'],
 };
 
 function setTipo(btn) {

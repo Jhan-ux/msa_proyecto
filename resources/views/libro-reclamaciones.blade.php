@@ -28,12 +28,12 @@
             {{-- CABECERA --}}
             <div class="lr-company-header">
                 <div class="lr-company-logo">
-                    <img src="{{ asset('img/logo.png') }}" alt="MSA Automotriz" style="max-height:56px;">
+                    <img src="{{ asset('img/logo_msa.jpeg') }}" alt="MSA Automotriz" style="max-height:56px;">
                 </div>
                 <div class="lr-company-info">
                     <strong>MSA Automotriz S.A.A.</strong><br>
-                    RUC: 20600975947<br>
-                    Jr. Del Comercio N° 111, Cajamarca
+                    RUC: 20491781409<br>
+                    Av. Via de Evitamiento Norte cuadra 3 S/N, Cajamarca
                 </div>
                 <div class="lr-titulo-header">
                     Libro de reclamaciones

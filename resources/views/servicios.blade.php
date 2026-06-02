@@ -7,7 +7,7 @@
 
 @section('content')
 
-<div class="page-hero" style="background-image: url('{{ asset('img/localprueba.jpg') }}');">
+<div class="page-hero" style="background-image: url('{{ asset('img/posventa/baner.jfif') }}');">
     <div class="page-hero__overlay"></div>
     <div class="page-hero__content">
         <span class="page-hero__badge">MSA Automotriz</span>
@@ -22,11 +22,12 @@
     Posventa
 </nav>
 
-<section style="max-width:1200px;margin:48px auto;padding:0 24px;">
-    <h2 style="text-align:center;margin-bottom:32px;">Nuestros Servicios</h2>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:24px;">
+<section class="servicios-section">
+    <h2 class="section-title">Nuestros Servicios</h2>
+    <p class="section-subtitle">Descubre todo lo que podemos hacer por tu vehículo</p>
+    <div class="servicios-grid">
         @forelse($servicios as $servicio)
-        <a href="{{ route('servicios.show', $servicio->slug) }}" style="background:#fff;border-radius:10px;padding:24px;box-shadow:0 2px 12px rgba(0,0,0,.08);text-align:center;text-decoration:none;color:inherit;display:block;transition:transform .2s,box-shadow .2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,.13)'" onmouseout="this.style.transform='';this.style.boxShadow='0 2px 12px rgba(0,0,0,.08)'">
+        <a href="{{ route('servicios.show', $servicio->slug) }}" class="servicio-card">
             @if($servicio->imagen)
                 @php
                     $svcImg = $servicio->imagen;
@@ -38,11 +39,22 @@
                         $svcImg = asset('storage/' . ltrim($svcImg, '/'));
                     }
                 @endphp
-                <img src="{{ $svcImg }}" alt="{{ $servicio->nombre }}" style="width:100%;max-height:160px;object-fit:cover;border-radius:6px;margin-bottom:12px;">
+                <div class="servicio-card__img" style="background-image:url('{{ $svcImg }}')"></div>
+            @else
+                <div class="servicio-card__img">
+                    <div class="servicio-card__img-placeholder">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="#777" stroke-width="1.4" stroke-linecap="round">
+                            <circle cx="12" cy="12" r="3"></circle>
+                            <path d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2 12h3M19 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12"></path>
+                        </svg>
+                    </div>
+                </div>
             @endif
-            <h3 style="margin-bottom:8px;">{{ $servicio->nombre }}</h3>
-            <p style="color:#666;">{{ $servicio->descripcion }}</p>
-            <span style="display:inline-block;margin-top:12px;background:#cc1111;color:#fff;font-size:.8rem;font-weight:700;padding:7px 16px;border-radius:6px;">Ver más &rsaquo;</span>
+            <div class="servicio-card__body">
+                <h3 class="servicio-card__title">{{ $servicio->nombre }}</h3>
+                <p class="servicio-card__desc">{{ $servicio->descripcion }}</p>
+                <span class="servicio-card__btn">Ver más</span>
+            </div>
         </a>
         @empty
         {{-- Fallback mientras no haya datos en la BD --}}
@@ -55,9 +67,20 @@
             ['Seguros',              'Planes de seguro para tu tranquilidad'],
             ['Agenda tu Cita',       'Reserva tu cita de mantenimiento online'],
         ] as [$nombre, $desc])
-        <div style="background:#fff;border-radius:10px;padding:24px;box-shadow:0 2px 12px rgba(0,0,0,.08);text-align:center;">
-            <h3 style="margin-bottom:8px;">{{ $nombre }}</h3>
-            <p style="color:#666;">{{ $desc }}</p>
+        <div class="servicio-card">
+            <div class="servicio-card__img">
+                <div class="servicio-card__img-placeholder">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#777" stroke-width="1.4" stroke-linecap="round">
+                        <circle cx="12" cy="12" r="3"></circle>
+                        <path d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2 12h3M19 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12"></path>
+                    </svg>
+                </div>
+            </div>
+            <div class="servicio-card__body">
+                <h3 class="servicio-card__title">{{ $nombre }}</h3>
+                <p class="servicio-card__desc">{{ $desc }}</p>
+                <span class="servicio-card__btn">Ver más</span>
+            </div>
         </div>
         @endforeach
         @endforelse
