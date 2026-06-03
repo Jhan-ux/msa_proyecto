@@ -39,6 +39,7 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 32px;
+    align-items: start;
 }
 
 .local-card {
@@ -49,7 +50,6 @@
     transition: box-shadow 0.22s, transform 0.22s, border-color 0.22s;
     display: flex;
     flex-direction: column;
-    min-height: 100%;
 }
 
 .local-card:hover {
