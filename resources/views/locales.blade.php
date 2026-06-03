@@ -28,31 +28,13 @@
 
     <div class="locales-grid">
         @forelse($locales as $local)
-        @php
-            $mapaLink = null;
-            if ($local->mapa_embed) {
-                if (str_starts_with(trim($local->mapa_embed), '<')) {
-                    if (preg_match('/src=["\']([^"\']+)["\']/', $local->mapa_embed, $matches)) {
-                        $mapaLink = $matches[1];
-                    }
-                } else {
-                    $mapaLink = $local->mapa_embed;
-                }
-            }
-            $googleMapsFallback = 'https://www.google.com/maps/search/?api=1&query=' . urlencode($local->direccion ?? $local->nombre);
-        @endphp
-
         <article class="local-card">
             <div class="local-card__media">
-                @if($local->imagen)
-                    <img src="{{ str_starts_with($local->imagen, 'http') ? $local->imagen : asset($local->imagen) }}" alt="{{ $local->nombre }}">
-                @elseif($local->mapa_embed)
+                @if($local->imagen_url)
+                    <img src="{{ $local->imagen_url }}" alt="{{ $local->nombre }}">
+                @elseif($local->mapa_src)
                     <div class="local-card__map">
-                        @if(str_starts_with(trim($local->mapa_embed), '<'))
-                            {!! $local->mapa_embed !!}
-                        @else
-                            <iframe src="{{ $local->mapa_embed }}" allowfullscreen loading="lazy"></iframe>
-                        @endif
+                        <iframe src="{{ $local->mapa_src }}" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
                 @else
                     <div class="local-card__placeholder">Sin imagen</div>
@@ -89,7 +71,7 @@
                         Ver sede
                     </a>
 
-                    <a href="{{ $mapaLink ?: $googleMapsFallback }}" target="_blank" rel="noopener" class="local-card__btn local-card__btn--maps">
+                    <a href="{{ $local->mapa_public_url }}" target="_blank" rel="noopener" class="local-card__btn local-card__btn--maps">
                         Ver mapa
                     </a>
                 </div>

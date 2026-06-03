@@ -171,8 +171,8 @@
 
 {{-- HERO --}}
 <div class="local-hero">
-    @if($local->imagen)
-    <div class="local-hero__img" style="background-image:url('{{ asset($local->imagen) }}')"></div>
+    @if($local->imagen_url)
+    <div class="local-hero__img" style="background-image:url('{{ $local->imagen_url }}')"></div>
     @endif
     <div class="local-hero__overlay"></div>
     <div class="local-hero__content">
@@ -243,13 +243,9 @@
             @endif
         </ul>
 
-        @if($local->mapa_embed)
+        @if($local->mapa_src)
         <div class="local-mapa">
-            @if(str_starts_with(trim($local->mapa_embed), '<'))
-                {!! $local->mapa_embed !!}
-            @else
-                <iframe src="{{ $local->mapa_embed }}" allowfullscreen loading="lazy"></iframe>
-            @endif
+            <iframe src="{{ $local->mapa_src }}" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
         @endif
     </div>
@@ -295,8 +291,8 @@
     <div class="otros-locales-grid">
         @foreach($otrosLocales as $otro)
         <a href="{{ route('locales.show', $otro->id) }}" class="otro-local-card">
-            @if($otro->imagen)
-            <div class="otro-local-card__img" style="background-image:url('{{ asset($otro->imagen) }}')"></div>
+            @if($otro->imagen_url)
+            <div class="otro-local-card__img" style="background-image:url('{{ $otro->imagen_url }}')"></div>
             @else
             <div class="otro-local-card__img"></div>
             @endif
