@@ -1,4 +1,4 @@
 ---
 deployment:
   tasks:
-    - echo "Deployment iniciado"
+    - /bin/echo "Deployment successful"
