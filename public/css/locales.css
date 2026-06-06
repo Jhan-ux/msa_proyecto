@@ -37,9 +37,10 @@
 
 .locales-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 32px;
-    align-items: start;
+    align-items: stretch;
+    grid-auto-rows: 1fr;
 }
 
 .local-card {
@@ -50,6 +51,7 @@
     transition: box-shadow 0.22s, transform 0.22s, border-color 0.22s;
     display: flex;
     flex-direction: column;
+    height: 100%;
 }
 
 .local-card:hover {
@@ -59,7 +61,7 @@
 }
 
 .local-card__media {
-    height: 220px;
+    height: 210px;
     background: #f3f3f3;
     overflow: hidden;
     border-bottom: 1px solid #ececec;
@@ -174,12 +176,18 @@
 }
 
 /* ---- Responsive ---- */
+@media (max-width: 1280px) {
+    .locales-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
 @media (max-width: 900px) {
     .locales-grid {
         grid-template-columns: 1fr;
     }
 
     .local-card__media {
-        height: 210px;
+        height: 220px;
     }
 }

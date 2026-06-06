@@ -55,3 +55,6 @@ msa_web/
     └── locales/
         └── show.blade.php        ← Detalle de sede + mapa + CTA
 ```
+este es un esquema en el que se puede observar la estructura de la we de MSA atumotriz, el archivo .env debe ser adaptado base de datos que se va utlizar, el archivo .env.example tiene una referencia de como debe estar estructurado para que pueda llegar a conectarse.
+
+```
