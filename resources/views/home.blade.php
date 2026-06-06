@@ -385,28 +385,30 @@ body { background: #ffffff; }
 .sedes-section .section-subtitle { color: #666666; }
 .sedes-grid {
     display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 24px;
-    max-width: 1320px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 28px;
+    max-width: 1240px;
     margin: 48px auto 0;
 }
 .sede-card {
     background: #ffffff;
     border: 1px solid #e8e8e8;
     border-top: 3px solid #cc1111;
-    border-radius: 10px;
+    border-radius: 18px;
     overflow: hidden;
     text-align: left;
     transition: box-shadow 0.2s, transform 0.2s;
     display: flex;
     flex-direction: column;
+    min-height: 100%;
+    box-shadow: 0 16px 36px rgba(15, 23, 42, 0.06);
 }
 .sede-card:hover {
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    transform: translateY(-3px);
+    box-shadow: 0 20px 42px rgba(15, 23, 42, 0.12);
+    transform: translateY(-5px);
 }
 .sede-card__img {
-    height: 180px;
+    height: 220px;
     background: #111111;
     background-size: cover;
     background-position: center;
@@ -417,7 +419,7 @@ body { background: #ffffff; }
 }
 .sede-card__img svg { opacity: 0.25; }
 .sede-card__body {
-    padding: 20px 22px 24px;
+    padding: 24px 24px 26px;
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -435,31 +437,32 @@ body { background: #ffffff; }
     margin-bottom: 10px;
 }
 .sede-card__nombre {
-    font-size: 1.05rem;
-    font-weight: 700;
+    font-size: 1.4rem;
+    font-weight: 800;
     color: #111111;
-    margin-bottom: 6px;
+    line-height: 1.15;
+    margin-bottom: 10px;
 }
 .sede-card__dir {
-    font-size: 0.85rem;
+    font-size: 0.95rem;
     color: #666666;
-    line-height: 1.5;
-    margin-bottom: 6px;
+    margin-bottom: 10px;
+    line-height: 1.55;
 }
 .sede-card__tel {
-    font-size: 0.83rem;
+    font-size: 0.92rem;
     color: #444444;
-    margin-bottom: 16px;
+    margin-bottom: 18px;
 }
 .sede-card__link {
     display: inline-block;
     margin-top: auto;
-    padding: 9px 22px;
+    padding: 11px 22px;
     border: 1.5px solid #cc1111;
     color: #cc1111;
     border-radius: 50px;
-    font-size: 0.82rem;
-    font-weight: 600;
+    font-size: 0.86rem;
+    font-weight: 700;
     text-decoration: none;
     transition: background 0.2s, color 0.2s;
     align-self: flex-start;
@@ -468,17 +471,28 @@ body { background: #ffffff; }
     background: #cc1111;
     color: #fff;
 }
+@media (max-width: 1180px) {
+    .sedes-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
 @media (max-width: 900px) {
     .renting-grid { grid-template-columns: 1fr; }
-    .sedes-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .sedes-grid { grid-template-columns: 1fr; }
+    .sede-card__img { height: 210px; }
+    .sede-card__nombre { font-size: 1.2rem; }
+    .sede-card__dir,
+    .sede-card__tel { font-size: 0.88rem; }
 }
 @media (max-width: 600px) {
     .renting-section { padding: 48px 20px 56px; }
+    .sedes-section { padding: 48px 20px 60px; }
     .sedes-grid { grid-template-columns: 1fr; }
+    .sede-card__img { height: 210px; }
+    .sede-card__nombre { font-size: 1.2rem; }
+    .sede-card__dir,
+    .sede-card__tel { font-size: 0.88rem; }
     .sedes-section { padding: 48px 20px 60px; }
 }
 </style>
-@endsection
 
 @section('content')
 

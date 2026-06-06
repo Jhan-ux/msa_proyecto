@@ -1,11 +1,11 @@
 /* ===========================
-   ESTILOS - PÁGINA LOCALES
+   ESTILOS - PAGINA LOCALES
    /css/locales.css
 =========================== */
 
 .locales-section {
-    padding: 60px 24px 60px;
-    max-width: 1200px;
+    padding: 60px 24px 72px;
+    max-width: 1440px;
     margin: 0 auto;
 }
 
@@ -30,38 +30,41 @@
 .locales-section .section-subtitle {
     text-align: center;
     color: #555;
-    font-size: 0.95rem;
+    font-size: 0.98rem;
     margin-top: 14px;
     margin-bottom: 44px;
 }
 
 .locales-grid {
     display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 32px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 28px;
     align-items: stretch;
     grid-auto-rows: 1fr;
+    max-width: 1380px;
+    margin: 0 auto;
 }
 
 .local-card {
     background: #ffffff;
     border: 1px solid #e2e2e2;
-    border-radius: 12px;
+    border-radius: 18px;
     overflow: hidden;
     transition: box-shadow 0.22s, transform 0.22s, border-color 0.22s;
     display: flex;
     flex-direction: column;
     height: 100%;
+    box-shadow: 0 16px 36px rgba(15, 23, 42, 0.06);
 }
 
 .local-card:hover {
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
-    transform: translateY(-4px);
-    border-color: #d6d6d6;
+    box-shadow: 0 22px 46px rgba(15, 23, 42, 0.12);
+    transform: translateY(-6px);
+    border-color: #d9d9d9;
 }
 
 .local-card__media {
-    height: 210px;
+    height: 230px;
     background: #f3f3f3;
     overflow: hidden;
     border-bottom: 1px solid #ececec;
@@ -100,17 +103,18 @@
 }
 
 .local-card__body {
-    padding: 26px 28px 28px;
+    padding: 28px 28px 26px;
     display: flex;
     flex-direction: column;
     flex: 1;
 }
 
 .local-card__nombre {
-    font-size: 1.2rem;
+    font-size: 1.6rem;
     font-weight: 800;
     color: #111;
-    margin-bottom: 14px;
+    line-height: 1.15;
+    margin-bottom: 18px;
 }
 
 .local-card__info {
@@ -123,7 +127,7 @@
 }
 
 .local-card__info li {
-    font-size: 0.88rem;
+    font-size: 0.98rem;
     color: #444;
     line-height: 1.5;
 }
@@ -134,7 +138,7 @@
 
 .local-card__btns {
     display: flex;
-    gap: 10px;
+    gap: 12px;
     flex-wrap: wrap;
     margin-top: auto;
 }
@@ -143,13 +147,13 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    font-size: 0.84rem;
+    font-size: 0.88rem;
     font-weight: 700;
-    padding: 10px 16px;
-    border-radius: 24px;
+    padding: 12px 18px;
+    border-radius: 999px;
     text-decoration: none;
     transition: background-color 0.2s, transform 0.18s;
-    min-width: 108px;
+    min-width: 116px;
 }
 
 .local-card__btn:hover {
@@ -175,7 +179,6 @@
     background-color: #e0e0e0;
 }
 
-/* ---- Responsive ---- */
 @media (max-width: 1280px) {
     .locales-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -189,5 +192,13 @@
 
     .local-card__media {
         height: 220px;
+    }
+
+    .local-card__nombre {
+        font-size: 1.35rem;
+    }
+
+    .local-card__info li {
+        font-size: 0.92rem;
     }
 }
