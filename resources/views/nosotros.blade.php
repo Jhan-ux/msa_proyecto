@@ -53,7 +53,7 @@
         <div class="stat-item"><div class="stat-item__number">19+</div><div class="stat-item__label">A&ntilde;os de experiencia</div></div>
         <div class="stat-item"><div class="stat-item__number">10</div><div class="stat-item__label">Marcas representadas</div></div>
         <div class="stat-item"><div class="stat-item__number">5,000+</div><div class="stat-item__label">Clientes satisfechos</div></div>
-        <div class="stat-item"><div class="stat-item__number">3</div><div class="stat-item__label">Sedes a nivel nacional</div></div>
+<div class="stat-item"><div class="stat-item__number">3</div><div class="stat-item__label">Sedes a Nivel Nacional</div></div>
     </div>
 </div>
 

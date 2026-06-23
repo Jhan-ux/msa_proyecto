@@ -55,6 +55,6 @@ msa_web/
     └── locales/
         └── show.blade.php        ← Detalle de sede + mapa + CTA
 ```
-MSA_WEB es un proyecto de una paginaa web que usa un framework llamada laravel, tiene diferentes funcionalidades tales como mostrar marcas. locales, modelos de locales, contacto e informacion de la empresa
+MSA_WEB es un proyecto de una pagina web que usa un framework llamado Laravel, tiene diferentes funcionalidades tales como mostrar marcas, locales, modelos de locales, contacto e información de la empresa.
 
 ```
