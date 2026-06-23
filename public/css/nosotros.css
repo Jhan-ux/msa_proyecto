@@ -336,3 +336,70 @@
         font-size: 2.2rem;
     }
 }
+
+
+/* =============
+MIsion y Vision
+===============*/
+.nosotros-mv {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    align-items: stretch;
+    flex-wrap: wrap;
+    padding: 60px 20px;
+    background: #f5f7fa;
+}
+
+.nosotros-mv__item {
+    flex: 1;
+    min-width: 320px;
+    max-width: 550px;
+    background: #fff;
+    padding: 35px;
+    border-radius: 16px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+    border-top: 5px solid #cc1111;
+}
+
+.nosotros-mv__item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+}
+
+.nosotros-mv__title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #cc1111;
+    margin-bottom: 18px;
+    position: relative;
+}
+
+.nosotros-mv__title::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: #cc1111;
+    margin-top: 10px;
+    border-radius: 10px;
+}
+
+.nosotros-mv__text {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: #555;
+    text-align: justify;
+}
+
+@media (max-width: 768px) {
+    .nosotros-mv {
+        flex-direction: column;
+        padding: 40px 15px;
+    }
+
+    .nosotros-mv__item {
+        max-width: 100%;
+    }
+}

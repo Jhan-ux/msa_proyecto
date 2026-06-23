@@ -149,3 +149,7 @@ Tablas:
 - versiones
 
 
+
+Cambios: routes/web.php:
+Route::get('/seminuevos', [ServiciosController::class, 'seminuevos'])->name('seminuevos');
+

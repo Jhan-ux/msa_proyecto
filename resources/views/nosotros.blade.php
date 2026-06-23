@@ -32,13 +32,30 @@
     <img src="{{ asset('img/localprueba.jpg') }}" alt="Local MSA Automotriz Cajamarca" class="nosotros-historia__img">
 </section>
 
+
+
+
+{{-- Secciòn mision vision con estilos --}}
+<div class="nosotros-mv">
+    <div class="nosotros-mv__item">
+        <h3 class="nosotros-mv__title">Nuestra Misi&oacute;n</h3>
+        <p class="nosotros-mv__text">Brindar a nuestros clientes veh&iacute;culos de calidad y servicios integrales que superen sus expectativas, contribuyendo al desarrollo automotriz de Cajamarca con honestidad, compromiso y excelencia.</p>
+    </div>
+    <div class="nosotros-mv__item">
+        <h3 class="nosotros-mv__title">Nuestra Visi&oacute;n</h3>
+        <p class="nosotros-mv__text">Ser el concesionario automotriz l&iacute;der en Cajamarca, reconocido por nuestra amplia gama de marcas, atenci&oacute;n personalizada y compromiso con la satisfacci&oacute;n del cliente, impulsando la movilidad y el progreso en la regi&oacute;n.</p>
+    </div>
+
+</div>
+
 <div class="nosotros-stats">
     <div class="nosotros-stats__inner">
         <div class="stat-item"><div class="stat-item__number">19+</div><div class="stat-item__label">A&ntilde;os de experiencia</div></div>
         <div class="stat-item"><div class="stat-item__number">10</div><div class="stat-item__label">Marcas representadas</div></div>
         <div class="stat-item"><div class="stat-item__number">5,000+</div><div class="stat-item__label">Clientes satisfechos</div></div>
-        <div class="stat-item"><div class="stat-item__number">2</div><div class="stat-item__label">Sedes en Cajamarca</div></div>
+        <div class="stat-item"><div class="stat-item__number">3</div><div class="stat-item__label">Sedes a nivel nacional</div></div>
     </div>
 </div>
+
 
 @endsection

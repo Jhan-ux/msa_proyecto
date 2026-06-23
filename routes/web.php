@@ -16,11 +16,15 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 // Secciones estáticas
 Route::get('/nosotros', [NosotrosController::class, 'index'])->name('nosotros');
 Route::get('/servicios', [ServiciosController::class, 'index'])->name('servicios');
+Route::get('/seminuevos', [ServiciosController::class, 'seminuevos'])->name('seminuevos');
 Route::get('/servicios/{slug}', [ServiciosController::class, 'show'])->name('servicios.show');
 Route::post('/servicios/{slug}/consultar', [ServiciosController::class, 'consultar'])->name('servicios.consultar');
 Route::get('/locales', [LocalesController::class, 'index'])->name('locales');
 Route::get('/locales/{id}', [LocalesController::class, 'show'])->name('locales.show')->whereNumber('id');
 
+
+//Seminuevos
+Route::get('/seminuevos/{slug}', [ServiciosController::class, 'showSeminuevo'])->name('seminuevos.show');
 // Transporte y Renting
 Route::get('/transporte-renting/{slug}', [TransporteRentingController::class, 'show'])->name('transporte-renting.show');
 

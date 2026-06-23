@@ -90,6 +90,13 @@
                 </div>
             </div>
 
+            <!-- Seminuevos -->
+            <div class="nav-item">
+                <a href="{{ route('seminuevos') }}" class="nav-btn">SEMINUEVOS</a>
+            </div>
+
+
+
             <!-- Posventa -->
             <div class="nav-item">
                 <a href="{{ route('servicios') }}" class="nav-btn" data-target="dropServicios">POSVENTA</a>
@@ -102,12 +109,7 @@
 
             <!-- Locales -->
             <div class="nav-item">
-                <a href="{{ route('locales') }}" class="nav-btn" data-target="dropLocales">LOCALES</a>
-                <div class="dropdown-menu" id="dropLocales">
-                    @foreach($navLocales as $navLocal)
-                    <a href="{{ route('locales.show', $navLocal->id) }}">{{ strtoupper($navLocal->nombre) }}</a>
-                    @endforeach
-                </div>
+                <a href="#sedes" class="nav-btn">LOCALES</a>
             </div>
 
             <!-- Contacto -->
@@ -123,6 +125,8 @@
         </nav>
     </div>
 </header>
+
+
 
 @yield('content')
 

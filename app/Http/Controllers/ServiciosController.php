@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\ConsultaServicio;
 use App\Models\Servicio;
+use App\Models\Seminuevo;
 use Illuminate\Http\Request;
 
 class ServiciosController extends Controller
@@ -45,6 +46,19 @@ class ServiciosController extends Controller
         ]);
 
         return back()->with('consulta_enviada', true);
+    }
+
+    public function seminuevos()
+    {
+        $seminuevos = Seminuevo::where('activo', true)->orderBy('orden')->get();
+        return view('seminuevos', compact('seminuevos'));
+    }
+
+    public function showSeminuevo(string $slug)
+    {
+        $seminuevo = Seminuevo::where('slug', $slug)->where('activo', true)->firstOrFail();
+        $otros = Seminuevo::where('activo', true)->where('id', '!=', $seminuevo->id)->orderBy('orden')->get();
+        return view('seminuevos.show', compact('seminuevo', 'otros'));
     }
 }
 

@@ -798,7 +798,7 @@ function buscarVehiculo() {
 </section>
 
 {{-- ══ NUESTRAS SEDES ══════════════════════════════════════════ --}}
-<section class="sedes-section">
+<section class="sedes-section" id="sedes">
     <h2 class="section-title">Nuestras Sedes</h2>
     <p class="section-subtitle">Encuéntranos en el norte del Perú — elige la sede más cercana a ti</p>
     <div class="sedes-grid">
