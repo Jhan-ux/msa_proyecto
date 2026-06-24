@@ -43,6 +43,10 @@
     </div>
     @endforeach
 </div>
+@if($seminuevos->isEmpty())
+<div class="seminuevos-empty">
+    <p>De momento no hay seminuevos registrados, regrese más tarde.</p>
+
+</div>
+@endif
 @endsection
-
-

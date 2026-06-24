@@ -5,7 +5,6 @@ namespace App\Filament\Resources\Seminuevos;
 use App\Filament\Resources\Seminuevos\Pages\CreateSeminuevo;
 use App\Filament\Resources\Seminuevos\Pages\EditSeminuevo;
 use App\Filament\Resources\Seminuevos\Pages\ListSeminuevos;
-use App\Filament\Resources\Seminuevos\Pages\ViewSeminuevo;
 use App\Filament\Resources\Seminuevos\Schemas\SeminuevoForm;
 use App\Filament\Resources\Seminuevos\Tables\SeminuevoTable;
 use App\Models\Seminuevo as SeminuevoModel;
@@ -18,6 +17,8 @@ use Filament\Tables\Table;
 class SeminuevoResource extends Resource
 {
     protected static ?string $model = SeminuevoModel::class;
+
+    protected static ?string $slug = 'seminuevos';
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedTruck;
 
@@ -55,7 +56,6 @@ class SeminuevoResource extends Resource
     {
         return [
             'index'  => ListSeminuevos::route('/'),
-            'view'   => ViewSeminuevo::route('/{record}'),
             'create' => CreateSeminuevo::route('/create'),
             'edit'   => EditSeminuevo::route('/{record}/edit'),
         ];

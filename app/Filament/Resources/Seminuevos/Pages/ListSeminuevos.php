@@ -4,7 +4,7 @@ namespace App\Filament\Resources\Seminuevos\Pages;
 
 use App\Filament\Resources\Seminuevos\SeminuevoResource;
 use Filament\Actions\CreateAction;
-use Filament\Resources\Pages\ListRecords;
+use Filament\Resources\Pages\ListRecords; 
 
 class ListSeminuevos extends ListRecords
 {
@@ -12,6 +12,9 @@ class ListSeminuevos extends ListRecords
 
     protected function getHeaderActions(): array
     {
-        return [CreateAction::make()];
+        return [
+            CreateAction::make()
+                ->icon('heroicon-o-plus'),
+        ];
     }
 }
