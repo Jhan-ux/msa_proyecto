@@ -110,6 +110,28 @@ button.btn-main:hover {
     font-size: 0.9rem;
     color: #404040;
 }
+.quiz-op input[disabled] {
+    opacity: 0.8;
+}
+.quiz-op-correct {
+    background: #ecfdf5;
+    border: 1px solid #8fe6bf;
+    color: #0b6a4d;
+    border-radius: 8px;
+    padding: 8px 10px;
+}
+.quiz-op-wrong {
+    background: #fef2f2;
+    border: 1px solid #f8b4b4;
+    color: #9b1c1c;
+    border-radius: 8px;
+    padding: 8px 10px;
+}
+.quiz-op-note {
+    font-size: 0.78rem;
+    font-weight: 700;
+    margin-left: 8px;
+}
 .badge-mini {
     display: inline-block;
     background: #0f172a;
@@ -303,11 +325,11 @@ button.btn-main:hover {
             </div>
         @endif
 
-        @if($eventoDisponibleParaJugar && $participante && (! $intento || ! $intento->habilitado_ruleta))
+        @if($eventoDisponibleParaJugar && $participante && ! $intento)
             <div class="promocion-box">
                 <span class="step-chip">Paso 2</span>
                 <h3 class="promocion-title" style="font-size:1.2rem;">Quiz (3 preguntas)</h3>
-                <p class="promocion-sub" style="margin-bottom:16px;">Necesitas al menos 2 respuestas correctas para habilitar el giro.</p>
+            <p class="promocion-sub" style="margin-bottom:16px;">Responde las 3 preguntas para pasar al giro de la ruleta.</p>
 
                 @if($preguntas->count() === 3)
                     <form method="POST" action="{{ route('promociones.evaluar', $evento->id) }}">
@@ -331,7 +353,43 @@ button.btn-main:hover {
             </div>
         @endif
 
-        @if($eventoDisponibleParaJugar && $participante && $intento && $intento->habilitado_ruleta)
+        @if($eventoDisponibleParaJugar && $participante && $intento && $preguntas->count() === 3)
+            <div class="promocion-box">
+                <span class="step-chip">Revision</span>
+                <h3 class="promocion-title" style="font-size:1.2rem;">Correccion del quiz</h3>
+                <p class="promocion-sub" style="margin-bottom:16px;">Respuestas correctas en verde. Si fallaste una, tu seleccion aparece en rojo.</p>
+
+                @foreach($preguntas as $index => $pregunta)
+                    @php
+                        $revision = $quizRevision[$pregunta->id] ?? null;
+                        $seleccionadaId = $revision['seleccionada'] ?? null;
+                        $correctaId = $revision['correcta'] ?? null;
+                    @endphp
+                    <div class="quiz-q">
+                        <h4>{{ $index + 1 }}. {{ $pregunta->pregunta }}</h4>
+                        @foreach($pregunta->opciones as $opcion)
+                            @php
+                                $esCorrecta = $correctaId && (int) $correctaId === (int) $opcion->id;
+                                $esSeleccionada = $seleccionadaId && (int) $seleccionadaId === (int) $opcion->id;
+                                $esSeleccionadaErronea = $esSeleccionada && ! $esCorrecta;
+                            @endphp
+                            <label class="quiz-op {{ $esCorrecta ? 'quiz-op-correct' : '' }} {{ $esSeleccionadaErronea ? 'quiz-op-wrong' : '' }}">
+                                <input type="radio" disabled {{ $esSeleccionada ? 'checked' : '' }}>
+                                {{ $opcion->texto }}
+                                @if($esCorrecta)
+                                    <span class="quiz-op-note">Correcta</span>
+                                @endif
+                                @if($esSeleccionadaErronea)
+                                    <span class="quiz-op-note">Tu respuesta</span>
+                                @endif
+                            </label>
+                        @endforeach
+                    </div>
+                @endforeach
+            </div>
+        @endif
+
+        @if($eventoDisponibleParaJugar && $participante && $intento)
             <div class="promocion-box">
                 <span class="step-chip">Paso 3</span>
                 <h3 class="promocion-title" style="font-size:1.2rem;">Ruleta de premios</h3>

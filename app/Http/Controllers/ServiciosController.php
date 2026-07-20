@@ -61,6 +61,7 @@ class ServiciosController extends Controller
             $this->sessionKey($evento->id, 'spin_realizado') => false,
             $this->sessionKey($evento->id, 'intento_id') => null,
             $this->sessionKey($evento->id, 'preguntas_ids') => null,
+            $this->sessionKey($evento->id, 'quiz_revision') => null,
             $this->sessionKey($evento->id, 'premio') => null,
         ]);
 
@@ -106,6 +107,7 @@ class ServiciosController extends Controller
         }
 
         $correctas = 0;
+        $quizRevision = [];
 
         foreach ($preguntasIds as $preguntaId) {
             $opcionId = $validated['respuestas'][$preguntaId] ?? null;
@@ -116,10 +118,16 @@ class ServiciosController extends Controller
             }
 
             $opcion = $pregunta->opciones->firstWhere('id', (int) $opcionId);
+            $opcionCorrecta = $pregunta->opciones->firstWhere('es_correcta', true);
 
             if ($opcion && $opcion->es_correcta) {
                 $correctas++;
             }
+
+            $quizRevision[(int) $preguntaId] = [
+                'seleccionada' => (int) $opcionId,
+                'correcta' => $opcionCorrecta?->id,
+            ];
         }
 
         $aprobado = $correctas >= 2;
@@ -128,22 +136,19 @@ class ServiciosController extends Controller
             'evento_id' => $evento->id,
             'participante_id' => $participante->id,
             'puntaje_total' => $correctas,
-            'habilitado_ruleta' => $aprobado,
-            'estado' => $aprobado ? 'en_proceso' : 'finalizado',
+            'habilitado_ruleta' => true,
+            'estado' => 'en_proceso',
             'fecha_juego' => now(),
         ]);
 
         session([
             $this->sessionKey($evento->id, 'quiz_aprobado') => $aprobado,
             $this->sessionKey($evento->id, 'intento_id') => $intento->id,
+            $this->sessionKey($evento->id, 'quiz_revision') => $quizRevision,
             $this->sessionKey($evento->id, 'spin_realizado') => false,
         ]);
 
-        if (! $aprobado) {
-            return back()->withErrors(['promocion' => 'Obtuviste ' . $correctas . '/3. Necesitas al menos 2 respuestas correctas para girar la ruleta.']);
-        }
-
-        return back()->with('promocion_ok', 'Buen trabajo: ' . $correctas . '/3. Ya puedes girar una vez la ruleta.');
+        return back()->with('promocion_ok', 'Cuestionario completado: ' . $correctas . '/3. Ya puedes girar una vez la ruleta.');
     }
 
     public function girarPromocion(Request $request, int $eventoId)
@@ -161,7 +166,7 @@ class ServiciosController extends Controller
             ->where('id', '=', $intentoId, 'and')
             ->first();
 
-        if (! $intento || ! $intento->habilitado_ruleta) {
+        if (! $intento) {
             return back()->withErrors(['promocion' => 'No tienes un intento habilitado para ruleta.']);
         }
 
@@ -285,6 +290,7 @@ class ServiciosController extends Controller
                 'preguntas' => collect(),
                 'premiosRuleta' => collect(),
                 'intento' => null,
+                'quizRevision' => [],
                 'premioGanado' => null,
                 'spinRealizado' => false,
                 'eventoDisponibleParaJugar' => false,
@@ -306,6 +312,7 @@ class ServiciosController extends Controller
                 $this->sessionKey($evento->id, 'spin_realizado'),
                 $this->sessionKey($evento->id, 'intento_id'),
                 $this->sessionKey($evento->id, 'preguntas_ids'),
+                $this->sessionKey($evento->id, 'quiz_revision'),
                 $this->sessionKey($evento->id, 'premio'),
             ]);
         }
@@ -365,6 +372,7 @@ class ServiciosController extends Controller
             'preguntas' => $preguntas,
             'premiosRuleta' => $premiosRuleta,
             'intento' => $intento,
+            'quizRevision' => (array) session($this->sessionKey($evento->id, 'quiz_revision'), []),
             'premioGanado' => session($this->sessionKey($evento->id, 'premio')),
             'spinRealizado' => (bool) session($this->sessionKey($evento->id, 'spin_realizado'), false),
             'eventoDisponibleParaJugar' => $eventoDisponibleParaJugar,
