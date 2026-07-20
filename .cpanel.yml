@@ -1,11 +1,10 @@
----
 deployment:
   tasks:
-    - /bin/bash -lc 'cd /home/msaautom/repositories/msa_proyecto && /opt/cpanel/ea-php83/root/usr/bin/php /opt/cpanel/composer/bin/composer install --no-dev --optimize-autoloader --no-interaction'
-    - /bin/bash -lc 'cd /home/msaautom/repositories/msa_proyecto && /opt/cpanel/ea-php83/root/usr/bin/php artisan optimize:clear'
-    - /bin/bash -lc 'cd /home/msaautom/repositories/msa_proyecto && /opt/cpanel/ea-php83/root/usr/bin/php artisan filament:upgrade'
-    - /bin/bash -lc 'cd /home/msaautom/repositories/msa_proyecto && /opt/cpanel/ea-php83/root/usr/bin/php artisan filament:assets'
-    - /bin/bash -lc 'cd /home/msaautom/repositories/msa_proyecto && /opt/cpanel/ea-php83/root/usr/bin/php artisan migrate --force'
-    - /bin/bash -lc 'cd /home/msaautom/repositories/msa_proyecto && /opt/cpanel/ea-php83/root/usr/bin/php artisan config:cache'
-    - /bin/bash -lc 'cd /home/msaautom/repositories/msa_proyecto && /opt/cpanel/ea-php83/root/usr/bin/php artisan route:cache'
-    - /bin/bash -lc 'cd /home/msaautom/repositories/msa_proyecto && /opt/cpanel/ea-php83/root/usr/bin/php artisan view:cache'
+    - /opt/cpanel/ea-php83/root/usr/bin/php /opt/cpanel/composer/bin/composer install --working-dir=/home/msaautom/repositories/msa_proyecto --no-dev --optimize-autoloader --no-interaction
+    - /opt/cpanel/ea-php83/root/usr/bin/php /home/msaautom/repositories/msa_proyecto/artisan optimize:clear
+    - /opt/cpanel/ea-php83/root/usr/bin/php /home/msaautom/repositories/msa_proyecto/artisan filament:upgrade
+    - /opt/cpanel/ea-php83/root/usr/bin/php /home/msaautom/repositories/msa_proyecto/artisan filament:assets
+    - /opt/cpanel/ea-php83/root/usr/bin/php /home/msaautom/repositories/msa_proyecto/artisan migrate --force
+    - /opt/cpanel/ea-php83/root/usr/bin/php /home/msaautom/repositories/msa_proyecto/artisan config:cache
+    - /opt/cpanel/ea-php83/root/usr/bin/php /home/msaautom/repositories/msa_proyecto/artisan route:cache
+    - /opt/cpanel/ea-php83/root/usr/bin/php /home/msaautom/repositories/msa_proyecto/artisan view:cache
