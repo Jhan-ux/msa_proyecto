@@ -11,18 +11,20 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('seminuevos', function (Blueprint $table) {
-            $table->id();
-            $table->string('nombre');
-            $table->string('slug')->unique();
-            $table->text('descripcion')->nullable();
-            $table->string('imagen')->nullable();
-            $table->decimal('precio', 12, 2)->nullable();
-            $table->decimal('precio_dolares', 12, 2)->nullable();
-            $table->boolean('activo')->default(true);
-            $table->integer('orden')->default(0);
-            $table->timestamps();
-        });
+        if (! Schema::hasTable('seminuevos')) {
+            Schema::create('seminuevos', function (Blueprint $table) {
+                $table->id();
+                $table->string('nombre');
+                $table->string('slug')->unique();
+                $table->text('descripcion')->nullable();
+                $table->string('imagen')->nullable();
+                $table->decimal('precio', 12, 2)->nullable();
+                $table->decimal('precio_dolares', 12, 2)->nullable();
+                $table->boolean('activo')->default(true);
+                $table->integer('orden')->default(0);
+                $table->timestamps();
+            });
+        }
     }
 
     /**
