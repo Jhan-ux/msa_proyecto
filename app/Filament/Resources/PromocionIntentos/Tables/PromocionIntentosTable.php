@@ -22,7 +22,6 @@ class PromocionIntentosTable
                     ->label('Participante')
                     ->searchable(),
                 TextColumn::make('puntaje_total')
-                    ->numeric()
                     ->sortable(),
                 IconColumn::make('habilitado_ruleta')
                     ->boolean(),

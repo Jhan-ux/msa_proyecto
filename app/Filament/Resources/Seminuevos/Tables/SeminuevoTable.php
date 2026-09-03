@@ -27,18 +27,15 @@ class SeminuevoTable
                     ->toggleable(isToggledHiddenByDefault: true),
                 TextColumn::make('precio')
                     ->label('Precio S/')
-                    ->numeric()
                     ->sortable()
                     ->toggleable(),
                 TextColumn::make('precio_dolares')
                     ->label('Precio $')
-                    ->numeric()
                     ->sortable()
                     ->toggleable(),
                 IconColumn::make('activo')
                     ->boolean(),
                 TextColumn::make('orden')
-                    ->numeric()
                     ->sortable(),
                 TextColumn::make('created_at')
                     ->dateTime()

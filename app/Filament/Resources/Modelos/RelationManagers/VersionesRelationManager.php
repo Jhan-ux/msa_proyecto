@@ -66,17 +66,14 @@ class VersionesRelationManager extends RelationManager
                     ->searchable(),
                 TextColumn::make('precio')
                     ->label('Precio S/')
-                    ->numeric()
                     ->sortable(),
                 TextColumn::make('precio_dolares')
                     ->label('Precio $')
-                    ->numeric()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
                 IconColumn::make('activo')
                     ->boolean(),
                 TextColumn::make('orden')
-                    ->numeric()
                     ->sortable(),
             ])
             ->headerActions([

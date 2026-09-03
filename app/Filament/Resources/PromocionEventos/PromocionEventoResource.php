@@ -35,6 +35,11 @@ class PromocionEventoResource extends Resource
         return 'Promociones';
     }
 
+    public static function canViewAny(): bool
+    {
+        return auth()->user()?->isAdmin() ?? false;
+    }
+
     public static function form(Schema $schema): Schema
     {
         return PromocionEventoForm::configure($schema);

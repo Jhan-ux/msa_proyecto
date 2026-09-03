@@ -6,18 +6,18 @@
 
 @section('content')
 
-<main style="min-height:60vh;display:flex;align-items:center;justify-content:center;flex-direction:column;padding:40px 16px;">
-    <div style="width:100%;max-width:780px;">
+<main class="lr-page-main">
+    <div class="lr-page-wrapper">
 
         @if(session('success'))
-            <div style="background:#d4edda;color:#155724;padding:14px 18px;border-radius:6px;margin-bottom:20px;">
+            <div class="alert-box alert-box--success">
                 {{ session('success') }}
             </div>
         @endif
 
         @if($errors->any())
-            <div style="background:#f8d7da;color:#721c24;padding:14px 18px;border-radius:6px;margin-bottom:20px;">
-                <ul style="margin:0;padding-left:18px;">
+            <div class="alert-box alert-box--error">
+                <ul class="alert-box__list">
                     @foreach($errors->all() as $error)<li>{{ $error }}</li>@endforeach
                 </ul>
             </div>
@@ -28,7 +28,7 @@
             {{-- CABECERA --}}
             <div class="lr-company-header">
                 <div class="lr-company-logo">
-                    <img src="{{ asset('img/logo_msa.jpeg') }}" alt="MSA Automotriz" style="max-height:56px;">
+                    <img src="{{ asset('img/logo_msa.jpeg') }}" alt="MSA Automotriz">
                 </div>
                 <div class="lr-company-info">
                     <strong>MSA Automotriz S.A.A.</strong><br>
@@ -68,7 +68,7 @@
                 </div>
 
                 <div class="lr-row">
-                    <div class="lr-col lr-col-auto" style="max-width:200px;">
+                    <div class="lr-col lr-col-auto lr-col-doc">
                         <select class="lr-select" name="tipo_documento">
                             <option value="DNI"       {{ old('tipo_documento','DNI') == 'DNI'       ? 'selected' : '' }}>DNI</option>
                             <option value="CE"        {{ old('tipo_documento')        == 'CE'        ? 'selected' : '' }}>CE</option>
@@ -361,17 +361,8 @@
     </div>
 </main>
 
-<script>
-    // Mostrar/ocultar campos del apoderado según el checkbox
-    const chkMenor = document.getElementById('menorDeEdad');
-    const apoderadoFields = document.getElementById('apoderadoFields');
+@endsection
 
-    function toggleApoderado() {
-        apoderadoFields.style.display = chkMenor.checked ? 'block' : 'none';
-    }
-
-    chkMenor.addEventListener('change', toggleApoderado);
-    toggleApoderado(); // estado inicial
-</script>
-
+@section('scripts')
+<script src="{{ asset('js/libro_reclamaciones.js') }}"></script>
 @endsection

@@ -1,182 +1,572 @@
-/* ===========================
-   ESTILOS - PÁGINA SERVICIOS
-   /css/servicios.css
-=========================== */
+/* ==========================================================================
+   MSA AUTOMOTRIZ — CATÁLOGO DE SERVICIOS & POSVENTA (ESTILO OFICIAL MITSUI)
+   ========================================================================== */
 
-.servicios-section {
-    padding: 60px 24px 60px;
-    max-width: 1300px;
+/* ── 1. HERO PRINCIPAL DE POSVENTA ── */
+.posventa-hero {
+    position: relative;
+    height: clamp(400px, 55vh, 580px);
+    background-color: var(--color-black, #111111);
+    display: flex;
+    align-items: flex-end;
+    overflow: hidden;
+    border-bottom: 4px solid var(--color-primary, #d90429);
+}
+
+.posventa-hero__bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center 35%;
+    opacity: 0.7;
+    transform: scale(1.02);
+    transition: transform 10s ease;
+}
+
+.posventa-hero:hover .posventa-hero__bg {
+    transform: scale(1.05);
+}
+
+.posventa-hero__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.3) 0%, rgba(17, 17, 17, 0.95) 100%);
+}
+
+.posventa-hero__content {
+    position: relative;
+    z-index: 2;
+    padding: 0 32px 48px;
+    max-width: 1400px;
+    width: 100%;
     margin: 0 auto;
-    text-align: center;
-    background: linear-gradient(180deg, #f7f7f7 0%, #efefef 100%);
-    border-radius: 18px;
+    color: var(--color-white, #ffffff);
 }
 
-.servicios-section .section-title {
-    font-size: 1.8rem;
+.posventa-hero__badge {
+    display: inline-block;
+    background: var(--color-primary, #d90429);
+    color: var(--color-white, #ffffff);
+    font-size: 0.74rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 5px 14px;
+    border-radius: var(--radius-sm, 6px);
+    margin-bottom: 12px;
+    box-shadow: 0 4px 14px rgba(217, 4, 41, 0.4);
+}
+
+.posventa-hero__title {
+    font-size: clamp(2.4rem, 4.2vw, 3.5rem);
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
+    margin: 0 0 10px 0;
+    line-height: 1.12;
+}
+
+.posventa-hero__sub {
+    font-size: 1.05rem;
+    color: rgba(255, 255, 255, 0.88);
+    max-width: 720px;
+    line-height: 1.6;
+    margin: 0 0 24px 0;
+}
+
+/* Trust Pills */
+.posventa-hero__pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.posventa-hero__pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    border-radius: 30px;
+    padding: 6px 14px;
+    font-size: 0.82rem;
     font-weight: 700;
-    color: #111111;
-    margin-bottom: 8px;
+    color: #ffffff;
 }
 
-.servicios-section .section-title::after {
-    content: '';
-    display: block;
-    width: 50px;
-    height: 3px;
-    background-color: #cc1111;
-    margin: 10px auto 0;
-    border-radius: 2px;
+.posventa-hero__pill svg {
+    color: var(--color-primary, #d90429);
 }
 
-.servicios-section .section-subtitle {
-    color: #555;
-    font-size: 0.95rem;
-    margin-top: 14px;
-    margin-bottom: 44px;
+/* ── 2. CONTENEDOR GENERAL ── */
+.posventa-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 32px;
 }
 
-.servicios-grid {
+/* ── 3. PILARES DE CALIDAD / BENEFICIOS (CARDS FLOTANTES) ── */
+.posventa-pillars-section {
+    margin-top: -30px;
+    position: relative;
+    z-index: 10;
+    margin-bottom: 50px;
+}
+
+.posventa-pillars-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 24px;
-    text-align: left;
+    gap: 18px;
 }
 
-.servicio-card {
+.posventa-pillar-card {
     background: #ffffff;
-    border: 1px solid #dfdfdf;
-    border-radius: 12px;
-    overflow: hidden;
+    border: 1px solid var(--color-border, #e5e7eb);
+    border-radius: 10px;
+    padding: 22px 20px;
     display: flex;
-    flex-direction: column;
-    transition: transform 0.22s, box-shadow 0.22s, border-color 0.22s;
-    text-decoration: none;
-    color: inherit;
+    align-items: flex-start;
+    gap: 14px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+    transition: all var(--transition-fast, 0.2s ease);
 }
 
-.servicio-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 18px 36px rgba(0, 0, 0, 0.16);
-    border-color: #cc1111;
+.posventa-pillar-card:hover {
+    transform: translateY(-3px);
+    border-color: var(--color-primary, #d90429);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.1);
 }
 
-.servicio-card__img {
-    width: 100%;
-    height: 200px;
-    background-color: #f5f5f5;
-    background-size: cover;
-    background-position: center;
-    flex-shrink: 0;
+.posventa-pillar-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 8px;
+    background: rgba(217, 4, 41, 0.06);
+    border: 1px solid rgba(217, 4, 41, 0.15);
+    color: var(--color-primary, #d90429);
     display: flex;
     align-items: center;
     justify-content: center;
-    filter: saturate(1.07) contrast(1.04);
-    transition: transform 0.28s ease, filter 0.28s ease;
+    flex-shrink: 0;
 }
 
-.servicio-card:hover .servicio-card__img {
-    transform: scale(1.03);
-    filter: saturate(1.14) contrast(1.08);
-}
-
-.servicio-card__img-placeholder {
+.posventa-pillar-content {
     display: flex;
     flex-direction: column;
+    gap: 4px;
+}
+
+.posventa-pillar-title {
+    font-size: 0.94rem;
+    font-weight: 800;
+    color: var(--color-black, #111111);
+    margin: 0;
+}
+
+.posventa-pillar-desc {
+    font-size: 0.8rem;
+    color: var(--color-text-muted, #737373);
+    line-height: 1.45;
+    margin: 0;
+}
+
+/* ── 4. CATÁLOGO DE SERVICIOS POSVENTA (GRILLA 3 COLUMNAS) ── */
+.posventa-servicios-section {
+    padding: 20px 0 80px;
+}
+
+.posventa-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.posventa-card {
+    background: #ffffff;
+    border: 1px solid var(--color-border, #e5e7eb);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    transition: all var(--transition-base, 0.28s ease);
+    position: relative;
+}
+
+.posventa-card:hover {
+    border-color: var(--color-primary, #d90429);
+    box-shadow: 0 14px 32px rgba(0, 0, 0, 0.1);
+    transform: translateY(-5px);
+}
+
+.posventa-card__media {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    background: #1a1a1a;
+    overflow: hidden;
+}
+
+.posventa-card__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.posventa-card:hover .posventa-card__img {
+    transform: scale(1.06);
+}
+
+.posventa-card__placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.posventa-card__badge {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: rgba(17, 17, 17, 0.88);
+    backdrop-filter: blur(6px);
+    border-left: 3px solid var(--color-primary, #d90429);
+    color: #ffffff;
+    font-size: 0.68rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 4px 9px;
+    border-radius: 4px;
+}
+
+.posventa-card__body {
+    padding: 24px 22px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.posventa-card__title {
+    font-size: 1.25rem;
+    font-weight: 900;
+    text-transform: capitalize;
+    color: var(--color-black, #111111);
+    margin: 0 0 8px 0;
+    letter-spacing: -0.01em;
+}
+
+.posventa-card__desc {
+    font-size: 0.88rem;
+    color: var(--color-text-secondary, #4a4a4a);
+    line-height: 1.55;
+    margin: 0 0 20px 0;
+    flex: 1;
+}
+
+.posventa-card__footer {
+    margin-top: auto;
+    padding-top: 16px;
+    border-top: 1px solid #f1f3f5;
+}
+
+.posventa-card__btn {
+    display: inline-flex;
     align-items: center;
     gap: 8px;
-    opacity: 0.5;
+    font-size: 0.84rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--color-primary, #d90429);
+    transition: transform var(--transition-fast, 0.18s ease);
 }
 
-.servicio-card__img-placeholder svg {
-    width: 52px;
-    height: 52px;
+.posventa-card:hover .posventa-card__btn {
+    transform: translateX(4px);
 }
 
-.servicio-card__body {
-    padding: 18px 20px 20px;
+.posventa-empty {
+    text-align: center;
+    grid-column: 1 / -1;
+    color: var(--color-text-muted, #737373);
+    font-size: 1rem;
+    padding: 40px;
+}
+
+/* ── 5. BANNER CTA DE CITA & ATENCIÓN DIRECTA ── */
+.posventa-cta-banner {
+    background: #f8f9fa;
+    border-top: 1px solid #e9ecef;
+    padding: 70px 0 90px;
+}
+
+.posventa-cta-box {
+    background: #141414;
+    border-top: 4px solid var(--color-primary, #d90429);
+    border-radius: 14px;
+    padding: 48px 44px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.15);
+}
+
+.posventa-cta-content {
+    max-width: 680px;
+}
+
+.posventa-cta-tag {
+    display: inline-block;
+    color: var(--color-primary, #d90429);
+    font-size: 0.74rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 8px;
+}
+
+.posventa-cta-title {
+    font-size: clamp(1.6rem, 2.8vw, 2.2rem);
+    font-weight: 900;
+    color: #ffffff;
+    line-height: 1.2;
+    margin: 0 0 12px 0;
+}
+
+.posventa-cta-desc {
+    font-size: 0.94rem;
+    color: #a0a0a0;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.posventa-cta-actions {
     display: flex;
     flex-direction: column;
-    flex: 1;
-    border-top: 3px solid #cc1111;
+    gap: 12px;
+    min-width: 260px;
 }
 
-.servicio-card__title {
-    font-size: 1.3rem;
+.posventa-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 13px 22px;
+    border-radius: var(--radius-sm, 6px);
+    font-size: 0.88rem;
     font-weight: 800;
-    color: #111;
-    margin-bottom: 10px;
-    transition: color 0.2s ease;
-}
-
-.servicio-card:hover .servicio-card__title {
-    color: #cc1111;
-}
-
-.servicio-card__desc {
-    font-size: 0.98rem;
-    color: #666;
-    line-height: 1.5;
-    margin-bottom: 0;
-    flex: 1;
-    max-height: 0;
-    overflow: hidden;
-    opacity: 0;
-    transition: max-height 0.32s ease, opacity 0.28s ease, margin-bottom 0.32s ease;
-}
-
-.servicio-card:hover .servicio-card__desc {
-    max-height: 180px;
-    opacity: 1;
-    margin-bottom: 22px;
-}
-
-.servicio-card__btn {
-    display: inline-block;
-    background: #cc1111;
-    color: #fff;
-    font-size: 0.85rem;
-    font-weight: 700;
-    padding: 10px 20px;
-    border-radius: 6px;
-    border: 1px solid #cc1111;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
     text-decoration: none;
-    letter-spacing: 0.03em;
-    transition: background 0.2s, border-color 0.2s;
-    align-self: flex-start;
+    transition: all var(--transition-fast, 0.18s ease);
+    min-height: 44px;
 }
 
-.servicio-card__btn:hover {
-    background: #a90e0e;
-    border-color: #a90e0e;
-    color: #fff;
+.posventa-cta-btn--primary {
+    background: var(--color-primary, #d90429);
+    color: #ffffff;
+    box-shadow: 0 4px 14px rgba(217, 4, 41, 0.35);
 }
 
-/* ---- Responsive ---- */
+.posventa-cta-btn--primary:hover {
+    background: var(--color-primary-hover, #b90222);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(217, 4, 41, 0.45);
+}
+
+.posventa-cta-btn--wa {
+    background: var(--color-wa-green, #25d366);
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.25);
+}
+
+.posventa-cta-btn--wa:hover {
+    background: var(--color-wa-hover, #20ba5a);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(37, 211, 102, 0.35);
+}
+
+/* ── 6. RESPONSIVE DESIGN ── */
 @media (max-width: 1200px) {
-    .servicios-grid {
-        grid-template-columns: repeat(3, 1fr);
+    .posventa-pillars-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
-}
-
-@media (max-width: 900px) {
-    .servicios-grid {
+    
+    .posventa-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 }
 
-@media (max-width: 600px) {
-    .servicios-grid {
+@media (max-width: 900px) {
+    .posventa-hero {
+        height: auto;
+        min-height: 320px;
+        align-items: center;
+        padding-top: 20px;
+    }
+
+    .posventa-hero__content {
+        padding: 30px 24px 34px;
+    }
+
+    .posventa-hero__title {
+        font-size: 2.2rem;
+    }
+
+    .posventa-hero__sub {
+        font-size: 0.92rem;
+        margin-bottom: 18px;
+    }
+
+    .posventa-hero__pills {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+    }
+
+    .posventa-hero__pill {
+        padding: 6px 12px;
+        font-size: 0.76rem;
+        justify-content: center;
+    }
+
+    .posventa-pillars-section {
+        margin-top: 20px;
+        margin-bottom: 36px;
+    }
+
+    .posventa-cta-box {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 32px 24px;
+    }
+
+    .posventa-cta-actions {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .posventa-cta-btn {
+        width: 100%;
+    }
+}
+
+@media (max-width: 640px) {
+    .posventa-container {
+        padding: 0 16px;
+    }
+
+    .posventa-hero {
+        min-height: 280px;
+        padding-top: 10px;
+    }
+
+    .posventa-hero__content {
+        padding: 24px 16px 26px;
+    }
+
+    .posventa-hero__badge {
+        font-size: 0.68rem;
+        padding: 4px 10px;
+        margin-bottom: 8px;
+    }
+
+    .posventa-hero__title {
+        font-size: 1.75rem;
+        margin-bottom: 6px;
+    }
+
+    .posventa-hero__sub {
+        font-size: 0.84rem;
+        margin-bottom: 14px;
+        line-height: 1.45;
+    }
+
+    .posventa-hero__pills {
+        grid-template-columns: 1fr 1fr;
+        gap: 6px;
+    }
+
+    .posventa-hero__pill {
+        padding: 5px 8px;
+        font-size: 0.7rem;
+        gap: 5px;
+    }
+
+    .posventa-hero__pill svg {
+        width: 13px;
+        height: 13px;
+    }
+
+    .posventa-pillars-section {
+        margin-top: 14px;
+        margin-bottom: 24px;
+    }
+
+    .posventa-pillars-grid {
         grid-template-columns: 1fr;
+        gap: 10px;
     }
 
-    .servicio-card__img {
-        height: 190px;
+    .posventa-pillar-card {
+        padding: 14px 16px;
+        gap: 12px;
     }
 
-    .servicio-card__desc {
-        max-height: 180px;
-        opacity: 1;
-        margin-bottom: 16px;
+    .posventa-pillar-icon {
+        width: 38px;
+        height: 38px;
+    }
+
+    .posventa-pillar-title {
+        font-size: 0.88rem;
+    }
+
+    .posventa-pillar-desc {
+        font-size: 0.78rem;
+    }
+
+    .posventa-servicios-section {
+        padding: 10px 0 45px;
+    }
+
+    .posventa-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+        margin-top: 24px;
+    }
+
+    .posventa-card__media {
+        height: 165px;
+    }
+
+    .posventa-card__body {
+        padding: 18px 16px;
+    }
+
+    .posventa-cta-banner {
+        padding: 35px 0 50px;
+    }
+
+    .posventa-cta-box {
+        padding: 24px 18px;
+    }
+
+    .posventa-cta-title {
+        font-size: 1.35rem;
+    }
+
+    .posventa-cta-desc {
+        font-size: 0.84rem;
     }
 }

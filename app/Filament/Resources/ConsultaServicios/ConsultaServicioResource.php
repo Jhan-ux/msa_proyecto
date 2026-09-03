@@ -33,6 +33,11 @@ class ConsultaServicioResource extends Resource
         return 'Comunicaciones';
     }
 
+    public static function canViewAny(): bool
+    {
+        return auth()->user()?->isAdmin() ?? false;
+    }
+
     public static function form(Schema $schema): Schema
     {
         return ConsultaServicioForm::configure($schema);

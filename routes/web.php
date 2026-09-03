@@ -29,7 +29,9 @@ Route::get('/locales/{id}', [LocalesController::class, 'show'])->name('locales.s
 //Seminuevos
 Route::get('/seminuevos/{slug}', [ServiciosController::class, 'showSeminuevo'])->name('seminuevos.show');
 // Transporte y Renting
+Route::get('/transporte-renting', [TransporteRentingController::class, 'index'])->name('transporte-renting');
 Route::get('/transporte-renting/{slug}', [TransporteRentingController::class, 'show'])->name('transporte-renting.show');
+Route::post('/transporte-renting/{slug}/consultar', [TransporteRentingController::class, 'consultar'])->name('transporte-renting.consultar');
 
 // Marcas
 Route::get('/marcas', [MarcaController::class, 'index'])->name('marcas.index');
@@ -43,3 +45,9 @@ Route::post('/contacto', [ContactoController::class, 'store'])->name('contacto.s
 // Libro de Reclamaciones
 Route::get('/libro-reclamaciones', [LibroReclamacionesController::class, 'index'])->name('libro-reclamaciones');
 Route::post('/libro-reclamaciones', [LibroReclamacionesController::class, 'store'])->name('libro-reclamaciones.store');
+
+// Términos y Condiciones
+Route::get('/terminos-condiciones', function () {
+    return view('terminos-condiciones');
+})->name('terminos-condiciones');
+

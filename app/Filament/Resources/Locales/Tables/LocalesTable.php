@@ -32,7 +32,6 @@ class LocalesTable
                 IconColumn::make('activo')
                     ->boolean(),
                 TextColumn::make('orden')
-                    ->numeric()
                     ->sortable(),
             ])
             ->defaultSort('orden')

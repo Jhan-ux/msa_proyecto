@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Marca extends Model
 {
     protected $fillable = [
-        'nombre', 'slug', 'descripcion', 'imagen', 'imagen_hero', 'activo', 'orden',
+        'nombre', 'categoria_vehiculo', 'slug', 'descripcion', 'imagen', 'imagen_hero', 'activo', 'orden',
     ];
 
     protected $casts = ['activo' => 'boolean'];

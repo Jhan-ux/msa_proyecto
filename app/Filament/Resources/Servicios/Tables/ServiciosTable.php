@@ -29,7 +29,6 @@ class ServiciosTable
                 IconColumn::make('activo')
                     ->boolean(),
                 TextColumn::make('orden')
-                    ->numeric()
                     ->sortable(),
                 TextColumn::make('created_at')
                     ->dateTime()

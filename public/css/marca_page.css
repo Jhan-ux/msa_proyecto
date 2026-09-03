@@ -1,137 +1,341 @@
-/* ===========================
-   PÁGINAS DE MARCA
-   /marcas/marca_page.css
-=========================== */
+/* ==========================================================================
+   MSA AUTOMOTRIZ — PÁGINA DE MARCA Y MODELOS (100% BLANCO PURO)
+   ========================================================================== */
 
-/* ---- Hero de la marca ---- */
-.marca-hero {
-    position: relative;
-    height: 400px;
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    align-items: flex-end;
+.models-section {
+    padding: 36px 0 80px;
+    background: #ffffff;
 }
 
-.marca-hero__overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-        to top,
-        rgba(0, 0, 0, 0.90) 0%,
-        rgba(0, 0, 0, 0.45) 50%,
-        rgba(0, 0, 0, 0.15) 100%
-    );
+.models-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 32px;
 }
 
-.marca-hero__content {
-    position: relative;
-    z-index: 1;
-    padding: 0 52px 50px;
-    color: #ffffff;
-}
-
-.marca-hero__badge {
-    display: inline-block;
-    background-color: #cc1111;
-    color: #fff;
-    font-size: 0.7rem;
-    font-weight: 700;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    padding: 4px 12px;
-    border-radius: 3px;
-    margin-bottom: 12px;
-}
-
-.marca-hero__name {
-    font-size: 3.2rem;
-    font-weight: 900;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    line-height: 1;
-    margin-bottom: 12px;
-    text-shadow: 0 2px 14px rgba(0, 0, 0, 0.55);
+/* ── 1. ENCABEZADO DE LA MARCA ── */
+.marca-header {
     display: flex;
     align-items: center;
-    gap: 16px;
+    gap: 28px;
+    background: #ffffff;
+    border: 1px solid var(--color-border, #e5e7eb);
+    border-top: 3.5px solid var(--color-primary, #d90429);
+    border-radius: 16px;
+    padding: 26px 32px;
+    margin-bottom: 32px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
 }
 
-.marca-hero__name i {
-    font-size: 2.6rem;
-    opacity: 0.9;
+/* Logo de la Marca en Blanco Puro */
+.marca-header__logo-wrap {
+    width: 120px;
+    height: 84px;
+    background: #ffffff;
+    border: 1px solid #e9ecef;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    flex-shrink: 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
 }
 
-.marca-hero__tagline {
-    font-size: 1rem;
-    color: rgba(255, 255, 255, 0.82);
-    margin-bottom: 22px;
-    max-width: 500px;
+.marca-header__logo {
+    max-height: 62px;
+    max-width: 104px;
+    object-fit: contain;
+    background: #ffffff;
 }
 
-.marca-hero__btn {
+.marca-header__info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.marca-header__tags {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 6px;
+    flex-wrap: wrap;
+}
+
+.marca-header__tag {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    background-color: #cc1111;
-    color: #fff;
-    font-size: 0.88rem;
+    font-size: 0.72rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: var(--color-primary, #d90429);
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    padding: 4px 14px;
+    border-radius: 20px;
+    letter-spacing: 0.06em;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+}
+
+.tag-dot {
+    width: 6px;
+    height: 6px;
+    background: var(--color-primary, #d90429);
+    border-radius: 50%;
+    box-shadow: 0 0 6px var(--color-primary, #d90429);
+}
+
+.marca-header__title {
+    font-size: clamp(1.9rem, 3.2vw, 2.5rem);
+    font-weight: 900;
+    text-transform: uppercase;
+    color: var(--color-black, #111111);
+    margin: 0 0 6px 0;
+    letter-spacing: -0.01em;
+}
+
+.marca-header__desc {
+    font-size: 0.95rem;
+    color: var(--color-text-secondary, #4a4a4a);
+    line-height: 1.55;
+    margin: 0;
+}
+
+/* ── 2. PESTAÑAS DE FILTRO POR CATEGORÍA ── */
+.marca-tabs {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 28px;
+}
+
+.marca-tab {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 18px;
+    background: #ffffff;
+    border: 1px solid var(--color-border, #e5e7eb);
+    border-radius: 30px;
+    font-size: 0.84rem;
     font-weight: 700;
-    padding: 11px 26px;
-    border-radius: 24px;
+    color: var(--color-text-main, #111111);
+    cursor: pointer;
+    transition: all var(--transition-fast, 0.18s ease);
+}
+
+.marca-tab:hover {
+    border-color: var(--color-primary, #d90429);
+    color: var(--color-primary, #d90429);
+}
+
+.marca-tab.active {
+    background: var(--color-primary, #d90429);
+    color: #ffffff;
+    border-color: var(--color-primary, #d90429);
+    box-shadow: 0 4px 12px rgba(217, 4, 41, 0.35);
+}
+
+.fade-in-card {
+    animation: fadeIn 0.35s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ── 3. GRILLA DE MODELOS ── */
+.models-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+    gap: 28px;
+}
+
+.model-card {
+    background: #ffffff;
+    border: 1px solid var(--color-border, #e5e7eb);
+    border-top: 3.5px solid var(--color-primary, #d90429);
+    border-radius: 16px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
     text-decoration: none;
-    transition: background-color 0.2s, transform 0.18s;
+    transition: all var(--transition-base, 0.28s ease);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+    position: relative;
 }
 
-.marca-hero__btn:hover {
-    background-color: #a80d0d;
-    transform: translateY(-2px);
+.model-card:hover {
+    border-color: rgba(217, 4, 41, 0.4);
+    border-top-color: var(--color-primary, #d90429);
+    box-shadow: 0 14px 34px rgba(217, 4, 41, 0.12);
+    transform: translateY(-6px);
 }
 
-/* ---- Breadcrumb ---- */
-.marca-breadcrumb {
-    background-color: #f4f4f4;
-    border-bottom: 1px solid #e2e2e2;
-    padding: 11px 52px;
+.model-card__media {
+    position: relative;
+    width: 100%;
+    height: 190px;
+    background: #ffffff;
+    border-bottom: 1px solid #e9ecef;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+}
+
+.model-card__img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    background: #ffffff;
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.model-card:hover .model-card__img {
+    transform: scale(1.06);
+}
+
+.model-card__placeholder {
+    color: #9ca3af;
+}
+
+.model-card__badge {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: #111111;
+    color: #ffffff;
+    font-size: 0.68rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 4px;
+    border-left: 2px solid var(--color-primary, #d90429);
+}
+
+.model-card__body {
+    padding: 22px 20px 20px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.model-card__name {
+    font-size: 1.25rem;
+    font-weight: 900;
+    color: var(--color-black, #111111);
+    margin: 0 0 6px 0;
+    letter-spacing: -0.01em;
+}
+
+.model-card__desc {
+    font-size: 0.86rem;
+    color: var(--color-text-secondary, #4a4a4a);
+    line-height: 1.5;
+    margin: 0 0 16px 0;
+    flex: 1;
+}
+
+.model-card__price-box {
+    background: #ffffff;
+    border: 1px solid #e9ecef;
+    border-radius: 6px;
+    padding: 8px 12px;
+    margin-bottom: 16px;
+}
+
+.model-card__price-label {
+    display: block;
+    font-size: 0.68rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--color-text-muted, #737373);
+}
+
+.model-card__price-row {
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+}
+
+.model-card__price {
+    font-size: 1.25rem;
+    font-weight: 900;
+    color: var(--color-primary, #d90429);
+}
+
+.model-card__price-usd {
     font-size: 0.82rem;
-    color: #777;
+    color: var(--color-text-muted, #737373);
+    font-weight: 600;
 }
 
-.marca-breadcrumb a {
-    color: #cc1111;
-    text-decoration: none;
+.model-card__btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--color-primary, #d90429);
+    color: #ffffff;
+    font-size: 0.84rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    padding: 10px 16px;
+    border-radius: var(--radius-sm, 6px);
+    box-shadow: 0 4px 14px rgba(217, 4, 41, 0.3);
+    transition: all var(--transition-fast, 0.18s ease);
+    min-height: 42px;
 }
 
-.marca-breadcrumb a:hover {
-    text-decoration: underline;
+.model-card:hover .model-card__btn {
+    background: var(--color-primary-hover, #b90222);
+    box-shadow: 0 6px 20px rgba(217, 4, 41, 0.45);
+    transform: translateY(-1px);
 }
 
-.marca-breadcrumb span {
-    margin: 0 7px;
-    color: #bbb;
+.model-card__btn svg {
+    transition: transform 0.2s ease;
 }
 
-/* ---- Responsive ---- */
-@media (max-width: 900px) {
-    .marca-hero {
-        height: 300px;
-    }
-    .marca-hero__content {
-        padding: 0 24px 32px;
-    }
-    .marca-hero__name {
-        font-size: 2.2rem;
-    }
-    .marca-breadcrumb {
-        padding: 10px 24px;
-    }
+.model-card:hover .model-card__btn svg {
+    transform: translateX(4px);
 }
 
-@media (max-width: 600px) {
-    .marca-hero {
-        height: 240px;
+.models-empty {
+    grid-column: 1 / -1;
+    text-align: center;
+    color: var(--color-text-muted, #737373);
+    padding: 48px 0;
+    font-size: 0.95rem;
+}
+
+/* ── 4. RESPONSIVE DESIGN ── */
+@media (max-width: 768px) {
+    .models-section {
+        padding: 24px 0 60px;
     }
-    .marca-hero__name {
-        font-size: 1.6rem;
+
+    .models-container {
+        padding: 0 16px;
+    }
+
+    .marca-header {
+        flex-direction: column;
+        text-align: center;
+        padding: 20px 16px;
+        gap: 16px;
+    }
+
+    .marca-header__info {
+        align-items: center;
+    }
+
+    .models-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
     }
 }

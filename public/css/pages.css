@@ -1,119 +1,106 @@
-/* ===========================
-   ESTILOS COMPARTIDOS DE PÁGINAS INTERNAS
-   (hero y breadcrumb — usado en todas las páginas internas)
-   /css/pages.css
-=========================== */
+/* ==========================================================================
+   MSA AUTOMOTRIZ — ESTILOS COMPARTIDOS DE PÁGINAS (ESTILO MITSUI)
+   ========================================================================== */
 
-/* ---- Hero de página ---- */
+/* ── Hero de Página ── */
 .page-hero {
     position: relative;
-    height: 620px;
+    height: clamp(380px, 52vh, 560px);
     background-size: cover;
-    background-position: center;
+    background-position: center 25%;
+    background-color: var(--color-black);
     display: flex;
     align-items: flex-end;
+    overflow: hidden;
+    border-bottom: 4px solid var(--color-primary);
 }
 
 .page-hero__overlay {
     position: absolute;
     inset: 0;
     background: linear-gradient(
-        to top,
-        rgba(0, 0, 0, 0.90) 0%,
-        rgba(0, 0, 0, 0.50) 50%,
-        rgba(0, 0, 0, 0.20) 100%
+        180deg,
+        rgba(0, 0, 0, 0.3) 0%,
+        rgba(17, 17, 17, 0.88) 100%
     );
 }
 
 .page-hero__content {
     position: relative;
-    z-index: 1;
-    padding: 0 52px 46px;
-    color: #ffffff;
+    z-index: 2;
+    padding: 0 32px 40px;
+    color: var(--color-white);
+    max-width: 1400px;
+    width: 100%;
+    margin: 0 auto;
 }
 
 .page-hero__badge {
     display: inline-block;
-    background-color: #cc1111;
-    color: #fff;
-    font-size: 0.7rem;
-    font-weight: 700;
-    letter-spacing: 0.14em;
+    background: var(--color-primary);
+    color: var(--color-white);
+    font-size: 0.74rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
-    padding: 4px 12px;
-    border-radius: 3px;
+    padding: 4px 14px;
+    border-radius: var(--radius-sm);
     margin-bottom: 12px;
+    box-shadow: var(--shadow-red);
 }
 
 .page-hero__title {
-    font-size: 3rem;
+    font-size: clamp(2.2rem, 4vw, 3.2rem);
     font-weight: 900;
-    letter-spacing: 0.04em;
     text-transform: uppercase;
-    line-height: 1;
-    margin-bottom: 10px;
-    text-shadow: 0 2px 14px rgba(0, 0, 0, 0.55);
-    display: flex;
-    align-items: center;
-    gap: 16px;
-}
-
-.page-hero__title i {
-    font-size: 2.4rem;
-    opacity: 0.9;
+    letter-spacing: -0.01em;
+    line-height: 1.15;
+    margin-bottom: 8px;
+    color: var(--color-white);
 }
 
 .page-hero__sub {
-    font-size: 1rem;
-    color: rgba(255, 255, 255, 0.82);
-    max-width: 520px;
+    font-size: 1.05rem;
+    color: var(--color-gray-300);
+    max-width: 620px;
+    line-height: 1.5;
 }
 
-/* ---- Breadcrumb ---- */
+/* ── Breadcrumb ── */
 .page-breadcrumb {
-    background-color: #f4f4f4;
-    border-bottom: 1px solid #e2e2e2;
-    padding: 11px 52px;
-    font-size: 0.82rem;
-    color: #777;
+    background-color: var(--color-white);
+    border-bottom: 1px solid var(--color-gray-200);
+    padding: 12px 32px;
+    font-size: 0.84rem;
+    color: var(--color-gray-600);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    max-width: 100%;
+    font-weight: 600;
 }
 
 .page-breadcrumb a {
-    color: #cc1111;
-    text-decoration: none;
+    color: var(--color-black);
 }
 
 .page-breadcrumb a:hover {
-    text-decoration: underline;
+    color: var(--color-primary);
 }
 
 .page-breadcrumb span {
-    margin: 0 7px;
-    color: #bbb;
+    color: var(--color-gray-400);
 }
 
-/* ---- Responsive ---- */
-@media (max-width: 900px) {
+@media (max-width: 768px) {
     .page-hero {
-        height: 260px;
+        height: clamp(300px, 42vh, 380px);
     }
     .page-hero__content {
-        padding: 0 24px 30px;
-    }
-    .page-hero__title {
-        font-size: 2.2rem;
+        padding: 0 20px 24px;
     }
     .page-breadcrumb {
-        padding: 10px 24px;
+        padding: 10px 20px;
     }
-}
-
-@media (max-width: 600px) {
-    .page-hero__title {
-        font-size: 1.7rem;
-    }
-}
-
-html {
-    scroll-behavior: smooth;
 }

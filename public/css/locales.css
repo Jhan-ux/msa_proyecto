@@ -1,73 +1,44 @@
-/* ===========================
-   ESTILOS - PAGINA LOCALES
-   /css/locales.css
-=========================== */
+/* ==========================================================================
+   MSA AUTOMOTRIZ — SEDES Y CONCESIONARIOS (RESPONSIVE MÓVIL Y ESCRITORIO)
+   ========================================================================== */
 
 .locales-section {
-    padding: 60px 24px 72px;
-    max-width: 1440px;
+    padding: 60px 24px 80px;
+    max-width: 1400px;
     margin: 0 auto;
-}
-
-.locales-section .section-title {
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: #111111;
-    margin-bottom: 8px;
-    text-align: center;
-}
-
-.locales-section .section-title::after {
-    content: '';
-    display: block;
-    width: 50px;
-    height: 3px;
-    background-color: #cc1111;
-    margin: 10px auto 0;
-    border-radius: 2px;
-}
-
-.locales-section .section-subtitle {
-    text-align: center;
-    color: #555;
-    font-size: 0.98rem;
-    margin-top: 14px;
-    margin-bottom: 44px;
 }
 
 .locales-grid {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
     gap: 28px;
-    align-items: stretch;
-    grid-auto-rows: 1fr;
-    max-width: 1380px;
-    margin: 0 auto;
+    margin-top: 36px;
 }
 
 .local-card {
-    background: #ffffff;
-    border: 1px solid #e2e2e2;
-    border-radius: 18px;
+    background: var(--color-white, #ffffff);
+    border: 1px solid var(--color-gray-200, #e5e7eb);
+    border-top: 3.5px solid var(--color-primary, #d90429);
+    border-radius: 14px;
     overflow: hidden;
-    transition: box-shadow 0.22s, transform 0.22s, border-color 0.22s;
     display: flex;
     flex-direction: column;
-    height: 100%;
-    box-shadow: 0 16px 36px rgba(15, 23, 42, 0.06);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+    transition: all var(--transition-base, 0.28s ease);
 }
 
 .local-card:hover {
-    box-shadow: 0 22px 46px rgba(15, 23, 42, 0.12);
-    transform: translateY(-6px);
-    border-color: #d9d9d9;
+    border-color: rgba(217, 4, 41, 0.4);
+    border-top-color: var(--color-primary, #d90429);
+    box-shadow: 0 14px 34px rgba(217, 4, 41, 0.12);
+    transform: translateY(-5px);
 }
 
 .local-card__media {
-    height: 230px;
-    background: #f3f3f3;
+    position: relative;
+    height: 200px;
+    background: var(--color-gray-100);
     overflow: hidden;
-    border-bottom: 1px solid #ececec;
 }
 
 .local-card__media img {
@@ -75,24 +46,16 @@
     height: 100%;
     object-fit: cover;
     display: block;
+    transition: transform 0.4s ease;
+}
+
+.local-card:hover .local-card__media img {
+    transform: scale(1.05);
 }
 
 .local-card__map {
     height: 100%;
-    background-color: #d8d8d8;
-}
-
-.local-card__placeholder {
     width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #8b8b8b;
-    font-size: 0.88rem;
-    font-weight: 600;
-    letter-spacing: 0.03em;
-    text-transform: uppercase;
 }
 
 .local-card__map iframe {
@@ -102,19 +65,34 @@
     display: block;
 }
 
+.local-card__badge-live {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: var(--color-black);
+    color: var(--color-white);
+    font-size: 0.7rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    padding: 4px 8px;
+    border-radius: 4px;
+    border-left: 3px solid var(--color-success);
+}
+
 .local-card__body {
-    padding: 28px 28px 26px;
+    padding: 24px;
     display: flex;
     flex-direction: column;
     flex: 1;
 }
 
 .local-card__nombre {
-    font-size: 1.6rem;
-    font-weight: 800;
-    color: #111;
-    line-height: 1.15;
-    margin-bottom: 18px;
+    font-size: 1.25rem;
+    font-weight: 900;
+    color: var(--color-black);
+    margin-bottom: 14px;
+    letter-spacing: -0.01em;
 }
 
 .local-card__info {
@@ -124,21 +102,32 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
+    flex: 1;
 }
 
 .local-card__info li {
-    font-size: 0.98rem;
-    color: #444;
+    font-size: 0.86rem;
+    color: var(--color-text-muted);
     line-height: 1.5;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.local-card__info li svg {
+    flex-shrink: 0;
+    margin-top: 3px;
+    color: var(--color-primary);
 }
 
 .local-card__info li strong {
-    color: #111;
+    color: var(--color-black);
+    font-weight: 700;
 }
 
 .local-card__btns {
     display: flex;
-    gap: 12px;
+    gap: 10px;
     flex-wrap: wrap;
     margin-top: auto;
 }
@@ -147,58 +136,66 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    font-size: 0.88rem;
-    font-weight: 700;
-    padding: 12px 18px;
-    border-radius: 999px;
+    gap: 6px;
+    font-size: 0.82rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    padding: 10px 16px;
+    border-radius: var(--radius-sm);
     text-decoration: none;
-    transition: background-color 0.2s, transform 0.18s;
-    min-width: 116px;
-}
-
-.local-card__btn:hover {
-    transform: translateY(-2px);
+    transition: all var(--transition-fast);
+    flex: 1;
+    min-height: 44px;
 }
 
 .local-card__btn--wa {
-    background-color: #25d366;
-    color: #fff;
+    background: var(--color-wa-green);
+    color: var(--color-white);
+    box-shadow: 0 3px 10px rgba(37, 211, 102, 0.3);
 }
 
 .local-card__btn--wa:hover {
-    background-color: #1ebe5d;
+    background: var(--color-wa-hover);
+    transform: translateY(-2px);
 }
 
 .local-card__btn--maps {
-    background-color: #f7f7f7;
-    color: #333;
-    border: 1px solid #ddd;
+    background: var(--color-primary, #d90429);
+    color: #ffffff;
+    box-shadow: 0 4px 14px rgba(217, 4, 41, 0.3);
 }
 
 .local-card__btn--maps:hover {
-    background-color: #e0e0e0;
+    background: var(--color-primary-hover, #b90222);
+    box-shadow: 0 6px 18px rgba(217, 4, 41, 0.45);
+    transform: translateY(-2px);
 }
 
-@media (max-width: 1280px) {
-    .locales-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+.local-card__btn--maps svg {
+    transition: transform 0.2s ease;
+}
+
+.local-card__btn--maps:hover svg {
+    transform: translateX(4px);
+}
+
+@media (max-width: 768px) {
+    .locales-section {
+        padding: 36px 16px 60px;
     }
-}
-
-@media (max-width: 900px) {
     .locales-grid {
         grid-template-columns: 1fr;
+        gap: 20px;
+        margin-top: 24px;
     }
-
-    .local-card__media {
-        height: 220px;
+    .local-card__body {
+        padding: 20px 16px;
     }
-
-    .local-card__nombre {
-        font-size: 1.35rem;
+    .local-card__btns {
+        flex-direction: column;
     }
-
-    .local-card__info li {
-        font-size: 0.92rem;
+    .local-card__btn {
+        width: 100%;
     }
 }

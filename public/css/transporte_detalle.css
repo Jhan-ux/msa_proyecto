@@ -1,0 +1,287 @@
+/* ==========================================================================
+   MSA AUTOMOTRIZ — TRANSPORTE Y RENTING (PANEL BLANCO INTEGRADO ESTILO B2B MITSUI)
+   ========================================================================== */
+
+/* ── 1. WRAPPER Y SELECTOR SUPERIOR ── */
+.tr-wrapper {
+    max-width: 1400px;
+    margin: 32px auto 60px;
+    padding: 0 32px;
+}
+
+.tr-switcher {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #f1f3f5;
+    padding: 5px;
+    border-radius: 30px;
+    margin-bottom: 24px;
+    border: 1px solid var(--color-border, #e5e7eb);
+}
+
+.tr-switcher__tab {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 18px;
+    border-radius: 20px;
+    font-size: 0.84rem;
+    font-weight: 700;
+    color: var(--color-text-muted, #737373);
+    text-decoration: none;
+    transition: all var(--transition-fast, 0.18s ease);
+}
+
+.tr-switcher__tab:hover {
+    color: var(--color-text-main, #111111);
+}
+
+.tr-switcher__tab.active {
+    background: #ffffff;
+    color: var(--color-primary, #d90429);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.tr-switcher__tab svg {
+    color: inherit;
+}
+
+/* ── 2. PANEL PRINCIPAL (FONDO BLANCO) ── */
+.tr-panel {
+    background: #ffffff;
+    border: 1px solid var(--color-border, #e5e7eb);
+    border-top: 4px solid var(--color-primary, #d90429);
+    border-radius: 12px;
+    padding: 48px 44px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: center;
+}
+
+/* ── 3. CONTENIDO DEL PANEL DE INFORMACIÓN ── */
+.tr-panel__content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.tr-panel__badge {
+    display: inline-block;
+    background: var(--color-primary, #d90429);
+    color: var(--color-white, #ffffff);
+    font-size: 0.74rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 5px 14px;
+    border-radius: var(--radius-sm, 6px);
+    margin-bottom: 14px;
+    box-shadow: 0 4px 14px rgba(217, 4, 41, 0.35);
+}
+
+.tr-panel__title {
+    font-size: clamp(2.2rem, 3.8vw, 3rem);
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
+    color: var(--color-black, #111111);
+    line-height: 1.15;
+    margin: 0 0 16px 0;
+}
+
+.tr-panel__desc {
+    font-size: 1rem;
+    color: var(--color-text-secondary, #4a4a4a);
+    line-height: 1.7;
+    margin: 0 0 24px 0;
+}
+
+/* ── Lista de Pilares y Beneficios Clave ── */
+.tr-panel__features {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    margin-bottom: 32px;
+}
+
+.tr-panel__feat {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    background: #f8f9fa;
+    border: 1px solid #e9ecef;
+    border-radius: 6px;
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: var(--color-text-main, #111111);
+    transition: all var(--transition-fast, 0.18s ease);
+}
+
+.tr-panel__feat:hover {
+    background: #ffffff;
+    border-color: var(--color-primary, #d90429);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.tr-panel__feat svg {
+    color: var(--color-primary, #d90429);
+    flex-shrink: 0;
+}
+
+/* ── Botones de Acción ── */
+.tr-panel__actions {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.tr-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 13px 24px;
+    border-radius: var(--radius-sm, 6px);
+    font-size: 0.88rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    text-decoration: none;
+    transition: all var(--transition-fast, 0.18s ease);
+    min-height: 44px;
+}
+
+.tr-btn--primary {
+    background-color: var(--color-primary, #d90429);
+    color: #ffffff;
+    box-shadow: 0 4px 14px rgba(217, 4, 41, 0.3);
+}
+
+.tr-btn--primary:hover {
+    background-color: var(--color-primary-hover, #b90222);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(217, 4, 41, 0.4);
+}
+
+.tr-btn--wa {
+    background-color: var(--color-wa-green, #25d366);
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.25);
+}
+
+.tr-btn--wa:hover {
+    background-color: var(--color-wa-hover, #20ba5a);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(37, 211, 102, 0.35);
+}
+
+/* ── 4. CONTENEDOR DE LA IMAGEN COMPLETA ── */
+.tr-panel__media {
+    position: relative;
+    width: 100%;
+}
+
+.tr-panel__img-box {
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+    border: 1px solid var(--color-border, #e5e7eb);
+    background: #111111;
+}
+
+.tr-panel__img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 3 / 2;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.tr-panel__img-box:hover .tr-panel__img {
+    transform: scale(1.03);
+}
+
+.tr-panel__placeholder {
+    width: 100%;
+    aspect-ratio: 3 / 2;
+    background: #2b2b2b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255, 255, 255, 0.3);
+}
+
+.tr-panel__caption {
+    position: absolute;
+    bottom: 12px;
+    left: 12px;
+    right: 12px;
+    background: rgba(17, 17, 17, 0.88);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 6px;
+    padding: 8px 14px;
+    color: #ffffff;
+    font-size: 0.78rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+}
+
+.tr-panel__caption svg {
+    color: var(--color-primary, #d90429);
+}
+
+/* ── 5. RESPONSIVE ── */
+@media (max-width: 1024px) {
+    .tr-panel {
+        grid-template-columns: 1fr;
+        gap: 32px;
+        padding: 32px 24px;
+    }
+
+    .tr-wrapper {
+        padding: 0 20px;
+    }
+}
+
+@media (max-width: 640px) {
+    .tr-wrapper {
+        padding: 0 16px;
+        margin: 20px auto 40px;
+    }
+
+    .tr-switcher {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .tr-switcher__tab {
+        flex: 1;
+        justify-content: center;
+        padding: 8px 12px;
+        font-size: 0.78rem;
+    }
+
+    .tr-panel {
+        padding: 24px 18px;
+    }
+
+    .tr-panel__actions {
+        flex-direction: column;
+    }
+
+    .tr-btn {
+        width: 100%;
+    }
+}

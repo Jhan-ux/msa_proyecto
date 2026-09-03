@@ -1,172 +1,285 @@
+/* ==========================================================================
+   MSA AUTOMOTRIZ — CATÁLOGO DE MARCAS (100% BLANCO PURO CON ACENTOS ROJOS)
+   ========================================================================== */
 
-/* ===========================
-   SECCIÓN MARCAS
-=========================== */
 .brands-section {
-    padding: 60px 24px;
+    padding: 36px 0 80px;
+    background: #ffffff;
+}
+
+.brands-container {
     max-width: 1400px;
     margin: 0 auto;
+    padding: 0 32px;
+}
+
+/* ── 1. ENCABEZADO DE MARCAS ── */
+.brands-header {
     text-align: center;
-    background: #fff;
-}
-
-.brands-title {
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: #111111;
-    margin-bottom: 8px;
-    letter-spacing: 0.03em;
-}
-
-.brands-title::after {
-    content: '';
-    display: block;
-    width: 50px;
-    height: 3px;
-    background-color: #cc1111;
-    margin: 10px auto 0;
-    border-radius: 2px;
-}
-
-.brands-subtitle {
-    color: #555;
-    font-size: 0.95rem;
-    margin-top: 14px;
-    margin-bottom: 40px;
-}
-
-/* Grid 5 columnas x 2 filas (10 marcas) */
-.brands-grid {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 22px;
-}
-
-/* Tarjeta de marca */
-.brand-card {
-    position: relative;
+    max-width: 820px;
+    margin: 0 auto 48px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 30px 20px 24px;
-    background-color: #ffffff;
-    border: 1px solid #e7e7e7;
-    border-radius: 14px;
-    text-decoration: none;
-    color: #222;
-    transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
-    overflow: hidden;
 }
 
-.brand-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 4px;
-    background: linear-gradient(90deg, #cc1111 0%, #ff3b3b 100%);
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.25s ease;
+.brands-header__tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #ffffff;
+    color: var(--color-primary, #d90429);
+    border: 1px solid #e5e7eb;
+    font-size: 0.74rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 6px 18px;
+    border-radius: 20px;
+    margin-bottom: 14px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.tag-dot {
+    width: 7px;
+    height: 7px;
+    background: var(--color-primary, #d90429);
+    border-radius: 50%;
+    box-shadow: 0 0 6px var(--color-primary, #d90429);
+}
+
+.brands-header__title {
+    font-size: clamp(2.2rem, 4vw, 3.2rem);
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
+    color: var(--color-black, #111111);
+    margin: 0 0 14px 0;
+    position: relative;
+}
+
+.brands-header__desc {
+    font-size: 0.98rem;
+    color: var(--color-text-secondary, #4a4a4a);
+    line-height: 1.65;
+    margin: 0 0 24px 0;
+}
+
+.brands-header__pills {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.header-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--color-text-main, #111111);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+}
+
+.header-pill svg {
+    color: var(--color-primary, #d90429);
+}
+
+/* ── 2. GRILLA DE TARJETAS DE MARCAS ── */
+.brands-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 26px;
+    margin-bottom: 56px;
+}
+
+.brand-card {
+    background: #ffffff;
+    border: 1px solid var(--color-border, #e5e7eb);
+    border-top: 3.5px solid var(--color-primary, #d90429);
+    border-radius: 14px;
+    padding: 28px 22px 22px;
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    transition: all var(--transition-base, 0.28s ease);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+    position: relative;
+    overflow: hidden;
 }
 
 .brand-card:hover {
+    border-color: rgba(217, 4, 41, 0.35);
+    border-top-color: var(--color-primary, #d90429);
+    box-shadow: 0 14px 34px rgba(0, 0, 0, 0.09);
     transform: translateY(-6px);
-    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.12);
-    border-color: #cc1111;
 }
 
-.brand-card:hover::before {
-    transform: scaleX(1);
-}
-
-.brand-card__icon {
-    width: 78px;
-    height: 78px;
-    background-color: #ffffff;
-    border-radius: 50%;
+/* Logo de la Marca (100% Fondo Blanco Puro) */
+.brand-card__media {
+    width: 100%;
+    height: 100px;
+    background: #ffffff;
+    border-radius: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 16px;
-    font-size: 1.3rem;
-    color: #cc1111;
-    transition: background-color 0.22s ease, transform 0.22s ease;
-    overflow: hidden;
+    margin-bottom: 14px;
     padding: 10px;
-    border: 1px solid #e6e6e6;
 }
 
 .brand-card__logo {
-    width: 100%;
-    height: 100%;
+    max-height: 64px;
+    max-width: 150px;
     object-fit: contain;
-    display: block;
+    background: #ffffff;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.brand-card:hover .brand-card__icon {
-    background-color: #fff2f2;
-    transform: scale(1.05);
+.brand-card:hover .brand-card__logo {
+    transform: scale(1.08);
+}
+
+/* Cuerpo de la Tarjeta */
+.brand-card__body {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    flex: 1;
+    width: 100%;
 }
 
 .brand-card__name {
-    font-size: 1.05rem;
-    font-weight: 800;
-    color: #111111;
-    margin-bottom: 8px;
-    letter-spacing: 0.02em;
-    transition: color 0.2s ease;
-}
-
-.brand-card:hover .brand-card__name {
-    color: #cc1111;
+    font-size: 1.25rem;
+    font-weight: 900;
+    color: var(--color-black, #111111);
+    margin: 0 0 6px 0;
+    letter-spacing: -0.01em;
 }
 
 .brand-card__desc {
-    font-size: 0.84rem;
-    color: #60656f;
-    text-align: center;
-    margin-bottom: 16px;
+    font-size: 0.86rem;
+    color: var(--color-text-secondary, #4a4a4a);
     line-height: 1.5;
+    margin: 0 0 18px 0;
+    flex: 1;
+    text-align: left;
 }
 
-.brand-card__link {
-    font-size: 0.76rem;
-    font-weight: 700;
-    color: #fff;
-    background: #111;
-    border: 1px solid #111;
-    padding: 8px 14px;
-    border-radius: 999px;
+.brand-card__btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 11px 18px;
+    border-radius: var(--radius-sm, 6px);
+    background: var(--color-primary, #d90429);
+    color: #ffffff;
+    font-size: 0.84rem;
+    font-weight: 800;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
-    margin-top: auto;
-    transition: background-color 0.2s ease, border-color 0.2s ease;
+    letter-spacing: 0.04em;
+    box-shadow: 0 4px 14px rgba(217, 4, 41, 0.3);
+    transition: all var(--transition-fast, 0.18s ease);
+    min-height: 42px;
 }
 
-.brand-card:hover .brand-card__link {
-    background: #cc1111;
-    border-color: #cc1111;
+.brand-card:hover .brand-card__btn {
+    background: var(--color-primary-hover, #b90222);
+    box-shadow: 0 6px 20px rgba(217, 4, 41, 0.45);
+    transform: translateY(-1px);
 }
 
-/* ===========================
-   RESPONSIVE
-=========================== */
+.brand-card__btn svg {
+    transition: transform 0.2s ease;
+}
+
+.brand-card:hover .brand-card__btn svg {
+    transform: translateX(4px);
+}
+
+/* ── 3. STRIP DE CONFIANZA Y GARANTÍA ── */
+.brands-trust-strip {
+    background: #141414;
+    border-radius: 14px;
+    border-left: 4px solid var(--color-primary, #d90429);
+    padding: 26px 32px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    color: #ffffff;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+}
+
+.trust-pill {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.trust-pill__icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 8px;
+    background: rgba(217, 4, 41, 0.15);
+    border: 1px solid rgba(217, 4, 41, 0.3);
+    color: var(--color-primary, #d90429);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.trust-pill strong {
+    display: block;
+    font-size: 0.92rem;
+    font-weight: 800;
+    color: #ffffff;
+    margin-bottom: 2px;
+}
+
+.trust-pill span {
+    font-size: 0.76rem;
+    color: #a0a0a0;
+}
+
+/* ── 4. RESPONSIVE DESIGN ── */
 @media (max-width: 1024px) {
-    .brands-grid {
-        grid-template-columns: repeat(3, 1fr);
+    .brands-trust-strip {
+        grid-template-columns: 1fr;
+        padding: 20px;
+        gap: 16px;
     }
 }
 
-@media (max-width: 780px) {
-    .brands-grid {
-        grid-template-columns: repeat(2, 1fr);
+@media (max-width: 768px) {
+    .brands-section {
+        padding: 24px 0 60px;
     }
-}
 
-@media (max-width: 540px) {
+    .brands-container {
+        padding: 0 16px;
+    }
+
+    .brands-header {
+        margin-bottom: 32px;
+    }
+
+    .brands-header__title {
+        font-size: 2rem;
+    }
+
     .brands-grid {
         grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .brand-card {
+        padding: 20px 18px;
     }
 }

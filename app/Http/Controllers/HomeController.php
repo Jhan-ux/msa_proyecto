@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Marca;
 use App\Models\Modelo;
 use App\Models\Servicio;
 use App\Models\Local;
@@ -12,6 +13,8 @@ class HomeController extends Controller
 {
     public function index()
     {
+        $marcas = Marca::where('activo', true)->orderBy('orden')->get();
+
         $modelos = Modelo::with('marca')
             ->where('activo', true)
             ->where('destacado', true)
@@ -23,6 +26,6 @@ class HomeController extends Controller
         $locales           = Local::where('activo', true)->orderBy('orden')->get();
         $transporteRenting = TransporteRenting::where('activo', true)->orderBy('orden')->get();
 
-        return view('home', compact('modelos', 'servicios', 'locales', 'transporteRenting'));
+        return view('home', compact('marcas', 'modelos', 'servicios', 'locales', 'transporteRenting'));
     }
 }

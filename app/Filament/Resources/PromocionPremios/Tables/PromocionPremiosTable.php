@@ -23,17 +23,13 @@ class PromocionPremiosTable
                     ->sortable(),
                 TextColumn::make('tipo_premio')
                     ->badge(),
-                TextColumn::make('stock_total')
-                    ->numeric(),
+                TextColumn::make('stock_total'),
                 TextColumn::make('stock_disponible')
-                    ->numeric()
                     ->sortable(),
-                TextColumn::make('probabilidad_peso')
-                    ->numeric(),
+                TextColumn::make('probabilidad_peso'),
                 IconColumn::make('activo')
                     ->boolean(),
                 TextColumn::make('orden')
-                    ->numeric()
                     ->sortable(),
             ])
             ->defaultSort('orden')

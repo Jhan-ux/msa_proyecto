@@ -35,6 +35,11 @@ class UserResource extends Resource
         return 'Administración';
     }
 
+    public static function canViewAny(): bool
+    {
+        return auth()->user()?->isAdmin() ?? false;
+    }
+
     public static function form(Schema $schema): Schema
     {
         return UserForm::configure($schema);

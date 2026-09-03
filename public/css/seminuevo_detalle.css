@@ -1,0 +1,505 @@
+/* ==========================================================================
+   MSA AUTOMOTRIZ — DETALLE DE SEMINUEVO (100% BLANCO PURO)
+   ========================================================================== */
+
+/* ── 1. WRAPPER & LAYOUT PRINCIPAL ── */
+.sn-wrapper {
+    max-width: 1400px;
+    margin: 28px auto 60px;
+    padding: 0 32px;
+}
+
+.sn-layout {
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: 40px;
+    align-items: start;
+}
+
+/* ── 2. COLUMNA PRINCIPAL (IZQUIERDA) ── */
+.sn-main {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+/* Encabezado del Seminuevo */
+.sn-header {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.sn-header__tags {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+    flex-wrap: wrap;
+}
+
+.sn-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #ffffff;
+    color: var(--color-primary, #d90429);
+    border: 1px solid #e5e7eb;
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 4px 14px;
+    border-radius: 20px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+}
+
+.tag-dot {
+    width: 6px;
+    height: 6px;
+    background: var(--color-primary, #d90429);
+    border-radius: 50%;
+    box-shadow: 0 0 6px var(--color-primary, #d90429);
+}
+
+.sn-tag-avail {
+    display: inline-block;
+    background: #ecfdf5;
+    color: #059669;
+    border: 1px solid #a7f3d0;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    padding: 4px 12px;
+    border-radius: 20px;
+}
+
+.sn-title {
+    font-size: clamp(2.2rem, 4vw, 3.2rem);
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
+    color: var(--color-black, #111111);
+    line-height: 1.1;
+    margin: 0 0 10px 0;
+}
+
+.sn-desc {
+    font-size: 0.98rem;
+    color: var(--color-text-secondary, #4a4a4a);
+    line-height: 1.65;
+    margin: 0;
+    max-width: 840px;
+}
+
+/* ── 3. ESCENARIO DEL AUTO (100% FONDO BLANCO PURO) ── */
+.sn-stage {
+    background: #ffffff;
+    border: 1px solid var(--color-border, #e5e7eb);
+    border-radius: 14px;
+    padding: 24px 20px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+}
+
+.sn-stage__img-wrap {
+    position: relative;
+    width: 100%;
+    max-width: 780px;
+    display: flex;
+    justify-content: center;
+    background: #ffffff;
+}
+
+.sn-stage__img {
+    width: 100%;
+    max-height: 440px;
+    object-fit: contain;
+    display: block;
+    background: #ffffff;
+    transition: transform 0.5s ease;
+}
+
+.sn-stage:hover .sn-stage__img {
+    transform: scale(1.02);
+}
+
+/* ── 4. BLOQUE DE CERTIFICACIÓN Y 4 PILARES ── */
+.sn-section-block {
+    background: #ffffff;
+    border: 1px solid var(--color-border, #e5e7eb);
+    border-radius: 12px;
+    padding: 32px 28px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+}
+
+.sn-block-title {
+    font-size: 1.25rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    color: var(--color-black, #111111);
+    letter-spacing: -0.01em;
+    margin: 0 0 6px 0;
+}
+
+.sn-block-desc {
+    font-size: 0.86rem;
+    color: var(--color-text-muted, #737373);
+    margin: 0 0 24px 0;
+}
+
+.sn-certification-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+}
+
+.sn-cert-card {
+    background: #ffffff;
+    border: 1px solid #e9ecef;
+    border-radius: 10px;
+    padding: 16px;
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    transition: all var(--transition-fast, 0.18s ease);
+}
+
+.sn-cert-card:hover {
+    border-color: var(--color-primary, #d90429);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+    transform: translateY(-2px);
+}
+
+.sn-cert-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 8px;
+    background: #ffffff;
+    color: var(--color-primary, #d90429);
+    border: 1px solid #e5e7eb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+.sn-cert-title {
+    font-size: 0.92rem;
+    font-weight: 800;
+    color: var(--color-black, #111111);
+    margin-bottom: 2px;
+}
+
+.sn-cert-desc {
+    font-size: 0.8rem;
+    color: var(--color-text-muted, #737373);
+    line-height: 1.4;
+}
+
+/* ── 5. SIDEBAR STICKY DE COTIZACIÓN (DERECHA) ── */
+.sn-sidebar {
+    position: sticky;
+    top: 90px;
+}
+
+.sn-quote-card {
+    background: #ffffff;
+    border: 1px solid var(--color-border, #e5e7eb);
+    border-top: 4px solid var(--color-primary, #d90429);
+    border-radius: 12px;
+    padding: 28px 24px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+    display: flex;
+    flex-direction: column;
+}
+
+.sn-quote-card__header {
+    margin-bottom: 20px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #f1f3f5;
+}
+
+.sn-quote-card__badge {
+    font-size: 0.7rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: var(--color-primary, #d90429);
+    letter-spacing: 0.06em;
+    display: block;
+    margin-bottom: 6px;
+}
+
+.sn-quote-card__price-label {
+    font-size: 0.74rem;
+    color: var(--color-text-muted, #737373);
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+}
+
+.sn-quote-card__price-soles {
+    font-size: 1.85rem;
+    font-weight: 900;
+    color: var(--color-primary, #d90429);
+    letter-spacing: -0.02em;
+    margin: 4px 0 2px;
+}
+
+.sn-quote-card__price-usd {
+    font-size: 0.94rem;
+    font-weight: 600;
+    color: var(--color-text-muted, #737373);
+}
+
+.sn-quote-card__price-empty {
+    font-size: 0.88rem;
+    color: var(--color-text-secondary, #4a4a4a);
+    line-height: 1.5;
+}
+
+.sn-quote-card__actions {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 18px;
+}
+
+.quote-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    padding: 13px 18px;
+    border-radius: var(--radius-sm, 6px);
+    font-size: 0.88rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    text-decoration: none;
+    transition: all var(--transition-fast, 0.18s ease);
+    min-height: 44px;
+}
+
+.quote-btn--primary {
+    background: var(--color-primary, #d90429);
+    color: #ffffff;
+    box-shadow: 0 4px 14px rgba(217, 4, 41, 0.3);
+}
+
+.quote-btn--primary:hover {
+    background: var(--color-primary-hover, #b90222);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(217, 4, 41, 0.4);
+}
+
+.quote-btn--wa {
+    background: var(--color-wa-green, #25d366);
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.25);
+}
+
+.quote-btn--wa:hover {
+    background: var(--color-wa-hover, #20ba5a);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(37, 211, 102, 0.35);
+}
+
+.sn-quote-card__footer {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-top: 14px;
+    border-top: 1px solid #f1f3f5;
+}
+
+.quote-check {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.78rem;
+    color: var(--color-text-secondary, #4a4a4a);
+}
+
+.quote-check svg {
+    color: #16a34a;
+    flex-shrink: 0;
+}
+
+/* ── 6. SECCIÓN OTROS SEMINUEVOS ── */
+.sn-otros-section {
+    background: #ffffff;
+    border-top: 1px solid #e9ecef;
+    padding: 70px 0 90px;
+    margin-top: 40px;
+}
+
+.sn-otros-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 32px;
+}
+
+.sn-otros-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 28px;
+    margin-top: 40px;
+}
+
+.sn-otro-card {
+    background: #ffffff;
+    border: 1px solid var(--color-border, #e5e7eb);
+    border-top: 3.5px solid var(--color-primary, #d90429);
+    border-radius: 14px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    transition: all var(--transition-base, 0.28s ease);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+}
+
+.sn-otro-card:hover {
+    border-color: rgba(217, 4, 41, 0.4);
+    border-top-color: var(--color-primary, #d90429);
+    box-shadow: 0 14px 34px rgba(217, 4, 41, 0.12);
+    transform: translateY(-5px);
+}
+
+.sn-otro-card__media {
+    position: relative;
+    width: 100%;
+    height: 180px;
+    background: #ffffff;
+    border-bottom: 1px solid #e9ecef;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+}
+
+.sn-otro-card__img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    background: #ffffff;
+    transition: transform 0.5s ease;
+}
+
+.sn-otro-card:hover .sn-otro-card__img {
+    transform: scale(1.06);
+}
+
+.sn-otro-card__badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: #111111;
+    color: #ffffff;
+    font-size: 0.68rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 4px;
+    border-left: 2px solid var(--color-primary, #d90429);
+}
+
+.sn-otro-card__body {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.sn-otro-card__name {
+    font-size: 1.15rem;
+    font-weight: 900;
+    color: var(--color-black, #111111);
+    margin: 0 0 6px 0;
+}
+
+.sn-otro-card__price {
+    font-size: 0.88rem;
+    color: var(--color-text-muted, #737373);
+    margin-bottom: 16px;
+}
+
+.sn-otro-card__price strong {
+    color: var(--color-primary, #d90429);
+    font-weight: 800;
+}
+
+.sn-otro-card__price--consultar {
+    font-size: 0.84rem;
+    color: var(--color-primary, #d90429);
+    font-weight: 700;
+}
+
+.sn-otro-card__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.82rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--color-primary, #d90429);
+    margin-top: auto;
+    transition: transform 0.18s ease;
+}
+
+.sn-otro-card:hover .sn-otro-card__link {
+    transform: translateX(4px);
+}
+
+/* ── 7. RESPONSIVE DESIGN ── */
+@media (max-width: 1080px) {
+    .sn-layout {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+
+    .sn-sidebar {
+        position: static;
+    }
+}
+
+@media (max-width: 768px) {
+    .sn-wrapper {
+        padding: 0 16px;
+        margin: 20px auto 40px;
+    }
+
+    .sn-title {
+        font-size: 2rem;
+    }
+
+    .sn-stage {
+        padding: 16px 12px;
+    }
+
+    .sn-stage__img {
+        max-height: 260px;
+    }
+
+    .sn-certification-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .sn-otros-container {
+        padding: 0 16px;
+    }
+
+    .sn-otros-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+}

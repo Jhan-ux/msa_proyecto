@@ -13,13 +13,13 @@ class ServiciosLocalesSeeder extends Seeder
     {
         // ── Servicios ─────────────────────────────────────────────────
         $servicios = [
-            ['nombre' => 'Promociones',          'descripcion' => 'Ofertas especiales en vehículos y accesorios'],
-            ['nombre' => 'Accesorios',            'descripcion' => 'Equipamiento original para tu vehículo'],
-            ['nombre' => 'Mantenimiento',         'descripcion' => 'Servicio técnico certificado por marca'],
-            ['nombre' => 'Repuestos',             'descripcion' => 'Repuestos originales disponibles'],
-            ['nombre' => 'Carrocería y Pintura',  'descripcion' => 'Reparación profesional de carrocería'],
-            ['nombre' => 'Seguros',               'descripcion' => 'Planes de seguro para tu tranquilidad'],
-            ['nombre' => 'Agenda tu Cita',        'descripcion' => 'Reserva tu cita de mantenimiento online'],
+            ['nombre' => 'Promociones',          'descripcion' => 'Ofertas y beneficios especiales del mes en servicios y accesorios.', 'imagen' => 'img/posventa/promociones.jfif'],
+            ['nombre' => 'Mantenimiento',         'descripcion' => 'Mantenimiento preventivo y correctivo con técnicos certificados y garantía oficial.', 'imagen' => 'img/posventa/mantenimiento.jfif'],
+            ['nombre' => 'Repuestos',             'descripcion' => 'Repuestos 100% legítimos y originales para todas nuestras marcas oficiales.', 'imagen' => 'img/posventa/repuestos.jfif'],
+            ['nombre' => 'Accesorios',            'descripcion' => 'Equipamiento genuino para personalizar y potenciar tu vehículo.', 'imagen' => 'img/posventa/accesorios.jfif'],
+            ['nombre' => 'Carrocería y Pintura',  'descripcion' => 'Taller homologado de planchado y pintura con acabado de fábrica y cabina presurizada.', 'imagen' => 'img/posventa/planchado.jfif'],
+            ['nombre' => 'Seguros',               'descripcion' => 'Asesoría y convenios con las principales aseguradoras del país para tu tranquilidad.', 'imagen' => 'img/posventa/seguros.jfif'],
+            ['nombre' => 'Agenda tu Cita',        'descripcion' => 'Reserva tu cita de taller online de forma rápida, cómoda y sin esperas.', 'imagen' => 'img/posventa/cita.jfif'],
         ];
 
         foreach ($servicios as $index => $data) {
@@ -28,6 +28,7 @@ class ServiciosLocalesSeeder extends Seeder
                 [
                     'nombre'      => $data['nombre'],
                     'descripcion' => $data['descripcion'],
+                    'imagen'      => $data['imagen'],
                     'activo'      => true,
                     'orden'       => $index + 1,
                 ]

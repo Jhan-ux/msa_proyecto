@@ -2,12 +2,29 @@
 Estilos para Libro de Reclamaciones
 */
 
+.lr-page-main {
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 40px 16px;
+}
+
+.lr-page-wrapper {
+    width: 100%;
+    max-width: 780px;
+}
+
 .libro-reclamaciones-container {
     background: #ededed;
-    padding: 40px 0;
+    padding: 0;
     font-family: 'Segoe UI', Arial, sans-serif;
     width: 100%;
     box-sizing: border-box;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
 }
 
 /* ---- Cabecera de empresa ---- */
@@ -20,6 +37,14 @@ Estilos para Libro de Reclamaciones
     padding: 20px 28px;
     border-bottom: 2px solid #e3e8ee;
     flex-wrap: wrap;
+}
+
+.lr-company-logo img {
+    max-height: 56px;
+}
+
+.lr-col-doc {
+    max-width: 200px;
 }
 .lr-company-info {
     flex: 1;

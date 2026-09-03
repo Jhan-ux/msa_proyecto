@@ -1,0 +1,835 @@
+/* ==========================================================================
+   MSA AUTOMOTRIZ — HOME PAGE (ESTILO MITSUI: ROJO, NEGRO Y BLANCO)
+   ========================================================================== */
+
+/* ── 1. HERO TRÍPTICO MULTI-BANNER (PANTALLA COMPLETA 100VH CON TOQUES DE NEGRO) ── */
+.hero-triptych {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: 100%;
+    height: calc(100vh - 88px);
+    min-height: 680px;
+    background-color: #000000;
+    gap: 4px;
+    overflow: hidden;
+    border-bottom: 3px solid #111111;
+}
+
+.hero-panel {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    text-decoration: none;
+    overflow: hidden;
+    padding: clamp(36px, 5vh, 56px) clamp(28px, 3vw, 44px);
+    border-bottom: 5px solid transparent;
+    transition: all var(--transition-base);
+}
+
+.hero-panel:hover {
+    border-bottom-color: var(--color-primary);
+}
+
+.hero-panel__bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
+    opacity: 0.88;
+}
+
+.hero-panel:hover .hero-panel__bg {
+    transform: scale(1.05);
+    opacity: 0.98;
+}
+
+.hero-panel__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0.12) 0%,
+        rgba(0, 0, 0, 0.35) 48%,
+        rgba(0, 0, 0, 0.92) 100%
+    );
+    transition: background 0.4s ease;
+}
+
+.hero-panel:hover .hero-panel__overlay {
+    background: linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0.08) 0%,
+        rgba(0, 0, 0, 0.28) 45%,
+        rgba(0, 0, 0, 0.88) 100%
+    );
+}
+
+.hero-panel__content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    color: #ffffff;
+    width: 100%;
+}
+
+.hero-panel__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--color-primary);
+    color: #ffffff;
+    font-size: 0.74rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 5px 14px;
+    border-radius: var(--radius-sm);
+    margin-bottom: 14px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.hero-panel__title {
+    font-size: clamp(1.6rem, 2.5vw, 2.4rem);
+    font-weight: 900;
+    letter-spacing: -0.01em;
+    line-height: 1.15;
+    margin-bottom: 12px;
+    color: #ffffff;
+    text-transform: uppercase;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.hero-panel__desc {
+    font-size: clamp(0.88rem, 1.1vw, 0.98rem);
+    color: #e0e0e0;
+    line-height: 1.55;
+    margin-bottom: 26px;
+    max-width: 440px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+}
+
+/* Botón con toque elegante de Negro y Rojo */
+.hero-panel__btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: #111111;
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    font-size: 0.86rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 13px 26px;
+    border-radius: var(--radius-sm);
+    transition: all var(--transition-fast);
+    min-height: 44px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.5);
+}
+
+.hero-panel__btn svg {
+    color: var(--color-primary);
+    transition: transform var(--transition-fast), color var(--transition-fast);
+}
+
+.hero-panel:hover .hero-panel__btn {
+    background: var(--color-primary);
+    border-color: var(--color-primary);
+    color: #ffffff;
+    transform: translateX(4px);
+    box-shadow: 0 6px 18px rgba(217, 4, 41, 0.45);
+}
+
+.hero-panel:hover .hero-panel__btn svg {
+    color: #ffffff;
+    transform: translateX(3px);
+}
+
+@media (max-width: 900px) {
+    .hero-triptych {
+        grid-template-columns: 1fr;
+        height: auto;
+        min-height: calc(100vh - 68px);
+        gap: 3px;
+    }
+    .hero-panel {
+        min-height: calc((100vh - 74px) / 3);
+        height: auto;
+        padding: 28px 20px;
+    }
+    .hero-panel__title {
+        font-size: 1.45rem;
+        margin-bottom: 8px;
+    }
+    .hero-panel__desc {
+        display: none;
+    }
+    .hero-panel__btn {
+        padding: 10px 18px;
+        font-size: 0.8rem;
+        min-height: 40px;
+    }
+}
+
+/* ── 2. BARRA DE MARCAS OFICIALES ── */
+.brand-bar {
+    background: #ffffff;
+    border-bottom: 1px solid var(--color-border);
+    padding: 16px 24px;
+}
+
+.brand-bar__inner {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+}
+
+.brand-bar__inner::-webkit-scrollbar {
+    display: none;
+}
+
+.brand-bar__label {
+    font-size: 0.76rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--color-gray-500);
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.brand-bar__items {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    flex-wrap: nowrap;
+}
+
+.brand-bar__item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.75;
+    transition: all var(--transition-fast);
+    flex-shrink: 0;
+}
+
+.brand-bar__item:hover {
+    opacity: 1;
+    transform: scale(1.06);
+}
+
+.brand-bar__logo {
+    height: 28px;
+    max-width: 82px;
+    object-fit: contain;
+}
+
+.brand-bar__name {
+    font-size: 0.84rem;
+    font-weight: 700;
+    color: var(--color-gray-700);
+    white-space: nowrap;
+}
+
+/* ── 3. BUSCADOR DE VEHÍCULOS ── */
+.finder-section {
+    background: #f8f9fa;
+    padding: 40px 20px;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.finder-container {
+    max-width: 1120px;
+    margin: 0 auto;
+    background: #ffffff;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: 24px 28px;
+    box-shadow: var(--shadow-card);
+}
+
+.finder-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 18px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--color-gray-100);
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.finder-tabs {
+    display: flex;
+    gap: 6px;
+}
+
+.finder-tab {
+    padding: 8px 18px;
+    border-radius: var(--radius-sm);
+    font-size: 0.84rem;
+    font-weight: 700;
+    color: var(--color-gray-600);
+    background: #f1f3f5;
+    border: none;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    min-height: 38px;
+}
+
+.finder-tab.active,
+.finder-tab:hover {
+    background: var(--color-primary);
+    color: #ffffff;
+}
+
+.finder-title-text {
+    font-size: 0.96rem;
+    font-weight: 700;
+    color: var(--color-text-main);
+}
+
+.finder-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr auto;
+    gap: 16px;
+    align-items: flex-end;
+}
+
+.finder-field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.finder-field label {
+    font-size: 0.74rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-gray-500);
+}
+
+.finder-field select {
+    padding: 12px 14px;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--color-gray-300);
+    background: #ffffff;
+    font-size: 0.88rem;
+    font-family: inherit;
+    color: var(--color-text-main);
+    outline: none;
+    transition: all var(--transition-fast);
+    min-height: 44px;
+}
+
+.finder-field select:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(217, 4, 41, 0.1);
+}
+
+.finder-submit-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: var(--color-primary);
+    color: #ffffff;
+    font-size: 0.9rem;
+    font-weight: 700;
+    padding: 12px 26px;
+    border-radius: var(--radius-sm);
+    border: none;
+    cursor: pointer;
+    min-height: 44px;
+    transition: all var(--transition-fast);
+}
+
+.finder-submit-btn:hover {
+    background: var(--color-primary-hover);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(217, 4, 41, 0.25);
+}
+
+@media (max-width: 900px) {
+    .finder-form {
+        grid-template-columns: 1fr;
+    }
+    .finder-submit-btn {
+        width: 100%;
+    }
+}
+
+/* ── 4. MODELOS DESTACADOS ── */
+.models-section {
+    padding: 60px 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.models-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 24px;
+}
+
+.model-card {
+    background: #ffffff;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: var(--shadow-subtle);
+    transition: all var(--transition-base);
+}
+
+.model-card:hover {
+    border-color: var(--color-primary);
+    box-shadow: var(--shadow-hover);
+    transform: translateY(-4px);
+}
+
+.model-card__img-wrap {
+    background: #ffffff;
+    padding: 16px;
+}
+
+.model-card__img {
+    height: 170px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+    transition: transform var(--transition-base);
+}
+
+.model-card:hover .model-card__img {
+    transform: scale(1.04);
+}
+
+.model-card__badge {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: var(--color-black);
+    color: #ffffff;
+    font-size: 0.68rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 3px;
+}
+
+.model-card__body {
+    padding: 18px 20px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.model-card__name {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: var(--color-text-main);
+    margin-bottom: 6px;
+}
+
+.model-card__desc {
+    font-size: 0.84rem;
+    color: var(--color-text-muted);
+    line-height: 1.5;
+    margin-bottom: 16px;
+    flex: 1;
+}
+
+.model-card__footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 14px;
+    border-top: 1px solid var(--color-gray-100);
+}
+
+.model-card__price-box {
+    display: flex;
+    flex-direction: column;
+}
+
+.model-card__price-label {
+    font-size: 0.68rem;
+    color: var(--color-gray-500);
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.model-card__price-value {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: var(--color-primary);
+}
+
+.model-card__btn {
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--color-text-main);
+}
+
+.model-card:hover .model-card__btn {
+    color: var(--color-primary);
+}
+
+/* ── 5. SERVICIOS Y POSVENTA ── */
+.services-section {
+    background: #f8f9fa;
+    padding: 60px 20px;
+    border-top: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.services-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 24px;
+}
+
+.service-item {
+    background: #ffffff;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: var(--shadow-subtle);
+    transition: all var(--transition-base);
+}
+
+.service-item:hover {
+    border-color: var(--color-primary);
+    box-shadow: var(--shadow-hover);
+    transform: translateY(-4px);
+}
+
+.service-item__img {
+    height: 170px;
+    background-size: cover;
+    background-position: center;
+}
+
+.service-item__body {
+    padding: 18px 20px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.service-item__title {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: var(--color-text-main);
+    margin-bottom: 6px;
+}
+
+.service-item__desc {
+    font-size: 0.84rem;
+    color: var(--color-text-muted);
+    line-height: 1.5;
+    margin-bottom: 16px;
+    flex: 1;
+}
+
+.service-item__btn {
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--color-primary);
+}
+
+/* ── 6. TRANSPORTE Y RENTING ── */
+.renting-section {
+    padding: 60px 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.renting-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 28px;
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+.renting-card {
+    flex: 1 1 340px;
+    max-width: 440px;
+    background: #ffffff;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: var(--shadow-subtle);
+    transition: all var(--transition-base);
+}
+
+.renting-card:hover {
+    border-color: var(--color-primary);
+    box-shadow: var(--shadow-hover);
+    transform: translateY(-4px);
+}
+
+.renting-card__img {
+    height: 180px;
+    background-size: cover;
+    background-position: center;
+    background-color: #f1f3f5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.renting-card__body {
+    padding: 18px 20px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.renting-card__title {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: var(--color-text-main);
+    margin-bottom: 6px;
+}
+
+.renting-card__desc {
+    font-size: 0.84rem;
+    color: var(--color-text-muted);
+    line-height: 1.5;
+    margin-bottom: 16px;
+    flex: 1;
+}
+
+.renting-card__link {
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--color-primary);
+}
+
+/* ── 7. POR QUÉ ELEGIRNOS ── */
+.porque-section {
+    background: #141414;
+    color: #ffffff;
+    padding: 64px 20px;
+    border-top: 3px solid var(--color-primary);
+}
+
+.porque-section .section-title {
+    color: #ffffff;
+}
+
+.porque-section .section-subtitle {
+    color: #a0a0a0;
+}
+
+.porque-stats {
+    max-width: 1100px;
+    margin: 0 auto 48px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    text-align: center;
+    border-bottom: 1px solid #282828;
+    padding-bottom: 36px;
+}
+
+.porque-stat__num {
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: var(--color-primary);
+    line-height: 1;
+    margin-bottom: 6px;
+}
+
+.porque-stat__label {
+    font-size: 0.8rem;
+    color: #bbbbbb;
+    font-weight: 600;
+}
+
+.porque-cards {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 20px;
+}
+
+.porque-card {
+    background: #1e1e1e;
+    border: 1px solid #2c2c2c;
+    border-radius: var(--radius-md);
+    padding: 24px 20px;
+    transition: all var(--transition-base);
+}
+
+.porque-card:hover {
+    border-color: var(--color-primary);
+    transform: translateY(-4px);
+}
+
+.porque-card__icon {
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-sm);
+    background: rgba(217, 4, 41, 0.12);
+    color: var(--color-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 14px;
+}
+
+.porque-card__title {
+    font-size: 1rem;
+    font-weight: 800;
+    color: #ffffff;
+    margin-bottom: 6px;
+}
+
+.porque-card__desc {
+    font-size: 0.82rem;
+    color: #999999;
+    line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+    .porque-stats {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+    }
+    .porque-cards {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ── 8. NUESTRAS SEDES ── */
+.sedes-section {
+    padding: 60px 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.sedes-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 28px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.sede-card {
+    flex: 1 1 300px;
+    max-width: 380px;
+    background: #ffffff;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-subtle);
+    transition: all var(--transition-base);
+}
+
+.sede-card:hover {
+    border-color: var(--color-primary);
+    box-shadow: var(--shadow-hover);
+    transform: translateY(-4px);
+}
+
+.sede-card__img {
+    height: 170px;
+    background-size: cover;
+    background-position: center;
+    background-color: #e9ecef;
+    position: relative;
+}
+
+.sede-card__status {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: var(--color-black);
+    color: #ffffff;
+    font-size: 0.68rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 3px;
+    border-left: 2px solid var(--color-success);
+}
+
+.sede-card__body {
+    padding: 18px 20px;
+}
+
+.sede-card__ciudad {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--color-primary);
+    letter-spacing: 0.05em;
+    display: block;
+    margin-bottom: 4px;
+}
+
+.sede-card__nombre {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: var(--color-text-main);
+    margin-bottom: 8px;
+}
+
+.sede-card__dir {
+    font-size: 0.82rem;
+    color: var(--color-text-muted);
+    line-height: 1.5;
+    margin-bottom: 10px;
+}
+
+.sede-card__tel {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.82rem;
+    color: var(--color-text-main);
+    font-weight: 600;
+    margin-bottom: 14px;
+}
+
+.sede-card__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--color-primary);
+}

@@ -43,7 +43,6 @@ class OpcionesRelationManager extends RelationManager
                 IconColumn::make('es_correcta')
                     ->boolean(),
                 TextColumn::make('orden')
-                    ->numeric()
                     ->sortable(),
             ])
             ->defaultSort('orden')

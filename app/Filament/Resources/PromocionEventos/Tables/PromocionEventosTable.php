@@ -25,18 +25,15 @@ class PromocionEventosTable
                     ->badge(),
                 TextColumn::make('max_intentos_por_participante')
                     ->label('Intentos max')
-                    ->numeric()
                     ->sortable(),
                 TextColumn::make('puntaje_minimo_para_ruleta')
                     ->label('Puntaje min ruleta')
-                    ->numeric()
                     ->sortable(),
                 IconColumn::make('email_opcional')
                     ->boolean(),
                 IconColumn::make('activo')
                     ->boolean(),
                 TextColumn::make('orden')
-                    ->numeric()
                     ->sortable(),
                 TextColumn::make('fecha_inicio')
                     ->dateTime()

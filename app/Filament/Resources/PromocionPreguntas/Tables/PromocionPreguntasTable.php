@@ -25,10 +25,8 @@ class PromocionPreguntasTable
                 TextColumn::make('tipo')
                     ->badge(),
                 TextColumn::make('puntaje')
-                    ->numeric()
                     ->sortable(),
                 TextColumn::make('orden')
-                    ->numeric()
                     ->sortable(),
                 IconColumn::make('activa')
                     ->boolean(),

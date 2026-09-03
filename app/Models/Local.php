@@ -53,12 +53,14 @@ class Local extends Model
 
     public function getMapaPublicUrlAttribute(): ?string
     {
-        if ($this->mapa_src) {
-            return $this->mapa_src;
-        }
+        $destination = trim(implode(', ', array_filter([
+            $this->nombre,
+            $this->direccion,
+            $this->ciudad ? $this->ciudad . ', Perú' : 'Perú',
+        ])));
 
-        if ($this->direccion || $this->nombre) {
-            return 'https://www.google.com/maps/search/?api=1&query=' . urlencode($this->direccion ?: $this->nombre);
+        if ($destination) {
+            return 'https://www.google.com/maps/dir/?api=1&destination=' . urlencode($destination);
         }
 
         return null;

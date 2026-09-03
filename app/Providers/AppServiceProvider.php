@@ -14,8 +14,8 @@ class AppServiceProvider extends ServiceProvider
 
     public function boot(): void
     {
-        // Compartir servicios, locales y marcas activas con el layout del nav
-        View::composer('layouts.app', function ($view) {
+        // Compartir servicios, locales y marcas activas con todas las vistas
+        View::composer('*', function ($view) {
             $view->with([
                 'navServicios' => Servicio::where('activo', true)->orderBy('orden')->get(['id', 'nombre', 'slug']),
                 'navLocales'   => Local::where('activo', true)->orderBy('orden')->get(['id', 'nombre', 'ciudad']),
