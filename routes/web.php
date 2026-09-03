@@ -51,3 +51,71 @@ Route::get('/terminos-condiciones', function () {
     return view('terminos-condiciones');
 })->name('terminos-condiciones');
 
+// Despliegue y Sincronización Automática de Assets en cPanel
+Route::get('/cpanel-deploy', function (\Illuminate\Http\Request $request) {
+    if ($request->query('key') !== 'msa_deploy_2026') {
+        abort(403, 'Acceso no autorizado');
+    }
+
+    echo '<!DOCTYPE html><html><head><title>Despliegue MSA Automotriz</title>';
+    echo '<style>body{background:#111;color:#fff;font-family:monospace;padding:30px;line-height:1.6;} pre{background:#1e1e1e;padding:20px;border-radius:10px;border-left:4px solid #d90429;overflow-x:auto;} .ok{color:#10b981;font-weight:bold;} .title{color:#d90429;font-size:1.4rem;font-weight:bold;margin-bottom:15px;}</style></head><body>';
+    echo '<div class="title">🚀 DESPLIEGUE &amp; SINCRONIZACIÓN MSA AUTOMOTRIZ (CPANEL)</div>';
+    echo '<pre>';
+
+    $repoPath = '/home/msaautom/repositories/msa_proyecto';
+    $publicHtml = '/home/msaautom/public_html';
+    $phpBin = '/opt/cpanel/ea-php83/root/usr/bin/php';
+    if (!file_exists($phpBin)) {
+        $phpBin = 'php';
+    }
+
+    echo "Directorio del repositorio: $repoPath\n";
+    echo "Directorio public_html: $publicHtml\n";
+    echo "Binario PHP: $phpBin\n\n";
+
+    // 1. Ejecutar migraciones de base de datos
+    echo "--------------------------------------------------\n";
+    echo "1. Ejecutando migraciones de base de datos...\n";
+    passthru("$phpBin $repoPath/artisan migrate --force 2>&1");
+
+    // 2. Publicar assets de Filament
+    echo "\n--------------------------------------------------\n";
+    echo "2. Publicando assets de Filament...\n";
+    passthru("$phpBin $repoPath/artisan filament:upgrade 2>&1");
+    passthru("$phpBin $repoPath/artisan filament:assets 2>&1");
+
+    // 3. Copiar y sincronizar TODOS los assets (css, js, img, build, fonts) con public_html
+    echo "\n--------------------------------------------------\n";
+    echo "3. Sincronizando estilos (CSS), scripts (JS) e imágenes a public_html...\n";
+    @mkdir("$publicHtml/css", 0755, true);
+    @mkdir("$publicHtml/js", 0755, true);
+    @mkdir("$publicHtml/img", 0755, true);
+    @mkdir("$publicHtml/build", 0755, true);
+    @mkdir("$publicHtml/fonts", 0755, true);
+
+    passthru("cp -a $repoPath/public/css/. $publicHtml/css/ 2>&1");
+    passthru("cp -a $repoPath/public/js/. $publicHtml/js/ 2>&1");
+    passthru("cp -a $repoPath/public/img/. $publicHtml/img/ 2>&1");
+    if (is_dir("$repoPath/public/build")) {
+        passthru("cp -a $repoPath/public/build/. $publicHtml/build/ 2>&1");
+    }
+    passthru("cp -a $repoPath/public/css/filament/. $publicHtml/css/filament/ 2>&1");
+    passthru("cp -a $repoPath/public/js/filament/. $publicHtml/js/filament/ 2>&1");
+    if (is_dir("$repoPath/public/fonts/filament")) {
+        @mkdir("$publicHtml/fonts/filament", 0755, true);
+        passthru("cp -a $repoPath/public/fonts/filament/. $publicHtml/fonts/filament/ 2>&1");
+    }
+
+    echo "Assets sincronizados correctamente con public_html.\n";
+
+    // 4. Limpieza y optimización de caché
+    echo "\n--------------------------------------------------\n";
+    echo "4. Limpiando y optimizando caché...\n";
+    passthru("$phpBin $repoPath/artisan optimize:clear 2>&1");
+
+    echo "\n==================================================\n";
+    echo "<span class=\"ok\">✅ ¡DESPLIEGUE Y ESTILOS SINCRONIZADOS CON ÉXITO!</span>\n";
+    echo "==================================================\n";
+    echo '</pre></body></html>';
+    exit;
+});
