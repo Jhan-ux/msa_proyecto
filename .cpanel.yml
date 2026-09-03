@@ -2,14 +2,16 @@
 deployment:
   tasks:
     - export DEPLOYPATH=/home/msaautom/repositories/msa_proyecto/
-    - /bin/cp -R * $DEPLOYPATH
     - /opt/cpanel/ea-php83/root/usr/bin/php /home/msaautom/repositories/msa_proyecto/artisan optimize:clear
     - /opt/cpanel/ea-php83/root/usr/bin/php /home/msaautom/repositories/msa_proyecto/artisan filament:upgrade
     - /opt/cpanel/ea-php83/root/usr/bin/php /home/msaautom/repositories/msa_proyecto/artisan filament:assets
-    - /bin/bash -lc 'mkdir -p /home/msaautom/public_html/css/filament /home/msaautom/public_html/js/filament /home/msaautom/public_html/fonts/filament'
+    - /bin/bash -lc 'mkdir -p /home/msaautom/public_html/css /home/msaautom/public_html/js /home/msaautom/public_html/img /home/msaautom/public_html/build /home/msaautom/public_html/fonts'
+    - /bin/bash -lc 'cp -a /home/msaautom/repositories/msa_proyecto/public/css/. /home/msaautom/public_html/css/'
+    - /bin/bash -lc 'cp -a /home/msaautom/repositories/msa_proyecto/public/js/. /home/msaautom/public_html/js/'
+    - /bin/bash -lc 'cp -a /home/msaautom/repositories/msa_proyecto/public/img/. /home/msaautom/public_html/img/'
+    - /bin/bash -lc 'cp -a /home/msaautom/repositories/msa_proyecto/public/build/. /home/msaautom/public_html/build/'
     - /bin/bash -lc 'cp -a /home/msaautom/repositories/msa_proyecto/public/css/filament/. /home/msaautom/public_html/css/filament/'
     - /bin/bash -lc 'cp -a /home/msaautom/repositories/msa_proyecto/public/js/filament/. /home/msaautom/public_html/js/filament/'
-    - /bin/bash -lc 'cp -a /home/msaautom/repositories/msa_proyecto/public/fonts/filament/. /home/msaautom/public_html/fonts/filament/'
     - /opt/cpanel/ea-php83/root/usr/bin/php /home/msaautom/repositories/msa_proyecto/artisan migrate --force
     - /opt/cpanel/ea-php83/root/usr/bin/php /home/msaautom/repositories/msa_proyecto/artisan config:cache
     - /opt/cpanel/ea-php83/root/usr/bin/php /home/msaautom/repositories/msa_proyecto/artisan route:cache
