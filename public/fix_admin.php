@@ -1,10 +1,20 @@
 <?php
 
-// Script directo para limpiar OPcache, caché de Laravel y activar Filament Admin
+// Auto-detect basePath (local vs cPanel /home/msaautom/repositories/msa_proyecto)
+if (file_exists(__DIR__ . '/../vendor/autoload.php')) {
+    $basePath = dirname(__DIR__);
+} elseif (file_exists('/home/msaautom/repositories/msa_proyecto/vendor/autoload.php')) {
+    $basePath = '/home/msaautom/repositories/msa_proyecto';
+} elseif (file_exists(__DIR__ . '/../repositories/msa_proyecto/vendor/autoload.php')) {
+    $basePath = dirname(__DIR__) . '/repositories/msa_proyecto';
+} else {
+    $basePath = dirname(__DIR__);
+}
+
 define('LARAVEL_START', microtime(true));
 
-require __DIR__ . '/../vendor/autoload.php';
-$app = require_once __DIR__ . '/../bootstrap/app.php';
+require $basePath . '/vendor/autoload.php';
+$app = require_once $basePath . '/bootstrap/app.php';
 
 $kernel = $app->make(Illuminate\Contracts\Http\Kernel::class);
 $response = $kernel->handle(

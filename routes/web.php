@@ -104,10 +104,18 @@ Route::get('/cpanel-deploy', function (\Illuminate\Http\Request $request) {
         }
     }
 
-    // 4. Sincronizar .htaccess
+    // 4. Sincronizar .htaccess, index.php y fix_admin.php
     if (file_exists(public_path('.htaccess'))) {
         copy(public_path('.htaccess'), "$publicHtml/.htaccess");
         echo "✓ Archivo .htaccess sincronizado con éxito.\n";
+    }
+    if (file_exists(public_path('index.php'))) {
+        copy(public_path('index.php'), "$publicHtml/index.php");
+        echo "✓ Archivo index.php sincronizado con éxito.\n";
+    }
+    if (file_exists(public_path('fix_admin.php'))) {
+        copy(public_path('fix_admin.php'), "$publicHtml/fix_admin.php");
+        echo "✓ Archivo fix_admin.php sincronizado con éxito.\n";
     }
 
     echo "\n==================================================\n";
