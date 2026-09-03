@@ -55,7 +55,7 @@ Route::get('/terminos-condiciones', function () {
 
 // Despliegue y Sincronización 100% Nativa en PHP para cPanel
 Route::get('/cpanel-deploy', function (\Illuminate\Http\Request $request) {
-    if ($request->query('key') !== 'msa_deploy_2026') {
+    if ($request->query('key') !== 'msa_deploy_2026' && $request->query('token') !== 'msa2026admin') {
         abort(403, 'Acceso no autorizado');
     }
 
