@@ -53,36 +53,19 @@ Route::get('/terminos-condiciones', function () {
     return view('terminos-condiciones');
 })->name('terminos-condiciones');
 
-// Despliegue y Sincronización 100% Nativa en PHP para cPanel
+// Despliegue y Limpieza de Caché para cPanel
 Route::get('/cpanel-deploy', function (\Illuminate\Http\Request $request) {
     if ($request->query('key') !== 'msa_deploy_2026' && $request->query('token') !== 'msa2026admin') {
         abort(403, 'Acceso no autorizado');
     }
 
-    echo '<!DOCTYPE html><html><head><title>Despliegue MSA Automotriz</title>';
+    echo '<!DOCTYPE html><html><head><title>Despliegue MSA</title>';
     echo '<style>body{background:#111;color:#fff;font-family:monospace;padding:30px;line-height:1.6;} pre{background:#1e1e1e;padding:20px;border-radius:10px;border-left:4px solid #d90429;overflow-x:auto;} .ok{color:#10b981;font-weight:bold;} .title{color:#d90429;font-size:1.4rem;font-weight:bold;margin-bottom:15px;}</style></head><body>';
-    echo '<div class="title">🚀 DESPLIEGUE NATIVO MSA AUTOMOTRIZ (PHP ' . PHP_VERSION . ')</div>';
+    echo '<div class="title">🚀 DESPLIEGUE Y LIMPIEZA DE CACHÉ MSA AUTOMOTRIZ</div>';
     echo '<pre>';
 
-    $repoPath = base_path();
-    $publicHtml = '/home/msaautom/public_html';
-
-    echo "Directorio base: $repoPath\n";
-    echo "Directorio public_html: $publicHtml\n\n";
-
-    // 1. Migraciones de Base de Datos
-    echo "--------------------------------------------------\n";
-    echo "1. Ejecutando migraciones de base de datos...\n";
-    try {
-        Artisan::call('migrate', ['--force' => true]);
-        echo Artisan::output() ?: "Migraciones al día.\n";
-    } catch (\Throwable $e) {
-        echo "Aviso migraciones: " . $e->getMessage() . "\n";
-    }
-
-    // 2. Limpieza y refresco de caché
-    echo "\n--------------------------------------------------\n";
-    echo "2. Limpiando caché y descubriendo rutas del panel...\n";
+    // 1. Limpieza total de caché
+    echo "1. Limpiando toda la caché de Laravel...\n";
     try {
         Artisan::call('optimize:clear');
         echo Artisan::output();
@@ -90,37 +73,20 @@ Route::get('/cpanel-deploy', function (\Illuminate\Http\Request $request) {
         echo "Aviso caché: " . $e->getMessage() . "\n";
     }
 
-    // 3. Sincronización de assets vía File API de Laravel
-    echo "\n--------------------------------------------------\n";
-    echo "3. Sincronizando estilos, scripts e imágenes con public_html...\n";
-    $folders = ['css', 'js', 'img', 'build', 'fonts'];
-    foreach ($folders as $folder) {
-        $src = public_path($folder);
-        $dest = "$publicHtml/$folder";
-        if (is_dir($src)) {
-            File::ensureDirectoryExists($dest);
-            File::copyDirectory($src, $dest);
-            echo "✓ $folder sincronizado con éxito.\n";
-        }
-    }
-
-    // 4. Sincronizar .htaccess, index.php y fix_admin.php
-    if (file_exists(public_path('.htaccess'))) {
-        copy(public_path('.htaccess'), "$publicHtml/.htaccess");
-        echo "✓ Archivo .htaccess sincronizado con éxito.\n";
-    }
-    if (file_exists(public_path('index.php'))) {
-        copy(public_path('index.php'), "$publicHtml/index.php");
-        echo "✓ Archivo index.php sincronizado con éxito.\n";
-    }
-    if (file_exists(public_path('fix_admin.php'))) {
-        copy(public_path('fix_admin.php'), "$publicHtml/fix_admin.php");
-        echo "✓ Archivo fix_admin.php sincronizado con éxito.\n";
+    // 2. Migraciones
+    echo "\n2. Ejecutando migraciones de base de datos...\n";
+    try {
+        Artisan::call('migrate', ['--force' => true]);
+        echo Artisan::output() ?: "Migraciones al día.\n";
+    } catch (\Throwable $e) {
+        echo "Aviso migraciones: " . $e->getMessage() . "\n";
     }
 
     echo "\n==================================================\n";
-    echo "<span class=\"ok\">✅ ¡DESPLIEGUE Y RUTAS DE ADMIN ACTIVADAS CON ÉXITO!</span>\n";
+    echo "<span class=\"ok\">✅ ¡SISTEMA ACTUALIZADO Y CACHÉ LIMPIADA CON ÉXITO!</span>\n";
     echo "==================================================\n";
-    echo '</pre></body></html>';
+    echo '</pre>';
+    echo '<p style="margin-top:20px;"><a href="/" style="background:#d90429;color:#fff;padding:10px 20px;text-decoration:none;border-radius:6px;font-weight:bold;">Ir a la Página Principal ➔</a></p>';
+    echo '</body></html>';
     exit;
 });
