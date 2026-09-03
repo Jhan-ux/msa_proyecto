@@ -24,7 +24,7 @@ class LocalForm
                     ->columnSpanFull(),
                 TextInput::make('telefono')
                     ->tel()
-                    ->placeholder('(076) 123-456'),
+                    ->placeholder('+51 966 154 210'),
                 TextInput::make('whatsapp')
                     ->placeholder('+51 966 154 210')
                     ->helperText('Número sin espacios ni guiones para el enlace wa.me'),
