@@ -11,17 +11,17 @@ class TransporteRentingSeeder extends Seeder
     {
         $items = [
             [
-                'nombre'      => 'Renta de Vehículos',
-                'slug'        => 'renta-de-vehiculos',
-                'descripcion' => 'Servicio de renta de vehículos.',
+                'nombre'      => 'Transporte',
+                'slug'        => 'transporte',
+                'descripcion' => 'Logística y traslado seguro de vehículos con cigueñas y grúas homologadas.',
                 'imagen'      => null,
                 'activo'      => true,
                 'orden'       => 1,
             ],
             [
-                'nombre'      => 'Transporte de Vehículos',
-                'slug'        => 'transporte-de-vehiculos',
-                'descripcion' => 'Servicio de transporte de vehículos.',
+                'nombre'      => 'Renting',
+                'slug'        => 'renting',
+                'descripcion' => 'Flotas de vehículos 0 Km a medida para empresas con mantenimiento oficial incluido.',
                 'imagen'      => null,
                 'activo'      => true,
                 'orden'       => 2,
