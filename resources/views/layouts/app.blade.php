@@ -176,6 +176,28 @@
                 </div>
             </div>
 
+            <!-- Transporte & Renting -->
+            <div class="nav-item">
+                <a href="{{ route('transporte-renting') }}" class="nav-btn {{ request()->routeIs('transporte-renting*') ? 'active' : '' }}" data-target="dropTransporte">
+                    Transporte &amp; Renting
+                    <svg class="nav-chevron" width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </a>
+                <div class="dropdown-menu" id="dropTransporte">
+                    @if(isset($navTransporte) && $navTransporte->isNotEmpty())
+                        @foreach($navTransporte as $navTr)
+                        <a href="{{ route('transporte-renting.show', $navTr->slug) }}">
+                            <span>{{ $navTr->nombre }}</span>
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </a>
+                        @endforeach
+                    @endif
+                    <a href="{{ route('transporte-renting') }}" class="dropdown-menu__highlight">
+                        <span>Todos los servicios</span>
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </a>
+                </div>
+            </div>
+
             <!-- Locales -->
             <div class="nav-item">
                 <a href="{{ route('locales') }}" class="nav-btn {{ request()->routeIs('locales*') ? 'active' : '' }}">Sedes</a>
