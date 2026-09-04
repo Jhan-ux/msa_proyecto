@@ -42,21 +42,9 @@
 {{-- CUERPO PRINCIPAL (ESTRUCTURA POSVENTA) --}}
 <div class="servicio-body">
 
-    {{-- Columna Izquierda: Información + Selector + Beneficios --}}
+    {{-- Columna Izquierda: Información + Beneficios --}}
     <div class="servicio-info">
         
-        {{-- Selector Rápido de Soluciones B2B --}}
-        <div class="tr-switcher">
-            <a href="{{ route('transporte-renting.show', 'transporte') }}" class="tr-switcher__tab {{ $servicio->slug === 'transporte' ? 'active' : '' }}">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
-                <span>Transporte de Vehículos</span>
-            </a>
-            <a href="{{ route('transporte-renting.show', 'renting') }}" class="tr-switcher__tab {{ $servicio->slug === 'renting' ? 'active' : '' }}">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1 .4-1 1v7c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><path d="M9 17h6"/><circle cx="17" cy="17" r="2"/></svg>
-                <span>Renting Corporativo</span>
-            </a>
-        </div>
-
         <div class="servicio-info__header">
             <span class="servicio-info__tag">Logística &amp; Flotas Empresariales</span>
             <h2>{{ $servicio->nombre }}</h2>
