@@ -33,6 +33,7 @@ class AdminPanelProvider extends PanelProvider
             ->brandName('MSA Automotriz')
             ->brandLogo(asset('img/logo_msa_letra_blanca.png'))
             ->brandLogoHeight('2.2rem')
+            ->favicon(asset('img/favicon.png'))
             ->sidebarCollapsibleOnDesktop()
             ->colors([
                 'primary' => Color::hex('#d90429'),
